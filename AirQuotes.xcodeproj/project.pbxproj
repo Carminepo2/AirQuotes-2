@@ -84,7 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				7575E7B827A8382900CF0804 /* ContentView.swift */,
-				1D3B9EE427A8425C009A6CF3 /* StoreAirQuotes.swift */,
 				1D3B9EE627A8429B009A6CF3 /* ModelAirQuotes.swift */,
 				1D3B9EE827A8443F009A6CF3 /* CoreDataManager.swift */,
 				1D3B9EEA27A845A6009A6CF3 /* CoreDataModelAirQuotes.xcdatamodeld */,
@@ -110,6 +109,7 @@
 		7575E7C727A8395E00CF0804 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				1D3B9EE427A8425C009A6CF3 /* StoreAirQuotes.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

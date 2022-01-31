@@ -8,12 +8,12 @@
 import Foundation
 import SwiftUI
 
-class StoreAirQuotes:ObservableObject{
-    @Published var model:ModelAirQuotes
+class StoreAirQuotes: ObservableObject {
+    @Published var model: ModelAirQuotes
     static let shared = StoreAirQuotes()
     
     
-    private init(){
+    private init() {
         model = ModelAirQuotes()
     }
     

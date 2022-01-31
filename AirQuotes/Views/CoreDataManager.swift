@@ -13,8 +13,8 @@ class CoreDataManager{
     let persistentContainer:NSPersistentContainer
 
     
-    private init(){
-        persistentContainer = NSPersistentContainer(name: "CoreDataModel")
+    private init() {
+        persistentContainer = NSPersistentContainer(name: "CoreDataModelAirQuotes")
         persistentContainer.loadPersistentStores{ (description,error) in
             if let error = error {
                 fatalError("Core Data Store failed \(error.localizedDescription)")
@@ -34,10 +34,10 @@ class CoreDataManager{
     func saveContext(){
         let context = persistentContainer.viewContext
         if context.hasChanges{
-            do{
+            do {
                 try context.save()
             }
-            catch{
+            catch {
                 
             }
         }
