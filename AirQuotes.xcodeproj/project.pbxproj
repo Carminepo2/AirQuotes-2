@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D3B9EE527A8425C009A6CF3 /* StoreAirQuotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B9EE427A8425C009A6CF3 /* StoreAirQuotes.swift */; };
+		1D3B9EE727A8429B009A6CF3 /* ModelAirQuotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B9EE627A8429B009A6CF3 /* ModelAirQuotes.swift */; };
 		7575E7B727A8382900CF0804 /* AirQuotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7575E7B627A8382900CF0804 /* AirQuotesApp.swift */; };
 		7575E7B927A8382900CF0804 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7575E7B827A8382900CF0804 /* ContentView.swift */; };
 		7575E7BB27A8382A00CF0804 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7575E7BA27A8382A00CF0804 /* Assets.xcassets */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D3B9EE427A8425C009A6CF3 /* StoreAirQuotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAirQuotes.swift; sourceTree = "<group>"; };
+		1D3B9EE627A8429B009A6CF3 /* ModelAirQuotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelAirQuotes.swift; sourceTree = "<group>"; };
 		7575E7B327A8382900CF0804 /* AirQuotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirQuotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7575E7B627A8382900CF0804 /* AirQuotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQuotesApp.swift; sourceTree = "<group>"; };
 		7575E7B827A8382900CF0804 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -76,6 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				7575E7B827A8382900CF0804 /* ContentView.swift */,
+				1D3B9EE427A8425C009A6CF3 /* StoreAirQuotes.swift */,
+				1D3B9EE627A8429B009A6CF3 /* ModelAirQuotes.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -173,6 +179,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7575E7C927A8412100CF0804 /* DocstringTemplate.swift in Sources */,
+				1D3B9EE527A8425C009A6CF3 /* StoreAirQuotes.swift in Sources */,
+				1D3B9EE727A8429B009A6CF3 /* ModelAirQuotes.swift in Sources */,
 				7575E7B927A8382900CF0804 /* ContentView.swift in Sources */,
 				7575E7B727A8382900CF0804 /* AirQuotesApp.swift in Sources */,
 			);

@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct AirQuotesApp: App {
+    
+    @StateObject var controller = StoreAirQuotes.shared
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(controller)
         }
     }
 }
