@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		753208FF27A86C8200FBCA86 /* LatestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753208FE27A86C8200FBCA86 /* LatestView.swift */; };
+		7532090527A86ED800FBCA86 /* LatestViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7532090427A86ED800FBCA86 /* LatestViewSection.swift */; };
+		7532090827A8707A00FBCA86 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7532090727A8707A00FBCA86 /* String.swift */; };
+		7532090A27A8714E00FBCA86 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7532090927A8714E00FBCA86 /* View.swift */; };
+		7532090D27A8814900FBCA86 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7532090C27A8814900FBCA86 /* CollectionView.swift */; };
+		7532090F27A8843D00FBCA86 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7532090E27A8843D00FBCA86 /* Settings.swift */; };
+		7532091227A886D600FBCA86 /* RoundedRectangleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7532091127A886D600FBCA86 /* RoundedRectangleButtonStyle.swift */; };
 		7575E7B727A8382900CF0804 /* AirQuotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7575E7B627A8382900CF0804 /* AirQuotesApp.swift */; };
 		7575E7B927A8382900CF0804 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7575E7B827A8382900CF0804 /* ContentView.swift */; };
 		7575E7BB27A8382A00CF0804 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7575E7BA27A8382A00CF0804 /* Assets.xcassets */; };
@@ -15,6 +22,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		753208FE27A86C8200FBCA86 /* LatestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestView.swift; sourceTree = "<group>"; };
+		7532090427A86ED800FBCA86 /* LatestViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestViewSection.swift; sourceTree = "<group>"; };
+		7532090727A8707A00FBCA86 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		7532090927A8714E00FBCA86 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		7532090C27A8814900FBCA86 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		7532090E27A8843D00FBCA86 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		7532091127A886D600FBCA86 /* RoundedRectangleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedRectangleButtonStyle.swift; sourceTree = "<group>"; };
 		7575E7B327A8382900CF0804 /* AirQuotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirQuotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7575E7B627A8382900CF0804 /* AirQuotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQuotesApp.swift; sourceTree = "<group>"; };
 		7575E7B827A8382900CF0804 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,6 +48,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7532090027A86D3100FBCA86 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		7532090127A86E6E00FBCA86 /* Latest */ = {
+			isa = PBXGroup;
+			children = (
+				753208FE27A86C8200FBCA86 /* LatestView.swift */,
+				7532090427A86ED800FBCA86 /* LatestViewSection.swift */,
+			);
+			path = Latest;
+			sourceTree = "<group>";
+		};
+		7532090627A8705800FBCA86 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7532090727A8707A00FBCA86 /* String.swift */,
+				7532090927A8714E00FBCA86 /* View.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7532090B27A8813200FBCA86 /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				7532090C27A8814900FBCA86 /* CollectionView.swift */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
+		7532091027A886BC00FBCA86 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				7532091127A886D600FBCA86 /* RoundedRectangleButtonStyle.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
 		7575E7AA27A8382900CF0804 = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +130,9 @@
 		7575E7C427A8390500CF0804 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7532090027A86D3100FBCA86 /* Common */,
+				7532090B27A8813200FBCA86 /* Collection */,
+				7532090127A86E6E00FBCA86 /* Latest */,
 				7575E7B827A8382900CF0804 /* ContentView.swift */,
 			);
 			path = Views;
@@ -90,6 +148,9 @@
 		7575E7C627A8395800CF0804 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				7532091027A886BC00FBCA86 /* Styles */,
+				7532090627A8705800FBCA86 /* Extensions */,
+				7532090E27A8843D00FBCA86 /* Settings.swift */,
 				7575E7C827A8412100CF0804 /* DocstringTemplate.swift */,
 			);
 			path = Utilities;
@@ -172,8 +233,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7532090827A8707A00FBCA86 /* String.swift in Sources */,
+				7532090527A86ED800FBCA86 /* LatestViewSection.swift in Sources */,
 				7575E7C927A8412100CF0804 /* DocstringTemplate.swift in Sources */,
+				753208FF27A86C8200FBCA86 /* LatestView.swift in Sources */,
 				7575E7B927A8382900CF0804 /* ContentView.swift in Sources */,
+				7532091227A886D600FBCA86 /* RoundedRectangleButtonStyle.swift in Sources */,
+				7532090A27A8714E00FBCA86 /* View.swift in Sources */,
+				7532090F27A8843D00FBCA86 /* Settings.swift in Sources */,
+				7532090D27A8814900FBCA86 /* CollectionView.swift in Sources */,
 				7575E7B727A8382900CF0804 /* AirQuotesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
