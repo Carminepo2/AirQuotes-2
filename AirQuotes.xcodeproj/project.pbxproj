@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1D3B9EE527A8425C009A6CF3 /* StoreAirQuotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B9EE427A8425C009A6CF3 /* StoreAirQuotes.swift */; };
 		1D3B9EE727A8429B009A6CF3 /* ModelAirQuotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B9EE627A8429B009A6CF3 /* ModelAirQuotes.swift */; };
+		1D3B9EE927A8443F009A6CF3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B9EE827A8443F009A6CF3 /* CoreDataManager.swift */; };
+		1D3B9EEC27A845A6009A6CF3 /* CoreDataModelAirQuotes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B9EEA27A845A6009A6CF3 /* CoreDataModelAirQuotes.xcdatamodeld */; };
 		7575E7B727A8382900CF0804 /* AirQuotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7575E7B627A8382900CF0804 /* AirQuotesApp.swift */; };
 		7575E7B927A8382900CF0804 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7575E7B827A8382900CF0804 /* ContentView.swift */; };
 		7575E7BB27A8382A00CF0804 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7575E7BA27A8382A00CF0804 /* Assets.xcassets */; };
@@ -19,6 +21,8 @@
 /* Begin PBXFileReference section */
 		1D3B9EE427A8425C009A6CF3 /* StoreAirQuotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAirQuotes.swift; sourceTree = "<group>"; };
 		1D3B9EE627A8429B009A6CF3 /* ModelAirQuotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelAirQuotes.swift; sourceTree = "<group>"; };
+		1D3B9EE827A8443F009A6CF3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		1D3B9EEB27A845A6009A6CF3 /* CoreDataModelAirQuotes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModelAirQuotes.xcdatamodel; sourceTree = "<group>"; };
 		7575E7B327A8382900CF0804 /* AirQuotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirQuotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7575E7B627A8382900CF0804 /* AirQuotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQuotesApp.swift; sourceTree = "<group>"; };
 		7575E7B827A8382900CF0804 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -82,6 +86,8 @@
 				7575E7B827A8382900CF0804 /* ContentView.swift */,
 				1D3B9EE427A8425C009A6CF3 /* StoreAirQuotes.swift */,
 				1D3B9EE627A8429B009A6CF3 /* ModelAirQuotes.swift */,
+				1D3B9EE827A8443F009A6CF3 /* CoreDataManager.swift */,
+				1D3B9EEA27A845A6009A6CF3 /* CoreDataModelAirQuotes.xcdatamodeld */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -178,6 +184,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D3B9EEC27A845A6009A6CF3 /* CoreDataModelAirQuotes.xcdatamodeld in Sources */,
+				1D3B9EE927A8443F009A6CF3 /* CoreDataManager.swift in Sources */,
 				7575E7C927A8412100CF0804 /* DocstringTemplate.swift in Sources */,
 				1D3B9EE527A8425C009A6CF3 /* StoreAirQuotes.swift in Sources */,
 				1D3B9EE727A8429B009A6CF3 /* ModelAirQuotes.swift in Sources */,
@@ -385,6 +393,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1D3B9EEA27A845A6009A6CF3 /* CoreDataModelAirQuotes.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1D3B9EEB27A845A6009A6CF3 /* CoreDataModelAirQuotes.xcdatamodel */,
+			);
+			currentVersion = 1D3B9EEB27A845A6009A6CF3 /* CoreDataModelAirQuotes.xcdatamodel */;
+			path = CoreDataModelAirQuotes.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7575E7AB27A8382900CF0804 /* Project object */;
 }
