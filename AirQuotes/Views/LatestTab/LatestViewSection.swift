@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LatestViewSection<ContentView: View, ButtonView: View>: View {
+struct LatestSectionView<ContentView: View, ButtonView: View>: View {
     let title: String
     
     @ViewBuilder let content: ContentView
@@ -40,13 +40,13 @@ struct LatestViewSection<ContentView: View, ButtonView: View>: View {
     }
 }
 
-extension LatestViewSection where ButtonView == EmptyView {
+extension LatestSectionView where ButtonView == EmptyView {
   init(_ title: String, @ViewBuilder content: () -> ContentView) {
       self.init(title, content: content, button: { EmptyView() })
   }
 }
 
-struct LatestViewSection_Previews: PreviewProvider {
+struct LatestSectionView_Previews: PreviewProvider {
     static var previews: some View {
         LatestViewSection("Test") {
             Text("Test")

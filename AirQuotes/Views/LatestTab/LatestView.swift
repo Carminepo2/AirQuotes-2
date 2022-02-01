@@ -8,17 +8,18 @@
 import SwiftUI
 
 struct LatestView: View {
+    @State private var showQuoteForm = false
     
     var body: some View {
         ScrollView {
             // MARK: - Quote Slider
-            LatestViewSection("Latest quotes") {
+            LatestSectionView("Latest quotes") {
                 QuoteSliderView()
             }
             
             
             // MARK: - Add Quote Button
-            Button(action: addQuote) {
+            Button(action: openQuoteFormModal) {
                 Label("Add Quote", systemImage: "pencil")
             }
             .buttonStyle(RoundedRectangleButtonStyle())
@@ -26,7 +27,7 @@ struct LatestView: View {
 
             
             // MARK: - Quote Slider
-            LatestViewSection("Latest collections") {
+            LatestSectionView("Latest collections") {
                 // TODO
             } button: {
                 Button(action: addCollection) {
@@ -34,11 +35,12 @@ struct LatestView: View {
                 }
             }
         }
+        .sheet(isPresented: $showQuoteForm, content: { QuoteFormView() })
     }
     
     //MARK: - Functions
     
-    func addQuote() { }
+    func openQuoteFormModal() { showQuoteForm = true }
     
     func addCollection() { }
 }
@@ -51,3 +53,4 @@ struct LatestView_Previews: PreviewProvider {
             .preferredColorScheme(.dark)
     }
 }
+
