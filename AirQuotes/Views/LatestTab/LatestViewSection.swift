@@ -21,18 +21,21 @@ struct LatestViewSection<ContentView: View, ButtonView: View>: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Text(title)
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                Spacer()
-                button
+            VStack {
+                HStack {
+                    Text(title)
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                    Spacer()
+                    button
+                }
+                Divider()
+                    .padding(.vertical, -10)
             }
-            Divider()
-                .padding(.vertical, -10)
+            .padding(.horizontal)
+
             content
         }
-        .padding(.horizontal)
         
     }
 }
@@ -47,6 +50,7 @@ struct LatestViewSection_Previews: PreviewProvider {
     static var previews: some View {
         LatestViewSection("Test") {
             Text("Test")
+            Text("Hello")
         } button: {
             Button("Hello") {
                 print("Hello")

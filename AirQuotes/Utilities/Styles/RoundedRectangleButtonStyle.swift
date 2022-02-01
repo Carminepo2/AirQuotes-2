@@ -17,7 +17,7 @@ struct RoundedRectangleButtonStyle: ButtonStyle {
         }
         .padding()
         .background(Color.accentColor)
-        .cornerRadius(8)
+        .cornerRadius(Settings.CornerRadius)
         .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }
 }

@@ -9,7 +9,13 @@ import SwiftUI
 
 struct CollectionView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            ScrollableTabView(["Collections", "Tags", "Favorites"]) {
+                Text("Collections")
+                Text("Tags")
+                Text("Favorites")
+            }
+        }
     }
 }
 
@@ -18,3 +24,4 @@ struct CollectionView_Previews: PreviewProvider {
         CollectionView()
     }
 }
+

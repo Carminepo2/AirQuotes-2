@@ -46,8 +46,8 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView().preferredColorScheme(.light)
-            .environmentObject(StoreAirQuotes.shared)
+            // .environmentObject(StoreAirQuotes.shared)
         ContentView().preferredColorScheme(.dark)
-            .environmentObject(StoreAirQuotes.shared)
+            // .environmentObject(StoreAirQuotes.shared)
     }
 }

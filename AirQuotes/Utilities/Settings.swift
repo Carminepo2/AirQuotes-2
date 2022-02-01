@@ -8,4 +8,6 @@
 import Foundation
 
 struct Settings {
+    static let CornerRadius = 8.0
+    static let LatestQuotesHeight = 280.0
 }

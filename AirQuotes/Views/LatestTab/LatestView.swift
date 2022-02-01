@@ -13,7 +13,7 @@ struct LatestView: View {
         ScrollView {
             // MARK: - Quote Slider
             LatestViewSection("Latest quotes") {
-                //TODO
+                QuoteSliderView()
             }
             
             
@@ -23,11 +23,11 @@ struct LatestView: View {
             }
             .buttonStyle(RoundedRectangleButtonStyle())
             .padding()
-            
+
             
             // MARK: - Quote Slider
             LatestViewSection("Latest collections") {
-                //TODO
+                // TODO
             } button: {
                 Button(action: addCollection) {
                     Label("Add", systemImage: "plus")
@@ -46,5 +46,8 @@ struct LatestView: View {
 struct LatestView_Previews: PreviewProvider {
     static var previews: some View {
         LatestView()
+        
+        LatestView()
+            .preferredColorScheme(.dark)
     }
 }
