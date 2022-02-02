@@ -27,12 +27,12 @@ struct ContentView: View {
                 
                 //MARK: - Collection View Tab
                 NavigationView {
-                    CollectionView()
-                        .navigationTitle("Collection")
+                    BrowseView()
+                        .navigationTitle("Browse")
                 }
                 .tabItem {
                     Image(systemName: "books.vertical.fill")
-                    Text("Collection")
+                    Text("Browse")
                 }
                 
             }

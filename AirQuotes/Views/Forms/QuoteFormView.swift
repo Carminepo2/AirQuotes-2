@@ -89,14 +89,14 @@ struct QuoteFormView: View {
     //MARK: - Navigation Bar Buttons
     
     @ViewBuilder
-    func CancelButton() -> some View {
+    private func CancelButton() -> some View {
         Button("Cancel") {
             presentationMode.wrappedValue.dismiss()
         }
     }
     
     @ViewBuilder
-    func DoneButton() -> some View {
+    private func DoneButton() -> some View {
         Button("Done") {
             presentationMode.wrappedValue.dismiss()
         }
@@ -105,13 +105,13 @@ struct QuoteFormView: View {
     
     //MARK: - Functions
 
-    func newTagButtonTapped() { showTagForm = true }
+    private func newTagButtonTapped() { showTagForm = true }
     
-    func checkIfTagSelected(_ tag: String) -> Bool {
+    private func checkIfTagSelected(_ tag: String) -> Bool {
         return chosenTags.contains(tag)
     }
     
-    func selectionRowTapped(_ selectedTag: String) {
+    private func selectionRowTapped(_ selectedTag: String) {
         if checkIfTagSelected(selectedTag) {
             if let index = chosenTags.firstIndex(of: selectedTag) {
                 chosenTags.remove(at: index)

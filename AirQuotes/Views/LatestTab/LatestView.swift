@@ -42,9 +42,9 @@ struct LatestView: View {
     
     //MARK: - Functions
     
-    func openQuoteFormModal() { showQuoteForm = true }
+    private func openQuoteFormModal() { showQuoteForm = true }
     
-    func addCollection() { }
+    private func addCollection() { }
 }
 
 struct LatestView_Previews: PreviewProvider {

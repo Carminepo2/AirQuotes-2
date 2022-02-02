@@ -1,5 +1,5 @@
 //
-//  ColorButtonView.swift
+//  ColorSelectionView.swift
 //  AirQuotes
 //
 //  Created by Carmine Porricelli on 02/02/22.
@@ -7,7 +7,21 @@
 
 import SwiftUI
 
-struct ColorButtonView: View {
+struct ColorSelectionView: View {
+    @Binding var chosenColor: String
+    
+    var body: some View {
+        HStack{
+            ColorButtonView(colorName: "TagRed", chosenColor: $chosenColor)
+            ColorButtonView(colorName: "TagGreen", chosenColor: $chosenColor)
+            ColorButtonView(colorName: "TagPink", chosenColor: $chosenColor)
+            ColorButtonView(colorName: "TagBlue", chosenColor: $chosenColor)
+        }
+        .padding(.horizontal)
+        .padding(.horizontal)    }
+}
+
+fileprivate struct ColorButtonView: View {
     let colorName: String
     @Binding var chosenColor: String
     
@@ -34,18 +48,15 @@ struct ColorButtonView: View {
     }
     
     // MARK: - Functions
-    func buttonTapped() {
+    private func buttonTapped() {
         withAnimation {
             chosenColor = colorName
         }
     }
 }
 
-struct ColorButtonView_Previews: PreviewProvider {
+struct ColorSelectionView_Previews: PreviewProvider {
     static var previews: some View {
-        HStack {
-            ColorButtonView(colorName: "TagBlue", chosenColor: .constant("TagBlue"))
-            ColorButtonView(colorName: "TagBlue", chosenColor: .constant("TagPink"))
-        }
+        ColorSelectionView(chosenColor: .constant("TagRed"))
     }
 }

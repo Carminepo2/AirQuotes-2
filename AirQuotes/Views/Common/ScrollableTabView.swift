@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct ScrollableTabView: View {
+    @Environment(\.isSearching) var isSearching
+
     let pages: [AnyView]
     let buttonLabels: [String]
     
     @Namespace var animation
-    @Environment(\.isSearching) var isSearching
-
     @State private var selectedIndex = 0
     
     init<Views>(_ buttonLabels: [String], @ViewBuilder pages: @escaping () -> TupleView<Views>) {
@@ -35,12 +35,14 @@ struct ScrollableTabView: View {
             
             // MARK: - Tabs
             TabView(selection: $selectedIndex) {
-                ForEach(pages.indices) { pages[$0].tag($0) }
+                ForEach(pages.indices) { index in
+                    pages[index]
+                        .tag(index)
+                }
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
         }
         .animation(.easeIn(duration: 0.2) ,value: selectedIndex)
-        
     }
 }
 
@@ -76,7 +78,7 @@ fileprivate struct TabButtonView : View {
     }
     
     // MARK: - Functions
-    func handleTap() {
+    private func handleTap() {
         actualPageIndex = index
     }
 }

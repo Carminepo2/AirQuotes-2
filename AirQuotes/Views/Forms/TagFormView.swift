@@ -23,14 +23,7 @@ struct TagFormView: View {
                 }
                 
                 Section(header: Text("Color")) {
-                    HStack{
-                        ColorButtonView(colorName: "TagRed", chosenColor: $chosenColor)
-                        ColorButtonView(colorName: "TagGreen", chosenColor: $chosenColor)
-                        ColorButtonView(colorName: "TagPink", chosenColor: $chosenColor)
-                        ColorButtonView(colorName: "TagBlue", chosenColor: $chosenColor)
-                    }
-                    .padding(.horizontal)
-                    .padding(.horizontal)
+                    ColorSelectionView(chosenColor: $chosenColor)
                 }
             }
             .navigationTitle("New tag")
@@ -43,14 +36,14 @@ struct TagFormView: View {
     //MARK: - Navigation Bar Buttons
     
     @ViewBuilder
-    func CancelButton() -> some View {
+    private func CancelButton() -> some View {
         Button("Cancel") {
             presentationMode.wrappedValue.dismiss()
         }
     }
     
     @ViewBuilder
-    func DoneButton() -> some View {
+    private func DoneButton() -> some View {
         Button("Done") {
             presentationMode.wrappedValue.dismiss()
         }
