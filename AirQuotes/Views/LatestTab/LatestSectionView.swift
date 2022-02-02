@@ -12,7 +12,7 @@ struct LatestSectionView<ContentView: View, ButtonView: View>: View {
     
     @ViewBuilder let content: ContentView
     let button: ButtonView?
-
+    
     init(_ title: String, @ViewBuilder content: () -> ContentView, @ViewBuilder button: () -> ButtonView? = { nil }) {
         self.title = title
         self.content = content()
@@ -21,19 +21,16 @@ struct LatestSectionView<ContentView: View, ButtonView: View>: View {
     
     var body: some View {
         VStack {
-            VStack {
-                HStack {
-                    Text(title)
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                    Spacer()
-                    button
-                }
-                Divider()
-                    .padding(.vertical, -10)
+            HStack {
+                Text(title)
+                    .font(.title3)
+                    .fontWeight(.semibold)
+                Spacer()
+                button
             }
+            
             .padding(.horizontal)
-
+            
             content
         }
         
@@ -41,9 +38,9 @@ struct LatestSectionView<ContentView: View, ButtonView: View>: View {
 }
 
 extension LatestSectionView where ButtonView == EmptyView {
-  init(_ title: String, @ViewBuilder content: () -> ContentView) {
-      self.init(title, content: content, button: { EmptyView() })
-  }
+    init(_ title: String, @ViewBuilder content: () -> ContentView) {
+        self.init(title, content: content, button: { EmptyView() })
+    }
 }
 
 struct LatestSectionView_Previews: PreviewProvider {

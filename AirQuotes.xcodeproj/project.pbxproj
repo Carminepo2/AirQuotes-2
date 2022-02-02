@@ -24,6 +24,7 @@
 		75391DD127AAC08000C9BA27 /* TagFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75391DD027AAC08000C9BA27 /* TagFormView.swift */; };
 		75391DD327AAC19100C9BA27 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75391DD227AAC19100C9BA27 /* TagView.swift */; };
 		75391DD527AAC5DE00C9BA27 /* ColorButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75391DD427AAC5DE00C9BA27 /* ColorButtonView.swift */; };
+		75391DD827AB0D2D00C9BA27 /* CollectionFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75391DD727AB0D2D00C9BA27 /* CollectionFormView.swift */; };
 		7575E7B727A8382900CF0804 /* AirQuotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7575E7B627A8382900CF0804 /* AirQuotesApp.swift */; };
 		7575E7B927A8382900CF0804 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7575E7B827A8382900CF0804 /* ContentView.swift */; };
 		7575E7BB27A8382A00CF0804 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7575E7BA27A8382A00CF0804 /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 		75391DD027AAC08000C9BA27 /* TagFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagFormView.swift; sourceTree = "<group>"; };
 		75391DD227AAC19100C9BA27 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		75391DD427AAC5DE00C9BA27 /* ColorButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButtonView.swift; sourceTree = "<group>"; };
+		75391DD727AB0D2D00C9BA27 /* CollectionFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionFormView.swift; sourceTree = "<group>"; };
 		7575E7B327A8382900CF0804 /* AirQuotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirQuotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7575E7B627A8382900CF0804 /* AirQuotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQuotesApp.swift; sourceTree = "<group>"; };
 		7575E7B827A8382900CF0804 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -77,12 +79,10 @@
 		7532090027A86D3100FBCA86 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				7532091327A96BA000FBCA86 /* ScrollableTabView.swift */,
-				7520042927A9DF520054DDDA /* QuoteFormView.swift */,
-				759D239D27A9E6AD001DE6C8 /* MultipleSelectionRowView.swift */,
-				75391DD027AAC08000C9BA27 /* TagFormView.swift */,
-				75391DD227AAC19100C9BA27 /* TagView.swift */,
 				75391DD427AAC5DE00C9BA27 /* ColorButtonView.swift */,
+				759D239D27A9E6AD001DE6C8 /* MultipleSelectionRowView.swift */,
+				7532091327A96BA000FBCA86 /* ScrollableTabView.swift */,
+				75391DD227AAC19100C9BA27 /* TagView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -121,6 +121,16 @@
 				7532091127A886D600FBCA86 /* RoundedRectangleButtonStyle.swift */,
 			);
 			path = Styles;
+			sourceTree = "<group>";
+		};
+		75391DD627AB0D1300C9BA27 /* Forms */ = {
+			isa = PBXGroup;
+			children = (
+				75391DD727AB0D2D00C9BA27 /* CollectionFormView.swift */,
+				7520042927A9DF520054DDDA /* QuoteFormView.swift */,
+				75391DD027AAC08000C9BA27 /* TagFormView.swift */,
+			);
+			path = Forms;
 			sourceTree = "<group>";
 		};
 		7575E7AA27A8382900CF0804 = {
@@ -167,6 +177,7 @@
 			children = (
 				7532090027A86D3100FBCA86 /* Common */,
 				7532090B27A8813200FBCA86 /* CollectionTab */,
+				75391DD627AB0D1300C9BA27 /* Forms */,
 				7532090127A86E6E00FBCA86 /* LatestTab */,
 				7575E7B827A8382900CF0804 /* ContentView.swift */,
 			);
@@ -294,6 +305,7 @@
 				7520042A27A9DF520054DDDA /* QuoteFormView.swift in Sources */,
 				75391DCF27AA812100C9BA27 /* ModelAirQuotes.swift in Sources */,
 				75A9C86427A9EC4C00E1AAC6 /* LatestView.swift in Sources */,
+				75391DD827AB0D2D00C9BA27 /* CollectionFormView.swift in Sources */,
 				75391DC127AA80A600C9BA27 /* LatestSectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

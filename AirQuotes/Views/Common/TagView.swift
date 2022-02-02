@@ -15,15 +15,28 @@ struct TagView: View {
     var body: some View {
         
         Text(title.truncate(length: 20))
-            .foregroundStyle(.secondary)
+            .foregroundStyle(.primary)
+            .lineLimit(1)
             .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
             .background(RoundedRectangle(cornerRadius: 20).fill(color))
-            .lineLimit(1)
     }
 }
 
 struct TagView_Previews: PreviewProvider {
     static var previews: some View {
-        TagView(color: Color("TagGreen"), title: "Example")
+        HStack {
+            TagView(color: Color("TagGreen"), title: "Example")
+            TagView(color: Color("TagPink"), title: "Example")
+            TagView(color: Color("TagRed"), title: "Example")
+            TagView(color: Color("TagBlue"), title: "Example")
+        }
+        
+        HStack {
+            TagView(color: Color("TagGreen"), title: "Example")
+            TagView(color: Color("TagPink"), title: "Example")
+            TagView(color: Color("TagRed"), title: "Example")
+            TagView(color: Color("TagBlue"), title: "Example")
+        }
+        .preferredColorScheme(.dark)
     }
 }

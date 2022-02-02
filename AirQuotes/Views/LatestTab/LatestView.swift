@@ -32,7 +32,7 @@ struct LatestView: View {
                 // TODO
             } button: {
                 Button(action: addCollection) {
-                    Label("Add", systemImage: "plus")
+                    Label("Add", systemImage: "plus.circle")
                 }
             }
         }

@@ -62,6 +62,8 @@ struct TagFormView: View {
 struct TagFormView_Previews: PreviewProvider {
     static var previews: some View {
         TagFormView()
+        TagFormView()
+            .preferredColorScheme(.dark)
     }
 }
 

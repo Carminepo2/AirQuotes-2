@@ -79,7 +79,6 @@ struct QuoteFormView: View {
                     NewItemButton("New Collection", systemName: "folder.badge.plus", action: {})
                 }
             }
-            .background(Color("BackgroundColor"))
             .navigationTitle("New Quote")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(leading: CancelButton(), trailing: DoneButton())

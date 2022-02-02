@@ -60,7 +60,7 @@ fileprivate struct TabButtonView : View {
     var body: some View {
         VStack {
             Text(label)
-                .foregroundStyle(.primary)
+                .foregroundStyle(isSelected ? .primary : .secondary)
                 .font(.footnote)
                 .onTapGesture(perform: handleTap)
             
