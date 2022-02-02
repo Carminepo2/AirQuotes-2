@@ -14,4 +14,12 @@ struct ModelAirQuotes{
     var folder:[Folder] = []
     var tag:[Tag] = []
     
+    init(){
+        
+    }
+    // setModel set default data for the app
+    func setModel(){
+        
+    }
+    
 }
