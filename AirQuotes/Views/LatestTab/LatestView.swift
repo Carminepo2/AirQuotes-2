@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LatestView: View {
     @State private var showQuoteForm = false
+    @State private var searchText = ""
     
     var body: some View {
         ScrollView {
@@ -20,7 +21,7 @@ struct LatestView: View {
             
             // MARK: - Add Quote Button
             Button(action: openQuoteFormModal) {
-                Label("Add Quote", systemImage: "pencil")
+                Label("New Quote", systemImage: "pencil")
             }
             .buttonStyle(RoundedRectangleButtonStyle())
             .padding()
@@ -35,6 +36,7 @@ struct LatestView: View {
                 }
             }
         }
+        .searchable(text: $searchText)
         .sheet(isPresented: $showQuoteForm, content: { QuoteFormView() })
     }
     

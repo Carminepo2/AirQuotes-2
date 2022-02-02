@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CollectionView: View {
+    @State private var searchText = ""
+
     var body: some View {
         VStack {
             ScrollableTabView(["Collections", "Tags", "Favorites"]) {
@@ -16,6 +18,7 @@ struct CollectionView: View {
                 Text("Favorites")
             }
         }
+        .searchable(text: $searchText)
     }
 }
 

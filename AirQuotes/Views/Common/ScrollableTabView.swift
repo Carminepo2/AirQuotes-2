@@ -37,7 +37,7 @@ struct ScrollableTabView: View {
             TabView(selection: $selectedIndex) {
                 ForEach(pages.indices) { pages[$0].tag($0) }
             }
-            .tabViewStyle(.page)
+            .tabViewStyle(.page(indexDisplayMode: .never))
         }
         .animation(.easeIn(duration: 0.2) ,value: selectedIndex)
         
@@ -82,7 +82,7 @@ fileprivate struct TabButtonView : View {
 }
 
 
-// !!! CRASH !!!
+// !!! PREVIEW CRASH !!!
 
 //struct SegmentedScrollView_Previews: PreviewProvider {
 //    static var previews: some View {

@@ -7,9 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @State private var searchText = ""
-    
+struct ContentView: View {    
     var body: some View {
         ZStack {
             // MARK: - Background Color
@@ -38,7 +36,6 @@ struct ContentView: View {
                 }
                 
             }
-            .searchable(text: $searchText)
         }
     }
 }

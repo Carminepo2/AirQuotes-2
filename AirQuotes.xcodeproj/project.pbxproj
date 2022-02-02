@@ -21,6 +21,9 @@
 		75391DCB27AA810700C9BA27 /* ScrollableTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7532091327A96BA000FBCA86 /* ScrollableTabView.swift */; };
 		75391DCE27AA812100C9BA27 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75391DCC27AA812100C9BA27 /* CoreDataManager.swift */; };
 		75391DCF27AA812100C9BA27 /* ModelAirQuotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75391DCD27AA812100C9BA27 /* ModelAirQuotes.swift */; };
+		75391DD127AAC08000C9BA27 /* TagFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75391DD027AAC08000C9BA27 /* TagFormView.swift */; };
+		75391DD327AAC19100C9BA27 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75391DD227AAC19100C9BA27 /* TagView.swift */; };
+		75391DD527AAC5DE00C9BA27 /* ColorButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75391DD427AAC5DE00C9BA27 /* ColorButtonView.swift */; };
 		7575E7B727A8382900CF0804 /* AirQuotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7575E7B627A8382900CF0804 /* AirQuotesApp.swift */; };
 		7575E7B927A8382900CF0804 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7575E7B827A8382900CF0804 /* ContentView.swift */; };
 		7575E7BB27A8382A00CF0804 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7575E7BA27A8382A00CF0804 /* Assets.xcassets */; };
@@ -46,6 +49,9 @@
 		7532091527A9746E00FBCA86 /* TupleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TupleView.swift; sourceTree = "<group>"; };
 		75391DCC27AA812100C9BA27 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = AirQuotes/ViewControllers/CoreDataManager.swift; sourceTree = SOURCE_ROOT; };
 		75391DCD27AA812100C9BA27 /* ModelAirQuotes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelAirQuotes.swift; path = AirQuotes/ViewControllers/ModelAirQuotes.swift; sourceTree = SOURCE_ROOT; };
+		75391DD027AAC08000C9BA27 /* TagFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagFormView.swift; sourceTree = "<group>"; };
+		75391DD227AAC19100C9BA27 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		75391DD427AAC5DE00C9BA27 /* ColorButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButtonView.swift; sourceTree = "<group>"; };
 		7575E7B327A8382900CF0804 /* AirQuotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirQuotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7575E7B627A8382900CF0804 /* AirQuotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQuotesApp.swift; sourceTree = "<group>"; };
 		7575E7B827A8382900CF0804 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +80,9 @@
 				7532091327A96BA000FBCA86 /* ScrollableTabView.swift */,
 				7520042927A9DF520054DDDA /* QuoteFormView.swift */,
 				759D239D27A9E6AD001DE6C8 /* MultipleSelectionRowView.swift */,
+				75391DD027AAC08000C9BA27 /* TagFormView.swift */,
+				75391DD227AAC19100C9BA27 /* TagView.swift */,
+				75391DD427AAC5DE00C9BA27 /* ColorButtonView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -267,6 +276,7 @@
 				75391DC727AA80E100C9BA27 /* TupleView.swift in Sources */,
 				7575E7C927A8412100CF0804 /* DocstringTemplate.swift in Sources */,
 				75391DCE27AA812100C9BA27 /* CoreDataManager.swift in Sources */,
+				75391DD127AAC08000C9BA27 /* TagFormView.swift in Sources */,
 				75391DCB27AA810700C9BA27 /* ScrollableTabView.swift in Sources */,
 				7575E7B927A8382900CF0804 /* ContentView.swift in Sources */,
 				7575E7B727A8382900CF0804 /* AirQuotesApp.swift in Sources */,
@@ -275,7 +285,9 @@
 				75391DC227AA80AB00C9BA27 /* QuotesSliderView.swift in Sources */,
 				75391DC327AA80CB00C9BA27 /* Settings.swift in Sources */,
 				759D239C27A9E648001DE6C8 /* Functions.swift in Sources */,
+				75391DD327AAC19100C9BA27 /* TagView.swift in Sources */,
 				75391DC527AA80DD00C9BA27 /* String.swift in Sources */,
+				75391DD527AAC5DE00C9BA27 /* ColorButtonView.swift in Sources */,
 				75391DCA27AA80F800C9BA27 /* StoreAirQuotes.swift in Sources */,
 				75391DC427AA80D900C9BA27 /* RoundedRectangleButtonStyle.swift in Sources */,
 				759D239E27A9E6AD001DE6C8 /* MultipleSelectionRowView.swift in Sources */,
