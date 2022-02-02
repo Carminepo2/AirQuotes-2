@@ -48,7 +48,7 @@ extension LatestSectionView where ButtonView == EmptyView {
 
 struct LatestSectionView_Previews: PreviewProvider {
     static var previews: some View {
-        LatestViewSection("Test") {
+        LatestSectionView("Test") {
             Text("Test")
             Text("Hello")
         } button: {
