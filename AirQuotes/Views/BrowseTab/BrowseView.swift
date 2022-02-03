@@ -8,15 +8,22 @@
 import SwiftUI
 
 struct BrowseView: View {
-    @State private var searchText = ""
-    
     var body: some View {
-        ScrollableTabView(["Collections", "Tags", "Favorites"]) {
-            CollectionsListView()
-            Text("Tags")
-            Text("Favorites")
+        List {
+
+            NavigationLink(destination: CollectionsListView()) {
+                Label("Collections", systemImage: "square.grid.2x2")
+            }
+            
+            NavigationLink(destination: EmptyView()) {
+                Label("Tags", systemImage: "tag")
+            }
+            
+            NavigationLink(destination: EmptyView()) {
+                Label("Favorites", systemImage: "heart")
+            }
+            
         }
-        .searchable(text: $searchText)
     }
 }
 

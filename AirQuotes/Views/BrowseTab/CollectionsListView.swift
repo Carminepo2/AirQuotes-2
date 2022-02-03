@@ -8,23 +8,30 @@
 import SwiftUI
 
 struct CollectionsListView: View {
+    @State private var searchText = ""
+
+    
     let columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: Settings.CollectionViewsPerRow)
     
     var body: some View {
-        
         ScrollView {
             LazyVGrid(columns: columns, spacing: 20) {
-                CollectionView(name: "Test", color: Color("TagPink"), systemName: "heart.fill")
-                CollectionView(name: "Test", color: Color("TagRed"), systemName: "heart.fill")
-                CollectionView(name: "Test", color: Color("TagGreen"), systemName: "heart.fill")
-                CollectionView(name: "Test", color: Color("TagPink"), systemName: "heart.fill")
-                CollectionView(name: "Test", color: Color("TagBlue"), systemName: "heart.fill")
-                CollectionView(name: "Test", color: Color("TagBlue"), systemName: "heart.fill")
-                
+                CollectionItemView(name: "Test", color: Color("TagRed"), systemName: "heart.fill")
+                CollectionItemView(name: "Test", color: Color("TagGreen"), systemName: "heart.fill")
+                CollectionItemView(name: "Test", color: Color("TagPink"), systemName: "heart.fill")
+                CollectionItemView(name: "Test", color: Color("TagBlue"), systemName: "heart.fill")
+                CollectionItemView(name: "Test", color: Color("TagBlue"), systemName: "heart.fill")
+                CollectionItemView(name: "Test", color: Color("TagBlue"), systemName: "heart.fill")
+                CollectionItemView(name: "Test", color: Color("TagBlue"), systemName: "heart.fill")
+                CollectionItemView(name: "Test", color: Color("TagBlue"), systemName: "heart.fill")
+                CollectionItemView(name: "Test", color: Color("TagBlue"), systemName: "heart.fill")
+                CollectionItemView(name: "Test", color: Color("TagBlue"), systemName: "heart.fill")
+
             }
             .padding()
-            Spacer()
         }
+        .navigationTitle("Collections")
+        .searchable(text: $searchText)
     }
 }
 

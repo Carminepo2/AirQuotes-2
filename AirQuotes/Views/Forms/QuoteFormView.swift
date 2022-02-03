@@ -13,7 +13,8 @@ let TEST_TAGS = ["Love", "War", "Peace"]
 struct QuoteFormView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var showTagForm = false
-    
+    @State private var showCollectionForm = false
+
     // MARK: Form States
     @State private var quoteText = ""
     @State private var authorText = ""
@@ -76,13 +77,16 @@ struct QuoteFormView: View {
                     }
                     
                     //MARK: Create New Collection Button
-                    NewItemButton("New Collection", systemName: "folder.badge.plus", action: {})
+                    NewItemButton("New Collection", systemName: "folder.badge.plus", action: newCollectionButtonTapped)
                 }
             }
             .navigationTitle("New Quote")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(leading: CancelButton(), trailing: DoneButton())
+            
+            // MARK: Modals
             .sheet(isPresented: $showTagForm, content: { TagFormView() })
+            .sheet(isPresented: $showCollectionForm, content: { CollectionFormView() })
         }
     }
     
@@ -106,6 +110,7 @@ struct QuoteFormView: View {
     //MARK: - Functions
 
     private func newTagButtonTapped() { showTagForm = true }
+    private func newCollectionButtonTapped() { showCollectionForm = true }
     
     private func checkIfTagSelected(_ tag: String) -> Bool {
         return chosenTags.contains(tag)

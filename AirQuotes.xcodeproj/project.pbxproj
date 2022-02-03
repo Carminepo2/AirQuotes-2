@@ -18,18 +18,18 @@
 		75391DC827AA80E900C9BA27 /* CoreDataModelAirQuotes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B9EEA27A845A6009A6CF3 /* CoreDataModelAirQuotes.xcdatamodeld */; };
 		75391DC927AA80F200C9BA27 /* BrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7532090C27A8814900FBCA86 /* BrowseView.swift */; };
 		75391DCA27AA80F800C9BA27 /* StoreAirQuotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B9EE427A8425C009A6CF3 /* StoreAirQuotes.swift */; };
-		75391DCB27AA810700C9BA27 /* ScrollableTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7532091327A96BA000FBCA86 /* ScrollableTabView.swift */; };
 		75391DCE27AA812100C9BA27 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75391DCC27AA812100C9BA27 /* CoreDataManager.swift */; };
 		75391DCF27AA812100C9BA27 /* ModelAirQuotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75391DCD27AA812100C9BA27 /* ModelAirQuotes.swift */; };
 		75391DD127AAC08000C9BA27 /* TagFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75391DD027AAC08000C9BA27 /* TagFormView.swift */; };
 		75391DD327AAC19100C9BA27 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75391DD227AAC19100C9BA27 /* TagView.swift */; };
 		75391DD827AB0D2D00C9BA27 /* CollectionFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75391DD727AB0D2D00C9BA27 /* CollectionFormView.swift */; };
 		75391DDA27AB268200C9BA27 /* ColorSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75391DD927AB268200C9BA27 /* ColorSelectionView.swift */; };
-		75391DDC27AB283500C9BA27 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75391DDB27AB283500C9BA27 /* CollectionView.swift */; };
+		75391DDC27AB283500C9BA27 /* CollectionItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75391DDB27AB283500C9BA27 /* CollectionItemView.swift */; };
 		7575E7B727A8382900CF0804 /* AirQuotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7575E7B627A8382900CF0804 /* AirQuotesApp.swift */; };
 		7575E7B927A8382900CF0804 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7575E7B827A8382900CF0804 /* ContentView.swift */; };
 		7575E7BB27A8382A00CF0804 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7575E7BA27A8382A00CF0804 /* Assets.xcassets */; };
 		7575E7BE27A8382A00CF0804 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7575E7BD27A8382A00CF0804 /* Preview Assets.xcassets */; };
+		757EC1DE27AC5634000F65A1 /* IconSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757EC1DD27AC5634000F65A1 /* IconSelectionView.swift */; };
 		75815FDC27AB37C400C660F5 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75815FDB27AB37C400C660F5 /* Array.swift */; };
 		75815FDE27AB3E6900C660F5 /* CollectionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75815FDD27AB3E6800C660F5 /* CollectionsListView.swift */; };
 		759D239C27A9E648001DE6C8 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759D239B27A9E648001DE6C8 /* Functions.swift */; };
@@ -48,7 +48,6 @@
 		7532090C27A8814900FBCA86 /* BrowseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseView.swift; sourceTree = "<group>"; };
 		7532090E27A8843D00FBCA86 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		7532091127A886D600FBCA86 /* RoundedRectangleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedRectangleButtonStyle.swift; sourceTree = "<group>"; };
-		7532091327A96BA000FBCA86 /* ScrollableTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableTabView.swift; sourceTree = "<group>"; };
 		7532091527A9746E00FBCA86 /* TupleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TupleView.swift; sourceTree = "<group>"; };
 		75391DCC27AA812100C9BA27 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = AirQuotes/ViewControllers/CoreDataManager.swift; sourceTree = SOURCE_ROOT; };
 		75391DCD27AA812100C9BA27 /* ModelAirQuotes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelAirQuotes.swift; path = AirQuotes/ViewControllers/ModelAirQuotes.swift; sourceTree = SOURCE_ROOT; };
@@ -56,12 +55,13 @@
 		75391DD227AAC19100C9BA27 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		75391DD727AB0D2D00C9BA27 /* CollectionFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionFormView.swift; sourceTree = "<group>"; };
 		75391DD927AB268200C9BA27 /* ColorSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectionView.swift; sourceTree = "<group>"; };
-		75391DDB27AB283500C9BA27 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		75391DDB27AB283500C9BA27 /* CollectionItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionItemView.swift; sourceTree = "<group>"; };
 		7575E7B327A8382900CF0804 /* AirQuotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirQuotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7575E7B627A8382900CF0804 /* AirQuotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQuotesApp.swift; sourceTree = "<group>"; };
 		7575E7B827A8382900CF0804 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7575E7BA27A8382A00CF0804 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7575E7BD27A8382A00CF0804 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		757EC1DD27AC5634000F65A1 /* IconSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSelectionView.swift; sourceTree = "<group>"; };
 		75815FDB27AB37C400C660F5 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		75815FDD27AB3E6800C660F5 /* CollectionsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsListView.swift; sourceTree = "<group>"; };
 		759D239B27A9E648001DE6C8 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
@@ -84,9 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				759D239D27A9E6AD001DE6C8 /* MultipleSelectionRowView.swift */,
-				7532091327A96BA000FBCA86 /* ScrollableTabView.swift */,
 				75391DD227AAC19100C9BA27 /* TagView.swift */,
-				75391DDB27AB283500C9BA27 /* CollectionView.swift */,
+				75391DDB27AB283500C9BA27 /* CollectionItemView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -136,6 +135,7 @@
 				7520042927A9DF520054DDDA /* QuoteFormView.swift */,
 				75391DD027AAC08000C9BA27 /* TagFormView.swift */,
 				75391DD927AB268200C9BA27 /* ColorSelectionView.swift */,
+				757EC1DD27AC5634000F65A1 /* IconSelectionView.swift */,
 			);
 			path = Forms;
 			sourceTree = "<group>";
@@ -294,10 +294,10 @@
 				75391DCE27AA812100C9BA27 /* CoreDataManager.swift in Sources */,
 				75391DD127AAC08000C9BA27 /* TagFormView.swift in Sources */,
 				75815FDE27AB3E6900C660F5 /* CollectionsListView.swift in Sources */,
-				75391DCB27AA810700C9BA27 /* ScrollableTabView.swift in Sources */,
 				7575E7B927A8382900CF0804 /* ContentView.swift in Sources */,
 				7575E7B727A8382900CF0804 /* AirQuotesApp.swift in Sources */,
 				75391DC827AA80E900C9BA27 /* CoreDataModelAirQuotes.xcdatamodeld in Sources */,
+				757EC1DE27AC5634000F65A1 /* IconSelectionView.swift in Sources */,
 				75815FDC27AB37C400C660F5 /* Array.swift in Sources */,
 				75391DC927AA80F200C9BA27 /* BrowseView.swift in Sources */,
 				75391DC227AA80AB00C9BA27 /* QuotesSliderView.swift in Sources */,
@@ -306,7 +306,7 @@
 				75391DD327AAC19100C9BA27 /* TagView.swift in Sources */,
 				75391DC527AA80DD00C9BA27 /* String.swift in Sources */,
 				75391DCA27AA80F800C9BA27 /* StoreAirQuotes.swift in Sources */,
-				75391DDC27AB283500C9BA27 /* CollectionView.swift in Sources */,
+				75391DDC27AB283500C9BA27 /* CollectionItemView.swift in Sources */,
 				75391DC427AA80D900C9BA27 /* RoundedRectangleButtonStyle.swift in Sources */,
 				759D239E27A9E6AD001DE6C8 /* MultipleSelectionRowView.swift in Sources */,
 				7520042A27A9DF520054DDDA /* QuoteFormView.swift in Sources */,

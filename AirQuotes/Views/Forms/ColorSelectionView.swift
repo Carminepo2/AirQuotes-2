@@ -17,15 +17,14 @@ struct ColorSelectionView: View {
             ColorButtonView(colorName: "TagPink", chosenColor: $chosenColor)
             ColorButtonView(colorName: "TagBlue", chosenColor: $chosenColor)
         }
-        .padding(.horizontal)
-        .padding(.horizontal)    }
+    }
 }
 
 fileprivate struct ColorButtonView: View {
     let colorName: String
     @Binding var chosenColor: String
     
-    private let buttonSize: CGFloat = 40
+    private let buttonSize: CGFloat = Settings.SelectionFormButtonSize
     
     var isChosen: Bool {
         chosenColor == colorName
@@ -36,8 +35,8 @@ fileprivate struct ColorButtonView: View {
             Circle()
                 .fill(Color(colorName))
                 .frame(width: buttonSize, height: buttonSize)
-                .onTapGesture(perform: buttonTapped)
                 .padding(10)
+                .onTapGesture(perform: buttonTapped)
             
             if isChosen {
                 Circle()
@@ -49,9 +48,7 @@ fileprivate struct ColorButtonView: View {
     
     // MARK: - Functions
     private func buttonTapped() {
-        withAnimation {
-            chosenColor = colorName
-        }
+        chosenColor = colorName
     }
 }
 

@@ -18,4 +18,17 @@ struct Settings {
     static let ShadowRadius = 10.0
     
     static let CollectionViewsPerRow = 2
+    
+    static let SelectionFormButtonSize = 50.0
+    
+    static let CollectionIcons = [
+        "quote.opening",
+        "heart.fill",
+        "music.note",
+        "gamecontroller.fill",
+        "person.fill",
+        "face.smiling.fill",
+        "lightbulb.fill"
+    ]
 }
+

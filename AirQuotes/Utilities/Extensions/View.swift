@@ -31,6 +31,10 @@ extension View {
     func hTrailing() -> some View {
         self
             .frame(maxWidth: .infinity, alignment: .trailing)
-    }    
+    }
+    
+    func getScreenBounds() -> CGRect {
+        return UIScreen.main.bounds
+    }
     
 }

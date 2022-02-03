@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LatestView: View {
     @State private var showQuoteForm = false
+    @State private var showCollectionForm = false
+    
     @State private var searchText = ""
     
     var body: some View {
@@ -20,7 +22,7 @@ struct LatestView: View {
             
             
             // MARK: - Add Quote Button
-            Button(action: openQuoteFormModal) {
+            Button(action: newQuoteButtonTapped) {
                 Label("New Quote", systemImage: "pencil")
             }
             .buttonStyle(RoundedRectangleButtonStyle())
@@ -31,20 +33,22 @@ struct LatestView: View {
             LatestSectionView("Latest collections") {
                 // TODO
             } button: {
-                Button(action: addCollection) {
+                Button(action: newCollectionButtonTapped) {
                     Label("Add", systemImage: "plus.circle")
                 }
             }
         }
         .searchable(text: $searchText)
+        
+        // MARK: Modals
+        .sheet(isPresented: $showCollectionForm, content: { CollectionFormView() })
         .sheet(isPresented: $showQuoteForm, content: { QuoteFormView() })
     }
     
     //MARK: - Functions
     
-    private func openQuoteFormModal() { showQuoteForm = true }
-    
-    private func addCollection() { }
+    private func newQuoteButtonTapped() { showQuoteForm = true }
+    private func newCollectionButtonTapped() { showCollectionForm = true }
 }
 
 struct LatestView_Previews: PreviewProvider {

@@ -15,6 +15,7 @@ struct ContentView: View {
                 .ignoresSafeArea()
             
             TabView {
+
                 //MARK: - Latest View Tab
                 NavigationView {
                     LatestView()
@@ -34,7 +35,7 @@ struct ContentView: View {
                     Image(systemName: "books.vertical.fill")
                     Text("Browse")
                 }
-                
+
             }
         }
     }
