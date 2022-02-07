@@ -155,14 +155,6 @@ struct ModelAirQuotes{
     
     
 }
-//extension Quote{
-//    func setQuote(text:String,authorName:String,parentFolder:UUID,tagList:Array<Tag>){
-//        self.text = text
-//        self.author = authorName
-//        self.parentFolder = parentFolder
-//        self.tag
-//    }
-//}
 extension Quote{
     func setQuote(text:String,author:Person,parentFolder:Folder,tagList:Array<Tag>){
         self.text = text
