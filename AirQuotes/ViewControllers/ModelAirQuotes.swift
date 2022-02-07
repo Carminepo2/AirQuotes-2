@@ -43,7 +43,9 @@ struct ModelAirQuotes{
             }
         }
         if (index != nil){
+            //remove the element from the array
             tagToDelete = tag.remove(at: index!)
+            //remove the array from the DB
             CoreDataManager.shared.deleteTag(tagToDelete: tagToDelete!)
         }
     }
@@ -60,7 +62,21 @@ struct ModelAirQuotes{
         CoreDataManager.shared.createFolder(folderToSave: newFolder)
     }
     mutating func removeFolder(id:UUID){
-        
+        var index:Int? = nil
+        var folderToDelete:Folder? = nil
+        //search for the position in the array of the element to delete
+        for folderIndex in 0..<folder.count{
+            if(folder[folderIndex].id == id){
+                index = folderIndex
+            }
+        }
+        if(index != nil){
+//            remove the element from the array
+            folderToDelete = folder.remove(at: index!)
+//            remove the array from the DB
+            CoreDataManager.shared.deleteFolder(folderToDelete: folderToDelete!)
+        }
+
     }
     mutating func createQuote(text:String,authorName:String,parentFolder:UUID,tagList:Array<Tag>){
         

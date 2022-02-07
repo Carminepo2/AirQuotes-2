@@ -27,10 +27,10 @@ class StoreAirQuotes: ObservableObject {
         try model.createFolder(folderName: folderName)
     }
     func removeFolder(id:UUID){
-        
+        model.removeFolder(id: id)
     }
     func createQuote(text:String,authorName:String,parentFolder:UUID,tagList:Array<Tag>){
-        
+        model.createQuote(text: text, authorName: authorName, parentFolder: parentFolder, tagList: tagList)
     }
     func deleteQuote(id:UUID){
         
