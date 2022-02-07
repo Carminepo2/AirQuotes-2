@@ -37,7 +37,7 @@ class StoreAirQuotes: ObservableObject {
         try model.createQuote(text: text, authorName: authorName, parentFolder: parentFolder, tagList: tagList)
     }
     func deleteQuote(id:UUID){
-        
+        model.deleteQuote(id: id)
     }
     func updateQuote(id:UUID,text:String,authorName:String,tagList:Array<Tag>){
         

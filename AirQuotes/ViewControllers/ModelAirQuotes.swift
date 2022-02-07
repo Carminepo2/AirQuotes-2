@@ -81,11 +81,12 @@ struct ModelAirQuotes{
     }
     ///the user creates a unique quote within the same folder
     mutating func createQuote(text:String,authorName:String,parentFolder:UUID,tagList:Array<Tag>) throws{
-//I check that a quote with the same text does not exist in the same folder
         var theFolder:Folder = Folder()
         var theQuotesInTheFolder:Array<Quote> = Array<Quote>()
+        var authorOfTheQuote = Person()
         
-        
+//I check that a quote with the same text does not exist in the same folder
+
         //I start by taking all the quotes in the folder
         for aFolder in folder{
             if(aFolder.id == parentFolder){
@@ -99,13 +100,45 @@ struct ModelAirQuotes{
                 throw QuoteInFolder.alreadyExist
             }
         }
+//        I create a newAuthor if not already exist
+        authorOfTheQuote = createAuthor(authorName: authorName)
 // Now I create the quote
-        
+        var newQuote:Quote = Quote()
+        newQuote.setQuote(text: text, author: authorOfTheQuote, parentFolder: theFolder, tagList: tagList)
+        for aTag in tagList {
+            aTag.quotes?.adding(newQuote) //da verificare
+        }
+        CoreDataManager.shared.createQuote(quoteToSave: newQuote)
+        CoreDataManager.shared.updateTag()
         
         
     }
-    mutating func deleteQuote(id:UUID){
+///createAuthor create and return an Author that already exist or a newAuthor
+    mutating func createAuthor(authorName:String)->Person{
+        var newAuthor:Person? = nil
+        for anAuthor in person{
+            if(anAuthor.name == authorName){
+                newAuthor = anAuthor
+            }
+        }
+        if (newAuthor == nil){
+            newAuthor = Person()
+            newAuthor?.name = authorName
+            person.append(newAuthor!)
+            CoreDataManager.shared.createPerson(personToSave: newAuthor!)
+        }
+        return newAuthor!
         
+    }
+    mutating func deleteQuote(id:UUID){
+        var indexOfQuoteToDelete:Int? = nil
+        
+        for indexOfAQuote in 0..<quote.count{
+            if(quote[indexOfAQuote].id == id){
+                indexOfQuoteToDelete = indexOfAQuote
+            }
+        }
+        quote.remove(at: indexOfQuoteToDelete!)
     }
     mutating func updateQuote(id:UUID,text:String,authorName:String,tagList:Array<Tag>){
     
@@ -122,10 +155,20 @@ struct ModelAirQuotes{
     
     
 }
+//extension Quote{
+//    func setQuote(text:String,authorName:String,parentFolder:UUID,tagList:Array<Tag>){
+//        self.text = text
+//        self.author = authorName
+//        self.parentFolder = parentFolder
+//        self.tag
+//    }
+//}
 extension Quote{
-    func setQuote(text:String,authorName:String,parentFolder:UUID,tagList:Array<Tag>){
-        
+    func setQuote(text:String,author:Person,parentFolder:Folder,tagList:Array<Tag>){
+        self.text = text
+        self.author = author
+        self.parentFolder = parentFolder
+        self.tag = NSSet(array: tagList)
     }
 }
-
 
