@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 class StoreAirQuotes: ObservableObject {
-    @Published var model: ModelAirQuotes
+    @Published private var model: ModelAirQuotes
     static let shared = StoreAirQuotes()
     
     
@@ -18,13 +18,13 @@ class StoreAirQuotes: ObservableObject {
     }
     
     func createTag(name:String,color:String){
-        
+        model.createTag(name: name, color: color)
     }
     func removeTag(id:UUID){
-        
+        model.removeTag(id: id)
     }
-    func createFolder(folderName:String){
-        
+    func createFolder(folderName:String) throws{
+        try model.createFolder(folderName: folderName)
     }
     func removeFolder(id:UUID){
         
