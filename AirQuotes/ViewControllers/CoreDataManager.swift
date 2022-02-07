@@ -43,19 +43,91 @@ class CoreDataManager{
         }
     }
 //    MARK: - CRUD(Person)
+    func createPerson(personToSave:Person){
+        save()
+    }
     
+    func readPerson()->Array<Person>{
+        let fetchRequest:NSFetchRequest<Person> = Person.fetchRequest()
+        var result:Array<Person> = []
+        do{
+             result = try persistentContainer.viewContext.fetch(fetchRequest)
+        }catch{
+            
+        }
+        return result
+    }
+    func updatePerson(){
+        save()
+    }
     
+    func deletePerson(personToDelete:Person){
+        persistentContainer.viewContext.delete(personToDelete)
+        save()
+    }
 //    MARK: - CRUD(Quote)
-    
-    
+    func createQuote(quoteToSave:Quote){
+        save()
+    }
+    func readQuote()->Array<Quote>{
+        let fetchRequest:NSFetchRequest<Quote> = Quote.fetchRequest()
+        var result:Array<Quote> = []
+        do{
+            result =  try persistentContainer.viewContext.fetch(fetchRequest)
+        }
+        catch{
+        }
+        return result
+    }
+    func updateQuote(){
+        save()
+    }
+    func deleteQuote(quoteToDelete:Quote){
+        persistentContainer.viewContext.delete(quoteToDelete)
+        save()
+    }
 //    MARK: - CRUD(Folder)
-    
-    
+    func createFolder(folderToSave:Folder){
+        save()
+    }
+    func readFolder()->Array<Folder>{
+        let fetchRequest:NSFetchRequest<Folder> = Folder.fetchRequest()
+        var result:Array<Folder> = []
+        do{
+            result = try persistentContainer.viewContext.fetch(fetchRequest)
+        }
+        catch{
+            
+        }
+        return result
+    }
+    func updateFolder(){
+        save()
+    }
+    func deleteFolder(folderToDelete:Folder){
+        persistentContainer.viewContext.delete(folderToDelete)
+        save()
+    }
 //    MARK: - CRUD(Tag)
-
-    
-
-
-    
+    func createTag(tagToSave:Tag){
+        save()
+    }
+    func readTag()->Array<Tag>{
+        let fetchRequest:NSFetchRequest<Tag> = Tag.fetchRequest()
+        var result:Array<Tag> = []
+        do{
+            result = try persistentContainer.viewContext.fetch(fetchRequest)
+        }catch{
+            
+        }
+        return result
+    }
+    func updateTag(){
+        save()
+    }
+    func deleteTag(tagToDelete:Tag){
+        persistentContainer.viewContext.delete(tagToDelete)
+        save()
+    }
     
 }
