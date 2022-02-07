@@ -61,6 +61,7 @@ struct ModelAirQuotes{
         newFolder.name = folderName
         CoreDataManager.shared.createFolder(folderToSave: newFolder)
     }
+///removeFolder remove a specific folder from the sistem
     mutating func removeFolder(id:UUID){
         var index:Int? = nil
         var folderToDelete:Folder? = nil
@@ -78,7 +79,30 @@ struct ModelAirQuotes{
         }
 
     }
-    mutating func createQuote(text:String,authorName:String,parentFolder:UUID,tagList:Array<Tag>){
+    ///the user creates a unique quote within the same folder
+    mutating func createQuote(text:String,authorName:String,parentFolder:UUID,tagList:Array<Tag>) throws{
+//I check that a quote with the same text does not exist in the same folder
+        var theFolder:Folder = Folder()
+        var setForConversion:Set<Quote> = Set()
+        var theQuotesInTheFolder:Array<Quote> = Array<Quote>()
+        
+        
+        //I start by taking all the quotes in the folder
+        for aFolder in folder{
+            if(aFolder.id == parentFolder){
+             theFolder = aFolder
+            }
+        }
+        theQuotesInTheFolder = theFolder.myQuote!.toArray()
+//        if there is already a quotation with the same text I throw an exception
+        for aQuote in theQuotesInTheFolder {
+            if(aQuote.text == text){
+                throw QuoteInFolder.alreadyExist
+            }
+        }
+// Now I create the quote
+        
+        
         
     }
     mutating func deleteQuote(id:UUID){
@@ -104,4 +128,5 @@ extension Quote{
         
     }
 }
+
 

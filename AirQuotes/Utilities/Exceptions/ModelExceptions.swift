@@ -10,3 +10,6 @@ import Foundation
 enum FolderName:Error{
     case alreadyExist
 }
+enum QuoteInFolder:Error{
+    case alreadyExist
+}
