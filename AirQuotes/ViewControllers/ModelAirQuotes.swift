@@ -83,7 +83,6 @@ struct ModelAirQuotes{
     mutating func createQuote(text:String,authorName:String,parentFolder:UUID,tagList:Array<Tag>) throws{
 //I check that a quote with the same text does not exist in the same folder
         var theFolder:Folder = Folder()
-        var setForConversion:Set<Quote> = Set()
         var theQuotesInTheFolder:Array<Quote> = Array<Quote>()
         
         
