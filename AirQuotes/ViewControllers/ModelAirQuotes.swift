@@ -50,7 +50,7 @@ struct ModelAirQuotes{
         }
     }
 /// createFolder creates a new folder if one with the same name does not already exist
-    mutating func createFolder(folderName:String) throws{
+    mutating func createFolder(folderName:String,folderIcon:String,folderColor:String) throws{
 //      check that a folder with that name does not already exist
         for aFolder in folder{
             if(aFolder.name == folderName){
@@ -59,6 +59,8 @@ struct ModelAirQuotes{
         }
         var newFolder:Folder = Folder()
         newFolder.name = folderName
+        newFolder.icon = folderIcon
+        newFolder.color = folderColor
         CoreDataManager.shared.createFolder(folderToSave: newFolder)
     }
 ///removeFolder remove a specific folder from the sistem

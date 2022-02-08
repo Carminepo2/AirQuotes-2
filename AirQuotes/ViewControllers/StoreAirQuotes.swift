@@ -25,8 +25,8 @@ class StoreAirQuotes: ObservableObject {
         model.removeTag(id: id)
     }
     /// createFolder creates a new folder if one with the same name does not already exist
-    func createFolder(folderName:String) throws{
-        try model.createFolder(folderName: folderName)
+    func createFolder(folderName:String,folderIcon:String,folderColor:String) throws{
+        try model.createFolder(folderName:folderName,folderIcon:folderIcon,folderColor:folderColor)
     }
     ///removeFolder remove a specific folder from the sistem
     func removeFolder(id:UUID){
