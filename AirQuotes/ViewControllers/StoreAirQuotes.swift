@@ -87,9 +87,18 @@ class StoreAirQuotes: ObservableObject {
         return listaAuthor[indexOfTheAuthor!].quotes!.toArray()
     }
     func getFavorites()->Array<Quote>{
-        return []
+        var favorites:Array<Quote> = Array<Quote>()
+        var allTheQuote:Array<Quote> = model.quote
+        
+        for aQuote in allTheQuote{
+            if(aQuote.isFavorite == true){
+                favorites.append(aQuote)
+            }
+        }
+        
+        return favorites
     }
     func getLatestQuotes()->Array<Quote>{
-        return []
+        
     }
 }
