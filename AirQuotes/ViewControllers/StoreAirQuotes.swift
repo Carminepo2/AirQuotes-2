@@ -61,6 +61,4 @@ class StoreAirQuotes: ObservableObject {
     func searchByTag(tag:UUID){
         
     }
-    
-    
 }
