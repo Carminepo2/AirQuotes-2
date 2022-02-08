@@ -130,6 +130,7 @@ struct ModelAirQuotes{
         return newAuthor!
         
     }
+/// deleteQuote delete an existing quote
     mutating func deleteQuote(id:UUID){
         var indexOfQuoteToDelete:Int? = nil
         
@@ -139,7 +140,9 @@ struct ModelAirQuotes{
             }
         }
         quote.remove(at: indexOfQuoteToDelete!)
+        CoreDataManager.shared.deleteQuote(quoteToDelete: quote[indexOfQuoteToDelete!])
     }
+/// updateQuote add new values to an existing quote
     mutating func updateQuote(id:UUID,text:String,authorName:String,tagList:Array<Tag>){
         var quoteToUpdate:Quote = Quote()
         for aQuote in quote{
