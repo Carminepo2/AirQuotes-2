@@ -40,7 +40,7 @@ class StoreAirQuotes: ObservableObject {
         model.deleteQuote(id: id)
     }
     func updateQuote(id:UUID,text:String,authorName:String,tagList:Array<Tag>){
-        
+        model.updateQuote(id: id, text: text, authorName: authorName, tagList: tagList)
     }
     func getAllFolders() ->Array<Folder> {
         

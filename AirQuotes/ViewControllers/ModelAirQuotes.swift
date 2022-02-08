@@ -141,7 +141,17 @@ struct ModelAirQuotes{
         quote.remove(at: indexOfQuoteToDelete!)
     }
     mutating func updateQuote(id:UUID,text:String,authorName:String,tagList:Array<Tag>){
-    
+        var quoteToUpdate:Quote = Quote()
+        for aQuote in quote{
+            if(aQuote.id == id){
+                quoteToUpdate = aQuote
+            }
+        }
+        var newAuthor:Person = createAuthor(authorName: authorName)
+        
+        quoteToUpdate.setQuote(text: text, author: newAuthor, parentFolder: quoteToUpdate.parentFolder!, tagList: tagList)
+        CoreDataManager.shared.updateQuote()
+        
     }
     mutating func getFolder(idFolder:UUID){
         
