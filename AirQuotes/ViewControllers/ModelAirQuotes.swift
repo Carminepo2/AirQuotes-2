@@ -167,6 +167,7 @@ struct ModelAirQuotes{
         }
         return folder[folderIndexToReturn!]
     }
+    ///addQuoteToFavorites add a specific quote to the favorites
     mutating func addQuoteToFavorites(idQuote:UUID){
         
         var indexQuoteToAddToFavorites:Int? = nil
@@ -177,6 +178,7 @@ struct ModelAirQuotes{
         }
         quote[indexQuoteToAddToFavorites!].isFavorite = true
     }
+    ///removeQuoteFromFavorites remove a specific quote from the favorites
     mutating func removeQuoteFromFavorites(idQuote:UUID){
         var indexQuoteToRemoveFromFavorites:Int? = nil
         for index in 0..<quote.count{
