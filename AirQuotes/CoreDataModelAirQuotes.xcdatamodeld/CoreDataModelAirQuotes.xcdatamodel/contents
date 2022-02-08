@@ -13,6 +13,7 @@
     <entity name="Quote" representedClassName="Quote" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="text" optional="YES" attributeType="String"/>
         <relationship name="author" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="quotes" inverseEntity="Person"/>
         <relationship name="parentFolder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" inverseName="myQuote" inverseEntity="Folder"/>
@@ -27,7 +28,7 @@
     <elements>
         <element name="Folder" positionX="-12356.43359375" positionY="-3681.20703125" width="128" height="88"/>
         <element name="Person" positionX="-12352.078125" positionY="-3923.5234375" width="128" height="88"/>
-        <element name="Quote" positionX="-11865.2109375" positionY="-3938.28125" width="128" height="133"/>
+        <element name="Quote" positionX="-11865.2109375" positionY="-3938.28125" width="128" height="148"/>
         <element name="Tag" positionX="-11857.3046875" positionY="-3687.0234375" width="128" height="103"/>
     </elements>
 </model>

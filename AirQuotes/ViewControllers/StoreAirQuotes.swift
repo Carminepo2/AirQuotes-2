@@ -32,31 +32,37 @@ class StoreAirQuotes: ObservableObject {
     func removeFolder(id:UUID){
         model.removeFolder(id: id)
     }
-    ///the user creates a unique quote within the same folder
+    ///createQuote creates a unique quote within the same folder
     func createQuote(text:String,authorName:String,parentFolder:UUID,tagList:Array<Tag>) throws{
         try model.createQuote(text: text, authorName: authorName, parentFolder: parentFolder, tagList: tagList)
     }
+    ///deleteQuote delete an existing quote
     func deleteQuote(id:UUID){
         model.deleteQuote(id: id)
     }
+    ///updateQuote set an existing quote with new value
     func updateQuote(id:UUID,text:String,authorName:String,tagList:Array<Tag>){
         model.updateQuote(id: id, text: text, authorName: authorName, tagList: tagList)
     }
+    ///getAllFolders returns all the folders
     func getAllFolders() ->Array<Folder> {
-        
-        return []
+        return model.folder
     }
+    ///getAllQuotesInFolder returns all the quote in a specific folder
     func getAllQuotesInFolder(folder:UUID)->Array<Quote>{
         return []
     }
-    func addQuoteToFavorites(quote:UUID){
-        
+    ///addQuoteToFavorites add an existing quote to the favorites
+    func addQuoteToFavorites(idQuote:UUID){
+        model.addQuoteToFavorites(idQuote: idQuote)
     }
-    func removeQuoteFromFavorites(quoteToRemove:UUID){
-        
+    ///removeQuoteFromFavorites remove an existing quote from the favorites
+    func removeQuoteFromFavorites(idQuote:UUID){
+        model.removeQuoteFromFavorites(idQuote: idQuote)
     }
+    ///getAllQuotes returns all the quotes
     func getAllQuotes()->Array<Quote>{
-        return []
+        return model.quote
     }
     func searchByTag(tag:UUID){
         

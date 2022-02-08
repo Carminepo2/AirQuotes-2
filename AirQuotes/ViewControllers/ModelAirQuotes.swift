@@ -151,7 +151,6 @@ struct ModelAirQuotes{
             }
         }
         var newAuthor:Person = createAuthor(authorName: authorName)
-        
         quoteToUpdate.setQuote(text: text, author: newAuthor, parentFolder: quoteToUpdate.parentFolder!, tagList: tagList)
         CoreDataManager.shared.updateQuote()
         
@@ -161,9 +160,22 @@ struct ModelAirQuotes{
     }
     mutating func addQuoteToFavorites(idQuote:UUID){
         
+        var indexQuoteToAddToFavorites:Int? = nil
+        for index in 0..<quote.count{
+            if(quote[index].id == idQuote){
+                indexQuoteToAddToFavorites = index
+            }
+        }
+        quote[indexQuoteToAddToFavorites!].isFavorite = true
     }
     mutating func removeQuoteFromFavorites(idQuote:UUID){
-        
+        var indexQuoteToRemoveFromFavorites:Int? = nil
+        for index in 0..<quote.count{
+            if(quote[index].id == idQuote){
+                indexQuoteToRemoveFromFavorites = index
+            }
+        }
+        quote[indexQuoteToRemoveFromFavorites!].isFavorite = false
     }
     
     
