@@ -26,7 +26,8 @@ struct ModelAirQuotes{
     }
     /// createTag create a newTag in the app
     mutating func createTag(name:String,color:String){
-        var newTag:Tag = Tag()
+        var newTag:Tag = Tag(context: CoreDataManager.shared.persistentContainer.viewContext)
+        newTag.id = UUID()
         newTag.title = name
         newTag.color = color
         tag.append(newTag)
@@ -57,10 +58,12 @@ struct ModelAirQuotes{
                 throw FolderName.alreadyExist
             }
         }
-        var newFolder:Folder = Folder()
+        var newFolder:Folder = Folder(context: CoreDataManager.shared.persistentContainer.viewContext)
+        newFolder.id = UUID()
         newFolder.name = folderName
         newFolder.icon = folderIcon
         newFolder.color = folderColor
+        folder.append(newFolder)
         CoreDataManager.shared.createFolder(folderToSave: newFolder)
     }
 ///removeFolder remove a specific folder from the sistem
@@ -83,9 +86,9 @@ struct ModelAirQuotes{
     }
     ///the user creates a unique quote within the same folder
     mutating func createQuote(text:String,authorName:String,parentFolder:UUID,tagList:Array<Tag>) throws{
-        var theFolder:Folder = Folder()
+        var theFolder:Folder = Folder(context: CoreDataManager.shared.persistentContainer.viewContext)
         var theQuotesInTheFolder:Array<Quote> = Array<Quote>()
-        var authorOfTheQuote = Person()
+        var authorOfTheQuote = Person(context: CoreDataManager.shared.persistentContainer.viewContext)
         
 //I check that a quote with the same text does not exist in the same folder
 
@@ -105,7 +108,7 @@ struct ModelAirQuotes{
 //        I create a newAuthor if not already exist
         authorOfTheQuote = createAuthor(authorName: authorName)
 // Now I create the quote
-        var newQuote:Quote = Quote()
+        var newQuote:Quote = Quote(context: CoreDataManager.shared.persistentContainer.viewContext)
         newQuote.setQuote(text: text, author: authorOfTheQuote, parentFolder: theFolder, tagList: tagList)
         for aTag in tagList {
             aTag.quotes?.adding(newQuote) //da verificare
@@ -125,7 +128,8 @@ struct ModelAirQuotes{
             }
         }
         if (newAuthor == nil){
-            newAuthor = Person()
+            newAuthor = Person(context: CoreDataManager.shared.persistentContainer.viewContext)
+            newAuthor?.id = UUID()
             newAuthor?.name = authorName
             person.append(newAuthor!)
             CoreDataManager.shared.createPerson(personToSave: newAuthor!)
@@ -195,6 +199,7 @@ struct ModelAirQuotes{
 }
 extension Quote{
     func setQuote(text:String,author:Person,parentFolder:Folder,tagList:Array<Tag>){
+        self.id = UUID()
         self.text = text
         self.author = author
         self.parentFolder = parentFolder

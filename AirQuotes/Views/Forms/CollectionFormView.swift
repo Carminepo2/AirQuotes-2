@@ -9,7 +9,8 @@ import SwiftUI
 
 struct CollectionFormView: View {
     @Environment(\.presentationMode) var presentationMode
-    
+    @EnvironmentObject var Controller:StoreAirQuotes
+
     // MARK: Form States
     @State private var collectionNameTest = ""
     @State private var chosenColor = "TagRed"
@@ -57,13 +58,21 @@ struct CollectionFormView: View {
     private func DoneButton() -> some View {
         Button("Done") {
             presentationMode.wrappedValue.dismiss()
+            do{
+                try Controller.createFolder(folderName: collectionNameTest, folderIcon: chosenIcon, folderColor: chosenColor)
+            }
+            catch{
+                print("già esiste")
+            }
+            
         }
-        .disabled(collectionNameTest.isEmpty)
+//        .disabled(collectionNameTest.isEmpty)
     }
 }
 
 struct CollectionFormView_Previews: PreviewProvider {
     static var previews: some View {
         CollectionFormView()
+            .environmentObject(StoreAirQuotes.shared)
     }
 }
