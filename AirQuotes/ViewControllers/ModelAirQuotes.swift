@@ -155,8 +155,16 @@ struct ModelAirQuotes{
         CoreDataManager.shared.updateQuote()
         
     }
-    mutating func getFolder(idFolder:UUID){
+/// return an existing folder
+    mutating func getFolder(idFolder:UUID)->Folder{
+        var folderIndexToReturn:Int? = nil
         
+        for folderIndex in 0..<folder.count{
+            if(folder[folderIndex].id == idFolder){
+                folderIndexToReturn = folderIndex
+            }
+        }
+        return folder[folderIndexToReturn!]
     }
     mutating func addQuoteToFavorites(idQuote:UUID){
         

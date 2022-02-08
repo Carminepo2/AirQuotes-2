@@ -49,8 +49,10 @@ class StoreAirQuotes: ObservableObject {
         return model.folder
     }
     ///getAllQuotesInFolder returns all the quote in a specific folder
-    func getAllQuotesInFolder(folder:UUID)->Array<Quote>{
-        return []
+    func getAllQuotesInFolder(idFolder:UUID)->Array<Quote>{
+        var theFolderWhichContainTheQuotes = model.getFolder(idFolder: idFolder)
+        var theQuotesToReturn:Array<Quote> = theFolderWhichContainTheQuotes.myQuote!.toArray()
+        return theQuotesToReturn
     }
     ///addQuoteToFavorites add an existing quote to the favorites
     func addQuoteToFavorites(idQuote:UUID){
