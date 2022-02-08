@@ -66,6 +66,7 @@ class StoreAirQuotes: ObservableObject {
     func getAllQuotes()->Array<Quote>{
         return model.quote
     }
+    ///searchBy Author returns all the quote with a specific tag
     func searchByTag(idTag:UUID)->Array<Quote>{
         var listaTag = model.tag
         var indexOfTheTag:Int? = nil
@@ -76,6 +77,7 @@ class StoreAirQuotes: ObservableObject {
         }
         return listaTag[indexOfTheTag!].quotes!.toArray()
     }
+    ///searchBy Author returns all the quote associated to a specific author
     func searchByAuthor(idAuthor:UUID)->Array<Quote>{
         var listaAuthor = model.person
         var indexOfTheAuthor:Int? = nil
@@ -86,6 +88,7 @@ class StoreAirQuotes: ObservableObject {
         }
         return listaAuthor[indexOfTheAuthor!].quotes!.toArray()
     }
+    ///getFavorites returns all the favorites
     func getFavorites()->Array<Quote>{
         var favorites:Array<Quote> = Array<Quote>()
         var allTheQuote:Array<Quote> = model.quote
@@ -98,7 +101,13 @@ class StoreAirQuotes: ObservableObject {
         
         return favorites
     }
+    ///getLatesQuotes returns the last five quotes created
     func getLatestQuotes()->Array<Quote>{
-        
+        var latestQuote:Array<Quote> = Array<Quote>()
+        var allTheQuote:Array<Quote> = model.quote
+        for quoteIndex in allTheQuote.count..<(allTheQuote.count-5){
+            latestQuote.append(allTheQuote[quoteIndex])
+        }
+        return latestQuote
     }
 }

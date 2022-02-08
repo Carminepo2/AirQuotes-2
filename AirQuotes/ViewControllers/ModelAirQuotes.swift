@@ -108,6 +108,7 @@ struct ModelAirQuotes{
         for aTag in tagList {
             aTag.quotes?.adding(newQuote) //da verificare
         }
+        quote.append(newQuote)
         CoreDataManager.shared.createQuote(quoteToSave: newQuote)
         CoreDataManager.shared.updateTag()
         
