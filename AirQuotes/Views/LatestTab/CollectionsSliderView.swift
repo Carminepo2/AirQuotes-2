@@ -60,7 +60,9 @@ struct CollectionsSliderView: View {
 struct CollectionsSliderView_Previews: PreviewProvider {
     static var previews: some View {
         CollectionsSliderView()
+            .environmentObject(StoreAirQuotes.shared)
         CollectionsSliderView()
+            .environmentObject(StoreAirQuotes.shared)
             .preferredColorScheme(.dark)
         
         
