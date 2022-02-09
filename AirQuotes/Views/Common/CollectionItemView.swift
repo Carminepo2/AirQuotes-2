@@ -8,15 +8,25 @@
 import SwiftUI
 
 struct CollectionItemView: View {
+    @EnvironmentObject var Controller: StoreAirQuotes
+    
+    @State private var isShowingSheet = false
+    
     let name: String
     let color: Color
     let systemName: String
+    let id: UUID?
+    
+    init(name: String, color: Color, systemName: String, id: UUID? = nil) {
+        self.name = name
+        self.color = color
+        self.systemName = systemName
+        self.id = id
+    }
     
     var body: some View {
-        
         VStack {
             CollectionItemRectView(name: name, color: color, systemName: systemName)
-            
             HStack {
                 Text(name)
                     .font(.footnote)
@@ -25,10 +35,34 @@ struct CollectionItemView: View {
                 
                 Spacer()
                 
-                Button(action: {}) {
+                Button(action: { isShowingSheet = true }) {
                     Image(systemName: "ellipsis")
                 }
             }
+            .actionSheet(isPresented: $isShowingSheet) {
+                ActionSheet(
+                    title: Text(""),
+                    buttons:[
+                        .default(Text("Edit"), action: editCollection),
+                        .destructive(Text("Delete"),
+                                     action: deleteCollection),
+                        .cancel()
+                    ]
+                )}
+        }
+    }
+    
+    // MARK: - Functions
+    
+    func deleteCollection() {
+        if let id = id {
+            Controller.removeFolder(id: id)
+        }
+    }
+    
+    func editCollection() {
+        if let id = id {
+            //TODO
         }
     }
 }
@@ -40,10 +74,10 @@ struct CollectionItemRectView: View {
     let name: String
     let color: Color
     let systemName: String
-
+    
     var body: some View {
         let shadowColorOpacity = colorScheme == .dark ? Settings.ShadowColorOpacityDarkMode : Settings.ShadowColorOpacityLightMode
-
+        
         GeometryReader { geometry in
             ZStack {
                 RoundedRectangle(cornerRadius: Settings.CornerRadius)
@@ -56,6 +90,7 @@ struct CollectionItemRectView: View {
             }
         }
         .aspectRatio(contentMode: .fit)
+        
     }
     
     private func size(thatFits size: CGSize) -> CGFloat {

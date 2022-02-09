@@ -18,7 +18,7 @@ struct CollectionsListView: View {
         return Controller.getAllFolders().filter { ($0.name ?? Settings.DefaultName).contains(searchText) }
     }
     
-    let columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: Settings.CollectionViewsPerRow)
+    let columns = Array(repeating: GridItem(.flexible(), spacing: Settings.CollectionHSpacing), count: Settings.CollectionViewsPerRow)
     
     var body: some View {
         Group {
@@ -28,9 +28,14 @@ struct CollectionsListView: View {
                     .vCenter()
             } else {
                 ScrollView {
-                    LazyVGrid(columns: columns, spacing: 20) {
-                        ForEach(collections, id:\.self){ aCollection in
-                            CollectionItemView(name: aCollection.name ?? Settings.DefaultName, color: Color(aCollection.color!), systemName:aCollection.icon!)
+                    LazyVGrid(columns: columns, spacing: Settings.CollectionVSpacing) {
+                        ForEach(collections, id:\.self){ collection in
+                            CollectionItemView(
+                                name: collection.name ?? Settings.DefaultName,
+                                color: Color(collection.color!),
+                                systemName:collection.icon!,
+                                id: collection.id
+                            )
                         }
                     }
                     .padding()

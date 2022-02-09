@@ -28,7 +28,6 @@ struct LatestSectionView<ContentView: View, ButtonView: View>: View {
                 Spacer()
                 button
             }
-            
             .padding(.horizontal)
             
             content

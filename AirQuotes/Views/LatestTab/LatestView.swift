@@ -29,14 +29,16 @@ struct LatestView: View {
             .padding()
 
             
-            // MARK: - Quote Slider
+            // MARK: - Collections Slider
             LatestSectionView("Latest collections") {
-                // TODO
+                CollectionsSliderView()
             } button: {
                 Button(action: newCollectionButtonTapped) {
                     Label("Add", systemImage: "plus.circle")
                 }
             }
+            .padding(.bottom, 20)
+
         }
         .searchable(text: $searchText)
         
