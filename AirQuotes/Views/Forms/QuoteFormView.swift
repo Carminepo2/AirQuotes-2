@@ -87,7 +87,7 @@ struct QuoteFormView: View {
                                 .tag($0 as Folder?)
                         }
                     }
-                    .disabled(collections.isEmpty)
+                    .disabled(collections.isEmpty || chosenCollection == nil)
                     
                     //MARK: Create New Collection Button
                     NewItemButton("New Collection", systemName: "folder.badge.plus", action: newCollectionButtonTapped)
@@ -116,7 +116,7 @@ struct QuoteFormView: View {
     private func DoneButton() -> some View {
         Button("Done") {
             do {
-                try Controller.createQuote(text: quoteText, authorName: authorText, parentFolder: chosenCollection, tagList: chosenTags)
+                try Controller.createQuote(text: quoteText, authorName: authorText, parentFolder: chosenCollection!.id!, tagList: chosenTags)
             } catch {
                 print(error)
                 // TODO: Error handling
@@ -174,7 +174,10 @@ fileprivate struct NewItemButton: View {
 struct QuoteFormView_Previews: PreviewProvider {
     static var previews: some View {
         QuoteFormView()
+            .environmentObject(StoreAirQuotes.shared)
+
         QuoteFormView()
+            .environmentObject(StoreAirQuotes.shared)
             .preferredColorScheme(.dark)
     }
 }

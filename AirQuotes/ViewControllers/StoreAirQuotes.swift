@@ -37,8 +37,8 @@ class StoreAirQuotes: ObservableObject {
         model.removeFolder(id: id)
     }
     ///createQuote creates a unique quote within the same folder
-    func createQuote(text:String,authorName:String,parentFolder:Folder?,tagList:Array<Tag>) throws{
-        try model.createQuote(text: text, authorName: authorName, parentFolder: parentFolder?.id, tagList: tagList)
+    func createQuote(text:String,authorName:String,parentFolder: UUID,tagList:Array<Tag>) throws{
+        try model.createQuote(text: text, authorName: authorName, parentFolder: parentFolder, tagList: tagList)
     }
     ///deleteQuote delete an existing quote
     func deleteQuote(id:UUID){

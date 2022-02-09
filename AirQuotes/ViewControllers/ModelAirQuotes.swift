@@ -91,7 +91,7 @@ struct ModelAirQuotes{
         
     }
     ///the user creates a unique quote within the same folder
-    mutating func createQuote(text:String,authorName:String,parentFolder:UUID?,tagList:Array<Tag>) throws{
+    mutating func createQuote(text:String,authorName:String,parentFolder:UUID,tagList:Array<Tag>) throws{
         var theFolder: Folder = Folder(context: CoreDataManager.shared.persistentContainer.viewContext)
         var theQuotesInTheFolder:Array<Quote> = Array<Quote>()
         var authorOfTheQuote = Person(context: CoreDataManager.shared.persistentContainer.viewContext)
