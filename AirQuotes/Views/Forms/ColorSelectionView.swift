@@ -17,6 +17,7 @@ struct ColorSelectionView: View {
             ColorButtonView(colorName: "TagPink", chosenColor: $chosenColor)
             ColorButtonView(colorName: "TagBlue", chosenColor: $chosenColor)
         }
+        .frame(maxWidth: .infinity)
     }
 }
 

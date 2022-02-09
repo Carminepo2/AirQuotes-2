@@ -9,11 +9,11 @@ import SwiftUI
 
 struct TagFormView: View {
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var Controller: StoreAirQuotes
 
     // MARK: Form States
     @State private var tagName: String = ""
     @State private var chosenColor = "TagRed"
-    
     
     var body: some View {
         NavigationView {
@@ -45,6 +45,14 @@ struct TagFormView: View {
     @ViewBuilder
     private func DoneButton() -> some View {
         Button("Done") {
+            do {
+                try Controller.createTag(name: tagName, color: chosenColor)
+            }
+            catch {
+                print("già esiste")
+                // TODO: Error handling
+                return
+            }
             presentationMode.wrappedValue.dismiss()
         }
         .disabled(tagName.isEmpty)

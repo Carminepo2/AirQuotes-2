@@ -33,6 +33,14 @@ extension View {
             .frame(maxWidth: .infinity, alignment: .trailing)
     }
     
+    /**
+     - Returns: View vertically centered.
+     */
+    func vCenter() -> some View {
+        self
+            .frame(maxHeight: .infinity, alignment: .center)
+    }
+    
     func getScreenBounds() -> CGRect {
         return UIScreen.main.bounds
     }

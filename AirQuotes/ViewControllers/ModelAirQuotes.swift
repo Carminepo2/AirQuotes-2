@@ -25,8 +25,14 @@ struct ModelAirQuotes{
         
     }
     /// createTag create a newTag in the app
-    mutating func createTag(name:String,color:String){
-        var newTag:Tag = Tag(context: CoreDataManager.shared.persistentContainer.viewContext)
+    mutating func createTag(name:String,color:String) throws {
+        //      check that a folder with that name does not already exist
+        for aTag in tag {
+            if(aTag.title == name){
+                throw TagName.alreadyExist
+            }
+        }
+        let newTag:Tag = Tag(context: CoreDataManager.shared.persistentContainer.viewContext)
         newTag.id = UUID()
         newTag.title = name
         newTag.color = color
@@ -37,7 +43,7 @@ struct ModelAirQuotes{
     mutating func removeTag(id:UUID){
         var index:Int? = nil
         var tagToDelete:Tag? = nil
-//        search for the position in the array of the element to delete
+        //        search for the position in the array of the element to delete
         for tagIndex in 0..<tag.count{
             if(tag[tagIndex].id == id){
                 index = tagIndex
@@ -50,15 +56,15 @@ struct ModelAirQuotes{
             CoreDataManager.shared.deleteTag(tagToDelete: tagToDelete!)
         }
     }
-/// createFolder creates a new folder if one with the same name does not already exist
-    mutating func createFolder(folderName:String,folderIcon:String,folderColor:String) throws{
-//      check that a folder with that name does not already exist
+    /// createFolder creates a new folder if one with the same name does not already exist
+    mutating func createFolder(folderName:String,folderIcon:String,folderColor:String) throws {
+        //      check that a folder with that name does not already exist
         for aFolder in folder{
             if(aFolder.name == folderName){
                 throw FolderName.alreadyExist
             }
         }
-        var newFolder:Folder = Folder(context: CoreDataManager.shared.persistentContainer.viewContext)
+        let newFolder:Folder = Folder(context: CoreDataManager.shared.persistentContainer.viewContext)
         newFolder.id = UUID()
         newFolder.name = folderName
         newFolder.icon = folderIcon
@@ -66,8 +72,8 @@ struct ModelAirQuotes{
         folder.append(newFolder)
         CoreDataManager.shared.createFolder(folderToSave: newFolder)
     }
-///removeFolder remove a specific folder from the sistem
-    mutating func removeFolder(id:UUID){
+    ///removeFolder remove a specific folder from the sistem
+    mutating func removeFolder(id:UUID) {
         var index:Int? = nil
         var folderToDelete:Folder? = nil
         //search for the position in the array of the element to delete
@@ -77,38 +83,38 @@ struct ModelAirQuotes{
             }
         }
         if(index != nil){
-//            remove the element from the array
+            //            remove the element from the array
             folderToDelete = folder.remove(at: index!)
-//            remove the array from the DB
+            //            remove the array from the DB
             CoreDataManager.shared.deleteFolder(folderToDelete: folderToDelete!)
         }
-
+        
     }
     ///the user creates a unique quote within the same folder
-    mutating func createQuote(text:String,authorName:String,parentFolder:UUID,tagList:Array<Tag>) throws{
-        var theFolder:Folder = Folder(context: CoreDataManager.shared.persistentContainer.viewContext)
+    mutating func createQuote(text:String,authorName:String,parentFolder:UUID?,tagList:Array<Tag>) throws{
+        var theFolder: Folder = Folder(context: CoreDataManager.shared.persistentContainer.viewContext)
         var theQuotesInTheFolder:Array<Quote> = Array<Quote>()
         var authorOfTheQuote = Person(context: CoreDataManager.shared.persistentContainer.viewContext)
         
-//I check that a quote with the same text does not exist in the same folder
-
+        //I check that a quote with the same text does not exist in the same folder
+        
         //I start by taking all the quotes in the folder
         for aFolder in folder{
             if(aFolder.id == parentFolder){
-             theFolder = aFolder
+                theFolder = aFolder
             }
         }
         theQuotesInTheFolder = theFolder.myQuote!.toArray()
-//        if there is already a quotation with the same text I throw an exception
+        //        if there is already a quotation with the same text I throw an exception
         for aQuote in theQuotesInTheFolder {
             if(aQuote.text == text){
                 throw QuoteInFolder.alreadyExist
             }
         }
-//        I create a newAuthor if not already exist
+        //        I create a newAuthor if not already exist
         authorOfTheQuote = createAuthor(authorName: authorName)
-// Now I create the quote
-        var newQuote:Quote = Quote(context: CoreDataManager.shared.persistentContainer.viewContext)
+        // Now I create the quote
+        let newQuote:Quote = Quote(context: CoreDataManager.shared.persistentContainer.viewContext)
         newQuote.setQuote(text: text, author: authorOfTheQuote, parentFolder: theFolder, tagList: tagList)
         for aTag in tagList {
             aTag.quotes?.adding(newQuote) //da verificare
@@ -119,7 +125,7 @@ struct ModelAirQuotes{
         
         
     }
-///createAuthor create and return an Author that already exist or a newAuthor
+    ///createAuthor create and return an Author that already exist or a newAuthor
     mutating func createAuthor(authorName:String)->Person{
         var newAuthor:Person? = nil
         for anAuthor in person{
@@ -137,7 +143,7 @@ struct ModelAirQuotes{
         return newAuthor!
         
     }
-/// deleteQuote delete an existing quote
+    /// deleteQuote delete an existing quote
     mutating func deleteQuote(id:UUID){
         var indexOfQuoteToDelete:Int? = nil
         
@@ -149,7 +155,7 @@ struct ModelAirQuotes{
         quote.remove(at: indexOfQuoteToDelete!)
         CoreDataManager.shared.deleteQuote(quoteToDelete: quote[indexOfQuoteToDelete!])
     }
-/// updateQuote add new values to an existing quote
+    /// updateQuote add new values to an existing quote
     mutating func updateQuote(id:UUID,text:String,authorName:String,tagList:Array<Tag>){
         var quoteToUpdate:Quote = Quote()
         for aQuote in quote{
@@ -157,12 +163,12 @@ struct ModelAirQuotes{
                 quoteToUpdate = aQuote
             }
         }
-        var newAuthor:Person = createAuthor(authorName: authorName)
+        let newAuthor:Person = createAuthor(authorName: authorName)
         quoteToUpdate.setQuote(text: text, author: newAuthor, parentFolder: quoteToUpdate.parentFolder!, tagList: tagList)
         CoreDataManager.shared.updateQuote()
         
     }
-/// return an existing folder
+    /// return an existing folder
     mutating func getFolder(idFolder:UUID)->Folder{
         var folderIndexToReturn:Int? = nil
         

@@ -19,7 +19,7 @@ struct BrowseView: View {
                 Label("Tags", systemImage: "tag")
             }
             
-            NavigationLink(destination: EmptyView()) {
+            NavigationLink(destination: FavoritesListView()) {
                 Label("Favorites", systemImage: "heart")
             }
             

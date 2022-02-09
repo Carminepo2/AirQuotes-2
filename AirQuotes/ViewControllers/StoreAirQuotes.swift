@@ -16,9 +16,13 @@ class StoreAirQuotes: ObservableObject {
     private init() {
         model = ModelAirQuotes()
     }
+    ///getAllTags returns all the tags
+    func getAllTags() -> Array<Tag> {
+        model.tag
+    }
     /// createTag create a newTag in the app
-    func createTag(name:String,color:String){
-        model.createTag(name: name, color: color)
+    func createTag(name:String,color:String) throws {
+        try model.createTag(name: name, color: color)
     }
     ///removeTag remove a specific tag from the sistem
     func removeTag(id:UUID){
@@ -33,8 +37,8 @@ class StoreAirQuotes: ObservableObject {
         model.removeFolder(id: id)
     }
     ///createQuote creates a unique quote within the same folder
-    func createQuote(text:String,authorName:String,parentFolder:UUID,tagList:Array<Tag>) throws{
-        try model.createQuote(text: text, authorName: authorName, parentFolder: parentFolder, tagList: tagList)
+    func createQuote(text:String,authorName:String,parentFolder:Folder?,tagList:Array<Tag>) throws{
+        try model.createQuote(text: text, authorName: authorName, parentFolder: parentFolder?.id, tagList: tagList)
     }
     ///deleteQuote delete an existing quote
     func deleteQuote(id:UUID){
@@ -50,8 +54,8 @@ class StoreAirQuotes: ObservableObject {
     }
     ///getAllQuotesInFolder returns all the quote in a specific folder
     func getAllQuotesInFolder(idFolder:UUID)->Array<Quote>{
-        var theFolderWhichContainTheQuotes = model.getFolder(idFolder: idFolder)
-        var theQuotesToReturn:Array<Quote> = theFolderWhichContainTheQuotes.myQuote!.toArray()
+        let theFolderWhichContainTheQuotes = model.getFolder(idFolder: idFolder)
+        let theQuotesToReturn:Array<Quote> = theFolderWhichContainTheQuotes.myQuote!.toArray()
         return theQuotesToReturn
     }
     ///addQuoteToFavorites add an existing quote to the favorites
@@ -68,7 +72,7 @@ class StoreAirQuotes: ObservableObject {
     }
     ///searchBy Author returns all the quote with a specific tag
     func searchByTag(idTag:UUID)->Array<Quote>{
-        var listaTag = model.tag
+        let listaTag = model.tag
         var indexOfTheTag:Int? = nil
         for tagIndex in 0..<listaTag.count{
             if(listaTag[tagIndex].id == idTag){
@@ -79,7 +83,7 @@ class StoreAirQuotes: ObservableObject {
     }
     ///searchBy Author returns all the quote associated to a specific author
     func searchByAuthor(idAuthor:UUID)->Array<Quote>{
-        var listaAuthor = model.person
+        let listaAuthor = model.person
         var indexOfTheAuthor:Int? = nil
         for authorIndex in 0..<listaAuthor.count{
             if(listaAuthor[authorIndex].id == idAuthor){
@@ -91,7 +95,7 @@ class StoreAirQuotes: ObservableObject {
     ///getFavorites returns all the favorites
     func getFavorites()->Array<Quote>{
         var favorites:Array<Quote> = Array<Quote>()
-        var allTheQuote:Array<Quote> = model.quote
+        let allTheQuote:Array<Quote> = model.quote
         
         for aQuote in allTheQuote{
             if(aQuote.isFavorite == true){
@@ -104,7 +108,7 @@ class StoreAirQuotes: ObservableObject {
     ///getLatesQuotes returns the last five quotes created
     func getLatestQuotes()->Array<Quote>{
         var latestQuote:Array<Quote> = Array<Quote>()
-        var allTheQuote:Array<Quote> = model.quote
+        let allTheQuote:Array<Quote> = model.quote
         for quoteIndex in allTheQuote.count..<(allTheQuote.count-5){
             latestQuote.append(allTheQuote[quoteIndex])
         }

@@ -7,17 +7,18 @@
 
 import SwiftUI
 
-struct MultipleSelectionRowView: View {
+struct MultipleSelectionRowView<T>: View {
     @Environment(\.colorScheme) var colorScheme
     
-    var title: String
+    let label: String
+    let data: T
     var isSelected: Bool
-    var action: (String) -> Void
+    var action: (T) -> Void
 
     var body: some View {
-        Button(action: { self.action(title) }) {
+        Button(action: { self.action(data) }) {
             HStack {
-                Text(self.title)
+                Text(self.label)
                 if self.isSelected {
                     Spacer()
                     Image(systemName: "checkmark")
@@ -33,8 +34,8 @@ struct MultipleSelectionRowView_Previews: PreviewProvider {
 
     static var previews: some View {
 
-        MultipleSelectionRowView(title: "Test selected", isSelected: true, action: { (_ a: String) in  })
-        MultipleSelectionRowView(title: "Test not selected", isSelected: false, action: { (_ a: String) in  })
+        MultipleSelectionRowView(label: "Test selected", data: "1",  isSelected: true, action: { (_ a: String) in  })
+        MultipleSelectionRowView(label: "Test not selected", data: "2", isSelected: false, action: { (_ a: String) in  })
             .preferredColorScheme(.dark)
     }
 }

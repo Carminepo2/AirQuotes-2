@@ -30,5 +30,8 @@ struct Settings {
         "face.smiling.fill",
         "lightbulb.fill"
     ]
+    
+    static let DefaultName = "Unknown"
+    static let EmptyStateMessage = "Empty"
 }
 

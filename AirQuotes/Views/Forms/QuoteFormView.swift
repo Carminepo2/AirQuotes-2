@@ -12,14 +12,24 @@ let TEST_TAGS = ["Love", "War", "Peace"]
 
 struct QuoteFormView: View {
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var Controller: StoreAirQuotes
+    
+    var collections: Array<Folder> {
+        return Controller.getAllFolders()
+    }
+    
+    var tags: Array<Tag> {
+        return Controller.getAllTags()
+    }
+
     @State private var showTagForm = false
     @State private var showCollectionForm = false
 
     // MARK: Form States
     @State private var quoteText = ""
     @State private var authorText = ""
-    @State private var chosenTags: [String] = []
-    @State private var selectedCollection: String? = nil
+    @State private var chosenTags: [Tag] = []
+    @State private var chosenCollection: Folder? = nil
     
     
     var body: some View {
@@ -38,11 +48,11 @@ struct QuoteFormView: View {
                 // MARK: - Tags Fields
                 Section(header: Text("Tags")) {
                     
-                    //MARK: Create New Tag Button
+                    //MARK: Add Tag Button
                     NavigationLink {
                         List {
-                            ForEach(TEST_TAGS, id: \.self) {
-                                MultipleSelectionRowView(title: $0, isSelected: checkIfTagSelected($0), action: selectionRowTapped)
+                            ForEach(tags, id: \.self) { tag in
+                                MultipleSelectionRowView(label: tag.title ?? Settings.DefaultName, data: tag, isSelected: checkIfTagSelected(tag), action: selectionRowTapped)
                             }
                         }
                         .listStyle(GroupedListStyle())
@@ -50,13 +60,14 @@ struct QuoteFormView: View {
                     } label: {
                         Text("Choose tag")
                     }
+                    .disabled(tags.isEmpty)
                     
                     //MARK: Tag Preview
                     if chosenTags.count > 0 {
                         ScrollView(.horizontal) {
                             HStack(spacing: 10) {
                                 ForEach(chosenTags, id: \.self) {
-                                    TagView(color: Color("TagBlue"), title: $0)
+                                    TagView(color: Color("TagBlue"), title: $0.title ?? Settings.DefaultName)
                                 }
                             }
                             .padding(.vertical)
@@ -70,11 +81,13 @@ struct QuoteFormView: View {
                 // MARK: - Collection Fields
                 Section(header: Text("Collection")) {
                     //MARK: Choose Collection Button
-                    Picker("Choose collection", selection: $selectedCollection) {
-                        ForEach(TEST_TAGS, id: \.self) {
-                            Text($0).tag($0)
+                    Picker("Choose collection", selection: $chosenCollection) {
+                        ForEach(collections, id: \.self) {
+                            Text($0.name ?? Settings.DefaultName)
+                                .tag($0 as Folder?)
                         }
                     }
+                    .disabled(collections.isEmpty)
                     
                     //MARK: Create New Collection Button
                     NewItemButton("New Collection", systemName: "folder.badge.plus", action: newCollectionButtonTapped)
@@ -102,6 +115,13 @@ struct QuoteFormView: View {
     @ViewBuilder
     private func DoneButton() -> some View {
         Button("Done") {
+            do {
+                try Controller.createQuote(text: quoteText, authorName: authorText, parentFolder: chosenCollection, tagList: chosenTags)
+            } catch {
+                print(error)
+                // TODO: Error handling
+                return
+            }
             presentationMode.wrappedValue.dismiss()
         }
         .disabled(quoteText.isEmpty)
@@ -112,11 +132,12 @@ struct QuoteFormView: View {
     private func newTagButtonTapped() { showTagForm = true }
     private func newCollectionButtonTapped() { showCollectionForm = true }
     
-    private func checkIfTagSelected(_ tag: String) -> Bool {
+    private func checkIfTagSelected(_ tag: Tag) -> Bool {
         return chosenTags.contains(tag)
     }
     
-    private func selectionRowTapped(_ selectedTag: String) {
+    
+    private func selectionRowTapped(_ selectedTag: Tag) {
         if checkIfTagSelected(selectedTag) {
             if let index = chosenTags.firstIndex(of: selectedTag) {
                 chosenTags.remove(at: index)

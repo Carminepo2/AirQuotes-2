@@ -9,10 +9,10 @@ import SwiftUI
 
 struct CollectionFormView: View {
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var Controller:StoreAirQuotes
+    @EnvironmentObject var Controller: StoreAirQuotes
 
     // MARK: Form States
-    @State private var collectionNameTest = ""
+    @State private var collectionName = ""
     @State private var chosenColor = "TagRed"
     @State private var chosenIcon: String = "quote.opening"
 
@@ -22,9 +22,9 @@ struct CollectionFormView: View {
             Form {
                 Section {
                     VStack {
-                        CollectionItemRectView(name: collectionNameTest, color: Color(chosenColor), systemName: chosenIcon)
+                        CollectionItemRectView(name: collectionName, color: Color(chosenColor), systemName: chosenIcon)
                             .padding()
-                        TextField("Collection Name", text: $collectionNameTest)
+                        TextField("Collection Name", text: $collectionName)
                             .textFieldStyle(.roundedBorder)
                             .padding(.horizontal)
                     }
@@ -57,16 +57,17 @@ struct CollectionFormView: View {
     @ViewBuilder
     private func DoneButton() -> some View {
         Button("Done") {
-            presentationMode.wrappedValue.dismiss()
-            do{
-                try Controller.createFolder(folderName: collectionNameTest, folderIcon: chosenIcon, folderColor: chosenColor)
+            do {
+                try Controller.createFolder(folderName: collectionName, folderIcon: chosenIcon, folderColor: chosenColor)
             }
-            catch{
+            catch {
                 print("già esiste")
+                // TODO: Error handling
+                return
             }
-            
+            presentationMode.wrappedValue.dismiss()
         }
-//        .disabled(collectionNameTest.isEmpty)
+        .disabled(collectionName.isEmpty)
     }
 }
 

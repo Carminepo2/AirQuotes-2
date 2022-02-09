@@ -18,6 +18,8 @@ struct IconSelectionView: View {
                         IconButtonView(iconName: iconName, chosenIcon: $chosenIcon)
                     }
                 }
+                .frame(maxWidth: .infinity)
+
             }
         }
     }
