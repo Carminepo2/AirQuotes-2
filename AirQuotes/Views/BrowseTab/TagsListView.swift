@@ -1,44 +1,43 @@
 //
-//  FavoritesListView.swift
+//  TagsListView.swift
 //  AirQuotes
 //
-//  Created by Carmine Porricelli on 09/02/22.
+//  Created by Carmine Porricelli on 10/02/22.
 //
 
 import SwiftUI
 
-struct FavoritesListView: View {
+struct TagsListView: View {
     @State private var searchText = ""
     @EnvironmentObject var Controller: StoreAirQuotes
     
-    private var quotes: Array<Quote> {
+    private var tags: Array<Tag> {
         if searchText.isEmpty {
-            return Controller.getFavorites()
+            return Controller.getAllTags()
         }
-        return Controller.getFavorites()
-            .filter { ($0.text ?? Settings.DefaultName).contains(searchText) }
+        return Controller.getAllTags()
+            .filter { ($0.title ?? Settings.DefaultName).contains(searchText) }
     }
-    
+
     var body: some View {
         Group {
-            if quotes.isEmpty {
+            if tags.isEmpty {
                 Text(Settings.EmptyStateMessage)
                     .foregroundStyle(.tertiary)
                     .vCenter()
             } else {
-                List(quotes, id: \.self) {
-                    Text($0.text ?? Settings.DefaultName)
+                List(tags, id: \.self) {
+                    Text($0.title ?? Settings.DefaultName)
                 }
             }
         }
         .navigationTitle("Favorites")
         .searchable(text: $searchText)
     }
-    
 }
 
-struct FavoritesListView_Previews: PreviewProvider {
+struct TagsListView_Previews: PreviewProvider {
     static var previews: some View {
-        FavoritesListView()
+        TagsListView()
     }
 }

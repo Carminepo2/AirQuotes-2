@@ -39,6 +39,7 @@
 		759D239C27A9E648001DE6C8 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759D239B27A9E648001DE6C8 /* Functions.swift */; };
 		759D239E27A9E6AD001DE6C8 /* MultipleSelectionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759D239D27A9E6AD001DE6C8 /* MultipleSelectionRowView.swift */; };
 		75A9C86427A9EC4C00E1AAC6 /* LatestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A9C86327A9EC4C00E1AAC6 /* LatestView.swift */; };
+		75D113D827B55CAA00498FBE /* TagsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D113D727B55CAA00498FBE /* TagsListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		759D239B27A9E648001DE6C8 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		759D239D27A9E6AD001DE6C8 /* MultipleSelectionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionRowView.swift; sourceTree = "<group>"; };
 		75A9C86327A9EC4C00E1AAC6 /* LatestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestView.swift; sourceTree = "<group>"; };
+		75D113D727B55CAA00498FBE /* TagsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				7532090C27A8814900FBCA86 /* BrowseView.swift */,
 				75815FDD27AB3E6800C660F5 /* CollectionsListView.swift */,
 				751FFDCB27B43F2E00E5476C /* FavoritesListView.swift */,
+				75D113D727B55CAA00498FBE /* TagsListView.swift */,
 			);
 			path = BrowseTab;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				7575E7B727A8382900CF0804 /* AirQuotesApp.swift in Sources */,
 				75391DC827AA80E900C9BA27 /* CoreDataModelAirQuotes.xcdatamodeld in Sources */,
 				757EC1DE27AC5634000F65A1 /* IconSelectionView.swift in Sources */,
+				75D113D827B55CAA00498FBE /* TagsListView.swift in Sources */,
 				75815FDC27AB37C400C660F5 /* Array.swift in Sources */,
 				75391DC927AA80F200C9BA27 /* BrowseView.swift in Sources */,
 				75391DC227AA80AB00C9BA27 /* QuotesSliderView.swift in Sources */,

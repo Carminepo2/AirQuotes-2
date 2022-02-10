@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct AirQuotesApp: App {
     
-     @StateObject var controller = StoreAirQuotes.shared
+    @StateObject var controller = StoreAirQuotes.shared
     @Environment(\.scenePhase) var scenePhase
 
     var body: some Scene {

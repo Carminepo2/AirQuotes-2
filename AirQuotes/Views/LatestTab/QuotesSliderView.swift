@@ -7,37 +7,29 @@
 
 import SwiftUI
 
-struct QuoteSliderView: View {
+struct QuoteSliderView: View {    
+    @EnvironmentObject var Controller: StoreAirQuotes
     
-    private let emptyState = "Write your first quote!"
-    //    private let quotes = [Quote]()
-    
+    private var latestQuotes: Array<Quote> {
+        return Controller.getLatestQuotes()
+    }
     
     var body: some View {
         
         TabView {
-            //            if quotes.count > 0 {
-            //                ForEach(quotes) { quote in
-            //                    NavigationLink {
-            //                        ProgressView()
-            //                    } label: {
-            //                        QuoteSliderItem(text: (quote.text ?? "Unknown").truncate(length: 120), author: (quote.author ?? "Unknown").trunc(length: 16))
-            //                    }
-            //
-            //                }
-            //            } else {
-            QuoteSliderItem(text: emptyState, author: nil)
-                .opacity(0.5)
-                .padding(.horizontal)
-
-            QuoteSliderItem(text: emptyState, author: nil)
-                .opacity(0.5)
-                .padding(.horizontal)
-
-            QuoteSliderItem(text: emptyState, author: nil)
-                .opacity(0.5)
-                .padding(.horizontal)
-            //            }
+            if latestQuotes.count > 0 {
+                ForEach(latestQuotes, id: \.self) { quote in
+                    NavigationLink {
+                        ProgressView()
+                    } label: {
+                        QuoteSliderItem(quote: quote)
+                    }
+                }
+            } else {
+                QuoteSliderItem(quote: nil)
+                    .opacity(0.5)
+                
+            }
         }
         .frame(height: Settings.LatestQuotesHeight)
         .tabViewStyle(.page)
@@ -47,28 +39,28 @@ struct QuoteSliderView: View {
 
 fileprivate struct QuoteSliderItem: View {
     
-    let text: String
-    let author: String?
+    let quote: Quote?
     
     
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: Settings.CornerRadius)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(.quaternary)
                 .opacity(0.2)
             VStack {
-                Text("\"\(text)\"")
+                Text("\"\(quote?.text?.truncate(length: 120) ?? Settings.DefaultName)\"")
                     .font(.system(.title2, design: .serif))
                     .foregroundStyle(.primary)
                 
-                if let author = author {
-                    Text("- \(author)")
+                if let author = quote?.author {
+                    Text("- \(author.name ?? Settings.DefaultName)")
                         .opacity(0.5)
                         .padding(.top, 1)
                 }
             }
             .padding()
         }
+        .padding(.horizontal)
     }
 }
 

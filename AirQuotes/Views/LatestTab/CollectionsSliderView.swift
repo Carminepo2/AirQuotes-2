@@ -56,8 +56,6 @@ struct CollectionsSliderView_Previews: PreviewProvider {
         CollectionsSliderView()
             .preferredColorScheme(.dark)
             .environmentObject(StoreAirQuotes.shared)
-
-        
         
     }
 }
