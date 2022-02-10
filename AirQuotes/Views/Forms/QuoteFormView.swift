@@ -87,7 +87,7 @@ struct QuoteFormView: View {
                                 .tag($0 as Folder?)
                         }
                     }
-                    .disabled(collections.isEmpty || chosenCollection == nil)
+                    .disabled(collections.isEmpty)
                     
                     //MARK: Create New Collection Button
                     NewItemButton("New Collection", systemName: "folder.badge.plus", action: newCollectionButtonTapped)
@@ -124,7 +124,7 @@ struct QuoteFormView: View {
             }
             presentationMode.wrappedValue.dismiss()
         }
-        .disabled(quoteText.isEmpty)
+        .disabled(quoteText.isEmpty || chosenCollection == nil)
     }
     
     //MARK: - Functions
