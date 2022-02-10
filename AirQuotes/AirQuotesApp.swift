@@ -11,11 +11,15 @@ import SwiftUI
 struct AirQuotesApp: App {
     
      @StateObject var controller = StoreAirQuotes.shared
-    
+    @Environment(\.scenePhase) var scenePhase
+
     var body: some Scene {
         WindowGroup {
             ContentView()
                  .environmentObject(controller)
+                 .onChange(of: scenePhase){ _ in
+                     CoreDataManager.shared.save()
+                 }
         }
     }
 }

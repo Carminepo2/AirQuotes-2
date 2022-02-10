@@ -109,7 +109,11 @@ class StoreAirQuotes: ObservableObject {
     func getLatestQuotes()->Array<Quote>{
         var latestQuote:Array<Quote> = Array<Quote>()
         let allTheQuote:Array<Quote> = model.quote
-        for quoteIndex in allTheQuote.count..<(allTheQuote.count-5){
+//        for quoteIndex in allTheQuote.count..<(allTheQuote.count-5){
+//            latestQuote.append(allTheQuote[quoteIndex])
+//        }
+//        return latestQuote
+        for quoteIndex in stride(from: allTheQuote.count-1, to: allTheQuote.count - 5 >= 0 ? allTheQuote.count - 6 : -1 , by: -1){
             latestQuote.append(allTheQuote[quoteIndex])
         }
         return latestQuote
@@ -118,7 +122,6 @@ class StoreAirQuotes: ObservableObject {
     func getLatestFolder()->Array<Folder>{
         var latestFolder:Array<Folder> = []
         var latestQuotes = self.getLatestQuotes()
-        
         
         for aQuote in latestQuotes{
             var aQuoteParentFolder = aQuote.parentFolder!

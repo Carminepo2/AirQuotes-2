@@ -11,7 +11,7 @@ struct CollectionsSliderView: View {
     @EnvironmentObject var Controller: StoreAirQuotes
     
     private var collections: Array<Folder> {
-        return Controller.getAllFolders()
+        return Controller.getLatestFolder()
     }
     
     var body: some View {
@@ -51,8 +51,12 @@ struct CollectionsSliderView: View {
 struct CollectionsSliderView_Previews: PreviewProvider {
     static var previews: some View {
         CollectionsSliderView()
+            .environmentObject(StoreAirQuotes.shared)
+
         CollectionsSliderView()
             .preferredColorScheme(.dark)
+            .environmentObject(StoreAirQuotes.shared)
+
         
         
     }

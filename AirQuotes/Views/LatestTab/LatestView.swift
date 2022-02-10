@@ -56,9 +56,11 @@ struct LatestView: View {
 struct LatestView_Previews: PreviewProvider {
     static var previews: some View {
         LatestView()
-        
+            .environmentObject(StoreAirQuotes.shared)
         LatestView()
             .preferredColorScheme(.dark)
+            .environmentObject(StoreAirQuotes.shared)
+
     }
 }
 
