@@ -114,4 +114,19 @@ class StoreAirQuotes: ObservableObject {
         }
         return latestQuote
     }
+    
+    func getLatestFolder()->Array<Folder>{
+        var latestFolder:Array<Folder> = []
+        var latestQuotes = self.getLatestQuotes()
+        
+        
+        for aQuote in latestQuotes{
+            var aQuoteParentFolder = aQuote.parentFolder!
+            if(!latestFolder.contains(aQuoteParentFolder)){
+                latestFolder.append(aQuoteParentFolder)
+            }
+        }
+
+        return latestFolder
+    }
 }
