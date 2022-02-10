@@ -22,7 +22,7 @@ struct CollectionFormView: View {
             Form {
                 Section {
                     VStack {
-                        CollectionItemRectView(name: collectionName, color: Color(chosenColor), systemName: chosenIcon)
+                        CollectionItemRectView(color: Color(chosenColor), systemName: chosenIcon)
                             .padding()
                         TextField("Collection Name", text: $collectionName)
                             .textFieldStyle(.roundedBorder)

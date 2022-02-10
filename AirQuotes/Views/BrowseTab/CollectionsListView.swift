@@ -30,12 +30,7 @@ struct CollectionsListView: View {
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: Settings.CollectionVSpacing) {
                         ForEach(collections, id:\.self){ collection in
-                            CollectionItemView(
-                                name: collection.name ?? Settings.DefaultName,
-                                color: Color(collection.color!),
-                                systemName:collection.icon!,
-                                id: collection.id
-                            )
+                            CollectionItemView(collection: collection)
                         }
                     }
                     .padding()

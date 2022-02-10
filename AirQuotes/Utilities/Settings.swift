@@ -36,6 +36,7 @@ struct Settings {
     ]
     
     static let DefaultName = "Unknown"
+    static let DefaultIcon = "questionmark"
     static let EmptyStateMessage = "Empty"
 }
 

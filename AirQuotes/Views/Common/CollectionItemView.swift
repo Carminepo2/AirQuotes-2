@@ -12,23 +12,16 @@ struct CollectionItemView: View {
     
     @State private var isShowingSheet = false
     
-    let name: String
-    let color: Color
-    let systemName: String
-    let id: UUID?
-    
-    init(name: String, color: Color, systemName: String, id: UUID? = nil) {
-        self.name = name
-        self.color = color
-        self.systemName = systemName
-        self.id = id
-    }
+    let collection: Folder?
     
     var body: some View {
         VStack {
-            CollectionItemRectView(name: name, color: color, systemName: systemName)
+            CollectionItemRectView(
+                color: collection?.color != nil ? Color(collection!.color!) : Color(uiColor: .systemGray5),
+                systemName: collection?.icon ?? Settings.DefaultIcon
+            )
             HStack {
-                Text(name)
+                Text(collection?.name ?? Settings.DefaultName)
                     .font(.footnote)
                     .foregroundStyle(.secondary)
                     .lineLimit(1)
@@ -55,13 +48,13 @@ struct CollectionItemView: View {
     // MARK: - Functions
     
     func deleteCollection() {
-        if let id = id {
+        if let id = collection?.id {
             Controller.removeFolder(id: id)
         }
     }
     
     func editCollection() {
-        if let id = id {
+        if let id = collection?.id {
             //TODO
         }
     }
@@ -71,7 +64,6 @@ struct CollectionItemView: View {
 struct CollectionItemRectView: View {
     @Environment(\.colorScheme) var colorScheme
     
-    let name: String
     let color: Color
     let systemName: String
     
@@ -102,18 +94,18 @@ struct CollectionItemRectView: View {
 struct CollectionView_Previews: PreviewProvider {
     static var previews: some View {
         HStack(spacing: 20) {
-            CollectionItemView(name: "Lorem ipsum Lorem ipsum Lorem ipsum", color: Color("TagGreen"), systemName: "heart.fill")
-            CollectionItemView(name: "Lorem ipsum", color: Color("TagRed"), systemName: "heart.fill")
+            CollectionItemView(collection: nil)
+            CollectionItemView(collection: nil)
         }
         .padding()
         VStack {
             HStack(spacing: 20) {
-                CollectionItemView(name: "Lorem ipsum", color: Color("TagGreen"), systemName: "heart.fill")
-                CollectionItemView(name: "Lorem ipsum", color: Color("TagRed"), systemName: "heart.fill")
+                CollectionItemView(collection: nil)
+                CollectionItemView(collection: nil)
             }
             HStack(spacing: 20) {
-                CollectionItemView(name: "Lorem ipsum", color: Color("TagGreen"), systemName: "heart.fill")
-                CollectionItemView(name: "Lorem ipsum", color: Color("TagRed"), systemName: "heart.fill")
+                CollectionItemView(collection: nil)
+                CollectionItemView(collection: nil)
             }
         }
         .preferredColorScheme(.dark)

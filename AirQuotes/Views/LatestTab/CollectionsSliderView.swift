@@ -21,25 +21,16 @@ struct CollectionsSliderView: View {
                     ForEach(collections.chunked(into: 2), id: \.first) { collectionsPair in
                         HStack(spacing: Settings.CollectionHSpacing) {
                             
-                            CollectionItemView(
-                                name: collectionsPair[0].name ?? Settings.DefaultName,
-                                color: Color(collectionsPair[0].color!),
-                                systemName: collectionsPair[0].icon!,
-                                id: collectionsPair[0].id
-                            )
+                            CollectionItemView(collection: collectionsPair[0])
                             
                             if collectionsPair.indices.contains(1) {
                                 
-                                CollectionItemView(
-                                    name: collectionsPair[1].name ?? Settings.DefaultName,
-                                    color: Color(collectionsPair[1].color!),
-                                    systemName: collectionsPair[1].icon!,
-                                    id: collectionsPair[1].id
-                                )
+                                CollectionItemView(collection: collectionsPair[1])
                                 
                             } else {
-                                CollectionItemView(name: "", color: Color.clear, systemName: "")
+                                CollectionItemView(collection: nil)
                                     .opacity(0)
+                                    .disabled(true)
                             }
                         }
                         .padding(.horizontal)
