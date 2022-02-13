@@ -8,9 +8,9 @@
 import Foundation
 import CoreData
 
-class CoreDataManager{
+class CoreDataManager {
     static let shared = CoreDataManager()
-    let persistentContainer:NSPersistentContainer
+    let persistentContainer: NSPersistentContainer
 
     
     private init() {
@@ -128,6 +128,24 @@ class CoreDataManager{
     func deleteTag(tagToDelete:Tag){
         persistentContainer.viewContext.delete(tagToDelete)
         save()
+    }
+    
+    
+    func resetAllCoreData() {
+        
+        // get all entities and loop over them
+        let entityNames = self.persistentContainer.managedObjectModel.entities.map({ $0.name!})
+        entityNames.forEach { [weak self] entityName in
+            let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+            let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+            
+            do {
+                try self?.persistentContainer.viewContext.execute(deleteRequest)
+                try self?.persistentContainer.viewContext.save()
+            } catch {
+                // error
+            }
+        }
     }
     
 }

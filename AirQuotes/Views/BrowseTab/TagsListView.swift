@@ -11,6 +11,8 @@ struct TagsListView: View {
     @State private var searchText = ""
     @EnvironmentObject var Controller: StoreAirQuotes
     
+
+
     private var tags: Array<Tag> {
         if searchText.isEmpty {
             return Controller.getAllTags()
@@ -26,18 +28,63 @@ struct TagsListView: View {
                     .foregroundStyle(.tertiary)
                     .vCenter()
             } else {
-                List(tags, id: \.self) {
-                    Text($0.title ?? Settings.DefaultName)
+                List(tags, id: \.self) { tag in
+                    // MARK: - Tag Navigation Link
+                    NavigationLink {
+                        QuotesListView(quotes: Controller.searchByTag(idTag: tag.id))
+                            .navigationTitle(tag.title ?? Settings.DefaultName)
+                    } label: {
+                        TagListRowView(tag: tag)
+                    }
+
                 }
             }
         }
-        .navigationTitle("Favorites")
+        .navigationTitle("Tags")
         .searchable(text: $searchText)
     }
 }
 
+
+fileprivate struct TagListRowView: View {
+    
+    let tag: Tag?
+    
+    private var tagTitle: String {
+        tag?.title ?? Settings.DefaultName
+    }
+    
+    private var tagColor: Color {
+        tag?.color != nil ? Color(tag!.color!) : Settings.DefaultColor
+    }
+
+    
+    var body: some View {
+        HStack {
+            Circle()
+                .fill(tagColor)
+                .frame(width: 8, height: 8)
+            
+            Text(tagTitle)
+                .lineLimit(1)
+        }
+    }
+}
+
+
 struct TagsListView_Previews: PreviewProvider {
     static var previews: some View {
-        TagsListView()
+        List {
+            TagListRowView(tag: nil)
+            TagListRowView(tag: nil)
+            TagListRowView(tag: nil)
+        }
+        
+        List {
+            TagListRowView(tag: nil)
+            TagListRowView(tag: nil)
+            TagListRowView(tag: nil)
+        }
+        .preferredColorScheme(.dark)
     }
 }

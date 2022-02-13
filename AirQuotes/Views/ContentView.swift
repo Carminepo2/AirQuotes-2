@@ -9,34 +9,29 @@ import SwiftUI
 
 struct ContentView: View {    
     var body: some View {
-        ZStack {
-            // MARK: - Background Color
-            Color("BackgroundColor")
-                .ignoresSafeArea()
+        
+        TabView {
             
-            TabView {
-
-                //MARK: - Latest View Tab
-                NavigationView {
-                    LatestView()
-                        .navigationTitle("Latest")
-                }
-                .tabItem {
-                    Image(systemName: "text.quote")
-                    Text("Latest")
-                }
-                
-                //MARK: - Collection View Tab
-                NavigationView {
-                    BrowseView()
-                        .navigationTitle("Browse")
-                }
-                .tabItem {
-                    Image(systemName: "books.vertical.fill")
-                    Text("Browse")
-                }
-
+            //MARK: - Latest View Tab
+            NavigationView {
+                LatestView()
+                    .navigationTitle("Latest")
             }
+            .tabItem {
+                Image(systemName: "text.quote")
+                Text("Latest")
+            }
+            
+            //MARK: - Collection View Tab
+            NavigationView {
+                BrowseView()
+                    .navigationTitle("Browse")
+            }
+            .tabItem {
+                Image(systemName: "books.vertical.fill")
+                Text("Browse")
+            }
+            
         }
     }
 }
@@ -44,8 +39,8 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView().preferredColorScheme(.light)
-             .environmentObject(StoreAirQuotes.shared)
+            .environmentObject(StoreAirQuotes.shared)
         ContentView().preferredColorScheme(.dark)
-             .environmentObject(StoreAirQuotes.shared)
+            .environmentObject(StoreAirQuotes.shared)
     }
 }

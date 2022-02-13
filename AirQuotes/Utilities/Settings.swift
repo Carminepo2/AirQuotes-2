@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct Settings {
     static let CornerRadius = 8.0
@@ -36,6 +37,7 @@ struct Settings {
     ]
     
     static let DefaultName = "Unknown"
+    static let DefaultColor = Color(uiColor: .systemGray5)
     static let DefaultIcon = "questionmark"
     static let EmptyStateMessage = "Empty"
     static let EmptyStateSliderQuote = "Write your first quote!"

@@ -12,12 +12,16 @@ struct AirQuotesApp: App {
     
     @StateObject var controller = StoreAirQuotes.shared
     @Environment(\.scenePhase) var scenePhase
+    
+//    init() {
+//        CoreDataManager.shared.resetAllCoreData()
+//    }
 
     var body: some Scene {
         WindowGroup {
             ContentView()
                  .environmentObject(controller)
-                 .onChange(of: scenePhase){ _ in
+                 .onChange(of: scenePhase) { _ in
                      CoreDataManager.shared.save()
                  }
         }

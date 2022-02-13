@@ -67,7 +67,7 @@ struct QuoteFormView: View {
                         ScrollView(.horizontal) {
                             HStack(spacing: 10) {
                                 ForEach(chosenTags, id: \.self) {
-                                    TagView(color: Color("TagBlue"), title: $0.title ?? Settings.DefaultName)
+                                    TagView(tag: $0)
                                 }
                             }
                             .padding(.vertical)

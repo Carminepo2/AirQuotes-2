@@ -40,6 +40,9 @@
 		759D239E27A9E6AD001DE6C8 /* MultipleSelectionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759D239D27A9E6AD001DE6C8 /* MultipleSelectionRowView.swift */; };
 		75A9C86427A9EC4C00E1AAC6 /* LatestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A9C86327A9EC4C00E1AAC6 /* LatestView.swift */; };
 		75D113D827B55CAA00498FBE /* TagsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D113D727B55CAA00498FBE /* TagsListView.swift */; };
+		75DBC11827B95CFE00AC7D2B /* QuoteListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBC11727B95CFE00AC7D2B /* QuoteListRowView.swift */; };
+		75DBC11A27B9901D00AC7D2B /* QuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBC11927B9901D00AC7D2B /* QuotesListView.swift */; };
+		75DBC11C27B9929F00AC7D2B /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBC11B27B9929F00AC7D2B /* QuoteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +80,9 @@
 		759D239D27A9E6AD001DE6C8 /* MultipleSelectionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionRowView.swift; sourceTree = "<group>"; };
 		75A9C86327A9EC4C00E1AAC6 /* LatestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestView.swift; sourceTree = "<group>"; };
 		75D113D727B55CAA00498FBE /* TagsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsListView.swift; sourceTree = "<group>"; };
+		75DBC11727B95CFE00AC7D2B /* QuoteListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteListRowView.swift; sourceTree = "<group>"; };
+		75DBC11927B9901D00AC7D2B /* QuotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesListView.swift; sourceTree = "<group>"; };
+		75DBC11B27B9929F00AC7D2B /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,14 +104,17 @@
 			path = Exceptions;
 			sourceTree = "<group>";
 		};
-		7532090027A86D3100FBCA86 /* Common */ = {
+		7532090027A86D3100FBCA86 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
 				759D239D27A9E6AD001DE6C8 /* MultipleSelectionRowView.swift */,
 				75391DD227AAC19100C9BA27 /* TagView.swift */,
 				75391DDB27AB283500C9BA27 /* CollectionItemView.swift */,
+				75DBC11727B95CFE00AC7D2B /* QuoteListRowView.swift */,
+				75DBC11927B9901D00AC7D2B /* QuotesListView.swift */,
+				75DBC11B27B9929F00AC7D2B /* QuoteView.swift */,
 			);
-			path = Common;
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		7532090127A86E6E00FBCA86 /* LatestTab */ = {
@@ -204,7 +213,7 @@
 		7575E7C427A8390500CF0804 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7532090027A86D3100FBCA86 /* Common */,
+				7532090027A86D3100FBCA86 /* Shared */,
 				7532090B27A8813200FBCA86 /* BrowseTab */,
 				75391DD627AB0D1300C9BA27 /* Forms */,
 				7532090127A86E6E00FBCA86 /* LatestTab */,
@@ -326,15 +335,18 @@
 				75391DC927AA80F200C9BA27 /* BrowseView.swift in Sources */,
 				75391DC227AA80AB00C9BA27 /* QuotesSliderView.swift in Sources */,
 				75391DC327AA80CB00C9BA27 /* Settings.swift in Sources */,
+				75DBC11827B95CFE00AC7D2B /* QuoteListRowView.swift in Sources */,
 				759D239C27A9E648001DE6C8 /* Functions.swift in Sources */,
 				751FFDCC27B43F2E00E5476C /* FavoritesListView.swift in Sources */,
 				75391DD327AAC19100C9BA27 /* TagView.swift in Sources */,
 				1DE108E027B13431004D078C /* NSSet.swift in Sources */,
 				751FFDCE27B443B200E5476C /* CollectionsSliderView.swift in Sources */,
 				75391DC527AA80DD00C9BA27 /* String.swift in Sources */,
+				75DBC11A27B9901D00AC7D2B /* QuotesListView.swift in Sources */,
 				75391DCA27AA80F800C9BA27 /* StoreAirQuotes.swift in Sources */,
 				1DE108DE27B12893004D078C /* ModelExceptions.swift in Sources */,
 				75391DDC27AB283500C9BA27 /* CollectionItemView.swift in Sources */,
+				75DBC11C27B9929F00AC7D2B /* QuoteView.swift in Sources */,
 				75391DC427AA80D900C9BA27 /* RoundedRectangleButtonStyle.swift in Sources */,
 				759D239E27A9E6AD001DE6C8 /* MultipleSelectionRowView.swift in Sources */,
 				7520042A27A9DF520054DDDA /* QuoteFormView.swift in Sources */,

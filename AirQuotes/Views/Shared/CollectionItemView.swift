@@ -14,14 +14,26 @@ struct CollectionItemView: View {
     
     let collection: Folder?
     
+    private var collectionName: String {
+        collection?.name ?? Settings.DefaultName
+    }
+    
+    private var collectionColor: Color {
+        collection?.color != nil ? Color(collection!.color!) : Settings.DefaultColor
+    }
+    
+    private var collectionIcon: String {
+        collection?.icon ?? Settings.DefaultIcon
+    }
+    
     var body: some View {
         VStack {
             CollectionItemRectView(
-                color: collection?.color != nil ? Color(collection!.color!) : Color(uiColor: .systemGray5),
-                systemName: collection?.icon ?? Settings.DefaultIcon
+                color: collectionColor,
+                systemName: collectionIcon
             )
             HStack {
-                Text(collection?.name ?? Settings.DefaultName)
+                Text(collectionName)
                     .font(.footnote)
                     .foregroundStyle(.secondary)
                     .lineLimit(1)

@@ -30,7 +30,15 @@ struct CollectionsListView: View {
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: Settings.CollectionVSpacing) {
                         ForEach(collections, id:\.self){ collection in
-                            CollectionItemView(collection: collection)
+                            
+                            // MARK: - Collection Navigation Link
+                            NavigationLink {
+//                                QuotesListView(quotes: Controller.getAllQuotesInFolder(idFolder: collection.id))
+//                                    .navigationTitle(collection.name ?? Settings.DefaultName)
+                                Text("c")
+                            } label: {
+                                CollectionItemView(collection: collection)
+                            }
                         }
                     }
                     .padding()
