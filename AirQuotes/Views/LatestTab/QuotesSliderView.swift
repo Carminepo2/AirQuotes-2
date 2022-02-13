@@ -20,7 +20,7 @@ struct QuoteSliderView: View {
             if latestQuotes.count > 0 {
                 ForEach(latestQuotes, id: \.self) { quote in
                     NavigationLink {
-                        ProgressView()
+                        QuoteView(quote: quote)
                     } label: {
                         QuoteSliderItem(quote: quote)
                     }
