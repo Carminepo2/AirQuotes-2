@@ -10,7 +10,7 @@ import SwiftUI
 struct QuoteSliderView: View {    
     @EnvironmentObject var Controller: StoreAirQuotes
     
-    private var latestQuotes: Array<Quote> {
+      var latestQuotes: Array<Quote> {
         return Controller.getLatestQuotes()
     }
     
@@ -69,5 +69,6 @@ struct QuoteSliderView_Previews: PreviewProvider {
     static var previews: some View {
         QuoteSliderView()
             .previewLayout(.fixed(width: 400, height: 300))
+            .environmentObject(StoreAirQuotes.shared)
     }
 }

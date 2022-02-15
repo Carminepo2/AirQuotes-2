@@ -119,6 +119,7 @@ struct ModelAirQuotes{
         for aTag in tagList {
             aTag.quotes?.adding(newQuote) //da verificare
         }
+        
         quote.append(newQuote)
         CoreDataManager.shared.createQuote(quoteToSave: newQuote)
         CoreDataManager.shared.updateTag()
@@ -146,14 +147,15 @@ struct ModelAirQuotes{
     /// deleteQuote delete an existing quote
     mutating func deleteQuote(id:UUID){
         var indexOfQuoteToDelete:Int? = nil
-        
+        var quoteToDelete:Quote
         for indexOfAQuote in 0..<quote.count{
             if(quote[indexOfAQuote].id == id){
                 indexOfQuoteToDelete = indexOfAQuote
             }
         }
-        quote.remove(at: indexOfQuoteToDelete!)
-        CoreDataManager.shared.deleteQuote(quoteToDelete: quote[indexOfQuoteToDelete!])
+        quoteToDelete = quote.remove(at: indexOfQuoteToDelete!)
+        
+        CoreDataManager.shared.deleteQuote(quoteToDelete: quoteToDelete)
     }
     /// updateQuote add new values to an existing quote
     mutating func updateQuote(id:UUID,text:String,authorName:String,tagList:Array<Tag>){
@@ -200,7 +202,9 @@ struct ModelAirQuotes{
         }
         quote[indexQuoteToRemoveFromFavorites!].isFavorite = false
     }
-    
+    mutating func getQuotes()->Array<Quote>{
+        return self.quote
+    }
     
 }
 extension Quote{
