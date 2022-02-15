@@ -11,7 +11,7 @@ struct QuoteSliderView: View {
     @EnvironmentObject var Controller: StoreAirQuotes
     
       var latestQuotes: Array<Quote> {
-        return Controller.getLatestQuotes()
+          return StoreAirQuotes.shared.getLatestQuotes()
     }
     
     var body: some View {

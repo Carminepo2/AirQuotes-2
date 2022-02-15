@@ -11,7 +11,6 @@ struct ContentView: View {
     var body: some View {
         
         TabView {
-            
             //MARK: - Latest View Tab
             NavigationView {
                 LatestView()
