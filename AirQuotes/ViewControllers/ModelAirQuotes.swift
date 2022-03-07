@@ -17,7 +17,6 @@ struct ModelAirQuotes{
     init(){
         person = CoreDataManager.shared.readPerson()
         quote = CoreDataManager.shared.readQuote()
-        
         folder = CoreDataManager.shared.readFolder()
         tag = CoreDataManager.shared.readTag()
     }
