@@ -132,19 +132,20 @@ struct ModelAirQuotes{
 
     ///the user creates a unique quote within the same folder
     mutating func createQuote(text:String,authorName:String,parentFolder:UUID,tagList:Array<Tag>) throws{
-        var theFolder: Folder = Folder(context: CoreDataManager.shared.persistentContainer.viewContext)
+//        var theFolder: Folder = Folder(context: CoreDataManager.shared.persistentContainer.viewContext)
+        var indexOfTheFolder:Int? = nil
         var theQuotesInTheFolder:Array<Quote> = Array<Quote>()
         var authorOfTheQuote = Person(context: CoreDataManager.shared.persistentContainer.viewContext)
         
         //I check that a quote with the same text does not exist in the same folder
         
         //I start by taking all the quotes in the folder
-        for aFolder in folder{
-            if(aFolder.id == parentFolder){
-                theFolder = aFolder
+        for index in 0..<folder.count{
+            if(folder[index].id == parentFolder){
+                indexOfTheFolder = index
             }
         }
-        theQuotesInTheFolder = theFolder.myQuote!.toArray()
+        theQuotesInTheFolder = folder[indexOfTheFolder!].myQuote!.toArray()
         //        if there is already a quotation with the same text I throw an exception
         for aQuote in theQuotesInTheFolder {
             if(aQuote.text == text){
@@ -155,7 +156,7 @@ struct ModelAirQuotes{
         authorOfTheQuote = createAuthor(authorName: authorName)
         // Now I create the quote
         let newQuote:Quote = Quote(context: CoreDataManager.shared.persistentContainer.viewContext)
-        newQuote.setQuote(text: text, author: authorOfTheQuote, parentFolder: theFolder, tagList: tagList)
+        newQuote.setQuote(text: text, author: authorOfTheQuote, parentFolder: folder[indexOfTheFolder!], tagList: tagList)
         for aTag in tagList {
             aTag.quotes?.adding(newQuote) //da verificare
         }

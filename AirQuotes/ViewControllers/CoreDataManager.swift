@@ -67,6 +67,7 @@ class CoreDataManager {
     }
 //    MARK: - CRUD(Quote)
     func createQuote(quoteToSave:Quote){
+        
         save()
     }
     func readQuote()->Array<Quote>{
@@ -88,6 +89,7 @@ class CoreDataManager {
     }
 //    MARK: - CRUD(Folder)
     func createFolder(folderToSave:Folder){
+        
         save()
     }
     func readFolder()->Array<Folder>{
@@ -99,6 +101,7 @@ class CoreDataManager {
         catch{
             
         }
+        
         return result
     }
     func updateFolder(){
