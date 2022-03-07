@@ -66,7 +66,7 @@ struct ModelAirQuotes{
                 throw FolderName.alreadyExist
             }
         }
-        var newFolder:Folder = Folder(context: CoreDataManager.shared.persistentContainer.viewContext)
+        let newFolder:Folder = Folder(context: CoreDataManager.shared.persistentContainer.viewContext)
         newFolder.id = UUID()
         newFolder.name = folderName
         newFolder.icon = folderIcon

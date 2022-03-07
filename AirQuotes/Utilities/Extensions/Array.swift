@@ -18,7 +18,7 @@ extension Array {
     }
     func notNull() -> [Element] {
         var notNullArray = Array(self)
-        var canBeNullArray = Array(self)
+        let canBeNullArray = Array(self)
 
         for element in canBeNullArray{
             if(element != nil)

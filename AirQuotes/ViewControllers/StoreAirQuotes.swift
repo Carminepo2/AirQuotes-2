@@ -15,14 +15,12 @@ class StoreAirQuotes: ObservableObject {
     private init() {
         model = ModelAirQuotes()
     }
-    
     // MARK: - Methods
     
     ///getAllTags returns all the tags
     func getAllTags() -> Array<Tag> {
         model.tag
     }
-    
     /// createTag create a newTag in the app
     func createTag(name: String, color: String) throws {
         try model.createTag(name: name, color: color)
@@ -43,7 +41,6 @@ class StoreAirQuotes: ObservableObject {
                 folderColor:folderColor
             )
     }
-    
     ///removeFolder remove a specific folder from the sistem
     func removeFolder(id :UUID?) {
         model.removeFolder(id: id!)
@@ -82,14 +79,12 @@ class StoreAirQuotes: ObservableObject {
     ///addQuoteToFavorites add an existing quote to the favorites
     func addQuoteToFavorites(idQuote: UUID?) {
         guard let idQuote = idQuote else { return }
-
         model.addQuoteToFavorites(idQuote: idQuote)
     }
     
     ///removeQuoteFromFavorites remove an existing quote from the favorites
     func removeQuoteFromFavorites(idQuote: UUID?) {
         guard let idQuote = idQuote else { return }
-
         model.removeQuoteFromFavorites(idQuote: idQuote)
     }
     
@@ -115,7 +110,6 @@ class StoreAirQuotes: ObservableObject {
     ///searchBy Author returns all the quote associated to a specific author
     func searchByAuthor(idAuthor: UUID?) -> Array<Quote> {
         guard let idAuthor = idAuthor else { return [] }
-
         let listaAuthor = model.person
         var indexOfTheAuthor:Int? = nil
         for authorIndex in 0..<listaAuthor.count{
@@ -143,7 +137,7 @@ class StoreAirQuotes: ObservableObject {
     ///getLatesQuotes returns the last five quotes created
     func getLatestQuotes() -> Array<Quote> {
         var latestQuote: Array<Quote> = Array<Quote>()
-        var allTheQuote: Array<Quote> = model.getQuotes()
+        let allTheQuote: Array<Quote> = model.getQuotes()
 
         for quoteIndex in stride(from: allTheQuote.count-1, to: allTheQuote.count - 5 >= 0 ? allTheQuote.count - 6 : -1 , by: -1){
             latestQuote.append(allTheQuote[quoteIndex])
