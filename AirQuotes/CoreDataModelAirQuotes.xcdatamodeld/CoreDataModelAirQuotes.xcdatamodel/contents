@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21C52" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Folder" representedClassName="Folder" syncable="YES" codeGenerationType="class">
         <attribute name="color" optional="YES" attributeType="String"/>
         <attribute name="icon" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="myQuote" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Quote" inverseName="parentFolder" inverseEntity="Quote"/>
+        <relationship name="myQuote" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Quote" inverseName="parentFolder" inverseEntity="Quote"/>
     </entity>
     <entity name="Person" representedClassName="Person" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
@@ -18,7 +18,7 @@
         <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="text" optional="YES" attributeType="String"/>
         <relationship name="author" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="quotes" inverseEntity="Person"/>
-        <relationship name="parentFolder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" inverseName="myQuote" inverseEntity="Folder"/>
+        <relationship name="parentFolder" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" inverseName="myQuote" inverseEntity="Folder"/>
         <relationship name="tag" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="quotes" inverseEntity="Tag"/>
     </entity>
     <entity name="Tag" representedClassName="Tag" syncable="YES" codeGenerationType="class">
@@ -28,9 +28,9 @@
         <relationship name="quotes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Quote" inverseName="tag" inverseEntity="Quote"/>
     </entity>
     <elements>
-        <element name="Folder" positionX="-12356.43359375" positionY="-3681.20703125" width="128" height="118"/>
-        <element name="Person" positionX="-12352.078125" positionY="-3923.5234375" width="128" height="88"/>
-        <element name="Quote" positionX="-11865.2109375" positionY="-3938.28125" width="128" height="148"/>
-        <element name="Tag" positionX="-11857.3046875" positionY="-3687.0234375" width="128" height="103"/>
+        <element name="Folder" positionX="-12511.05078125" positionY="-3806.66796875" width="128" height="104"/>
+        <element name="Person" positionX="-12504.53125" positionY="-4114.31640625" width="128" height="88"/>
+        <element name="Quote" positionX="-11990.60546875" positionY="-4095.70703125" width="128" height="134"/>
+        <element name="Tag" positionX="-11777.3671875" positionY="-3681.45703125" width="128" height="103"/>
     </elements>
 </model>

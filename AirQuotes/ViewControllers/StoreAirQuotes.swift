@@ -46,13 +46,7 @@ class StoreAirQuotes: ObservableObject {
     
     ///removeFolder remove a specific folder from the sistem
     func removeFolder(id :UUID?) {
-        guard let id = id else { return }
-        var allQuotesInTheFolder = self.getAllQuotesInFolder(idFolder: id)
-        for aQuote in allQuotesInTheFolder{
-            self.deleteQuote(id: aQuote.id!)
-        }
-        model.removeFolder(id: id)
-       
+        model.removeFolder(id: id!)
     }
     
     ///createQuote creates a unique quote within the same folder
@@ -149,12 +143,11 @@ class StoreAirQuotes: ObservableObject {
     ///getLatesQuotes returns the last five quotes created
     func getLatestQuotes() -> Array<Quote> {
         var latestQuote: Array<Quote> = Array<Quote>()
-        var allTheQuote: Array<Quote> = model.quote
+        var allTheQuote: Array<Quote> = model.getQuotes()
 
         for quoteIndex in stride(from: allTheQuote.count-1, to: allTheQuote.count - 5 >= 0 ? allTheQuote.count - 6 : -1 , by: -1){
             latestQuote.append(allTheQuote[quoteIndex])
         }
-        
         return latestQuote
     }
     

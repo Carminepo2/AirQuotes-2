@@ -13,9 +13,7 @@ struct AirQuotesApp: App {
     @StateObject var controller = StoreAirQuotes.shared
     @Environment(\.scenePhase) var scenePhase
     
-//    init() {
-//        CoreDataManager.shared.resetAllCoreData()
-//    }
+
 
     var body: some Scene {
         WindowGroup {

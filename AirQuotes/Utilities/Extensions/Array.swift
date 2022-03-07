@@ -16,4 +16,17 @@ extension Array {
         return stride(from: 0, to: count, by: size).map {
             Array(self[$0 ..< Swift.min($0 + size, count)]) }
     }
+    func notNull() -> [Element] {
+        var notNullArray = Array(self)
+        var canBeNullArray = Array(self)
+
+        for element in canBeNullArray{
+            if(element != nil)
+            {
+                notNullArray.append(element)
+            }
+        }
+        
+      return notNullArray
+    }
 }

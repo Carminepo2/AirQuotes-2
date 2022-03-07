@@ -17,6 +17,7 @@ struct ModelAirQuotes{
     init(){
         person = CoreDataManager.shared.readPerson()
         quote = CoreDataManager.shared.readQuote()
+        
         folder = CoreDataManager.shared.readFolder()
         tag = CoreDataManager.shared.readTag()
     }
@@ -24,6 +25,8 @@ struct ModelAirQuotes{
     func setModel(){
         
     }
+    
+    
     /// createTag create a newTag in the app
     mutating func createTag(name:String,color:String) throws {
         //      check that a folder with that name does not already exist
@@ -64,7 +67,7 @@ struct ModelAirQuotes{
                 throw FolderName.alreadyExist
             }
         }
-        let newFolder:Folder = Folder(context: CoreDataManager.shared.persistentContainer.viewContext)
+        var newFolder:Folder = Folder(context: CoreDataManager.shared.persistentContainer.viewContext)
         newFolder.id = UUID()
         newFolder.name = folderName
         newFolder.icon = folderIcon
@@ -73,23 +76,60 @@ struct ModelAirQuotes{
         CoreDataManager.shared.createFolder(folderToSave: newFolder)
     }
     ///removeFolder remove a specific folder from the sistem
+//    mutating func removeFolder(id:UUID) {
+//        var index:Int? = nil
+//        var folderToDelete:Folder? = nil
+//        var quotesInTheFolder:[Quote] = []
+//        var qIndex:Int? = nil
+//        //search for the position in the array of the element to delete
+//        for folderIndex in 0..<folder.count{
+//            if(folder[folderIndex].id == id){
+//                index = folderIndex
+//            }
+//        }
+//            //remove the element from the array
+//            folderToDelete = folder.remove(at: index!)
+////            rimuovo le quote
+//        quotesInTheFolder = folderToDelete!.myQuote!.toArray()
+//        for aQuote in quotesInTheFolder{
+//            for quoteIndex in 0..<quote.count{
+//                if(quote[quoteIndex].id == aQuote.id){
+//                    qIndex = quoteIndex
+//                }
+//            }
+//            quote.remove(at: qIndex!)
+//
+//        }
+//
+//
+//            //            remove the array from the DB
+//            CoreDataManager.shared.deleteFolder(folderToDelete: folderToDelete!)
+//
+//
+//    }
+    ///removeFolder remove a specific folder from the sistem
     mutating func removeFolder(id:UUID) {
-        var index:Int? = nil
-        var folderToDelete:Folder? = nil
-        //search for the position in the array of the element to delete
-        for folderIndex in 0..<folder.count{
-            if(folder[folderIndex].id == id){
-                index = folderIndex
+        
+        var indexOfFolderToDelete:Int? = nil
+        var quotesInTheFolder:[Quote]
+        var folderToDelete:Folder
+        for indexOfFolder in 0..<folder.count{
+            if(folder[indexOfFolder].id == id){
+                indexOfFolderToDelete = indexOfFolder
             }
         }
-        if(index != nil){
-            //            remove the element from the array
-            folderToDelete = folder.remove(at: index!)
-            //            remove the array from the DB
-            CoreDataManager.shared.deleteFolder(folderToDelete: folderToDelete!)
+        folderToDelete = folder.remove(at: indexOfFolderToDelete!)
+        if folderToDelete.myQuote != nil{
+            quotesInTheFolder = folderToDelete.myQuote!.toArray()
+            for eachQuote in quotesInTheFolder{
+                deleteQuote(id: eachQuote.id!)
+            }
         }
-        
+        CoreDataManager.shared.deleteFolder(folderToDelete: folderToDelete)
     }
+    
+    
+
     ///the user creates a unique quote within the same folder
     mutating func createQuote(text:String,authorName:String,parentFolder:UUID,tagList:Array<Tag>) throws{
         var theFolder: Folder = Folder(context: CoreDataManager.shared.persistentContainer.viewContext)
@@ -154,7 +194,7 @@ struct ModelAirQuotes{
             }
         }
         quoteToDelete = quote.remove(at: indexOfQuoteToDelete!)
-        
+        quoteToDelete.parentFolder = nil
         CoreDataManager.shared.deleteQuote(quoteToDelete: quoteToDelete)
     }
     /// updateQuote add new values to an existing quote
@@ -202,7 +242,7 @@ struct ModelAirQuotes{
         }
         quote[indexQuoteToRemoveFromFavorites!].isFavorite = false
     }
-    mutating func getQuotes()->Array<Quote>{
+    func getQuotes()->Array<Quote>{
         return self.quote
     }
     
