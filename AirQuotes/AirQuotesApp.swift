@@ -13,8 +13,6 @@ struct AirQuotesApp: App {
     @StateObject var controller = StoreAirQuotes.shared
     @Environment(\.scenePhase) var scenePhase
     
-
-
     var body: some Scene {
         WindowGroup {
             ContentView()
