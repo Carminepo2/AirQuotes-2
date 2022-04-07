@@ -15,6 +15,12 @@ struct TagFormView: View {
     @State private var tagName: String = ""
     @State private var chosenColor = "TagRed"
     
+    var onSubmitSuccess: ((_ tag: Tag) -> Void)?
+    
+    init(onSubmitSuccess: ((_ folder: Tag) -> Void)? = nil) {
+        self.onSubmitSuccess = onSubmitSuccess
+    }
+    
     var body: some View {
         NavigationView {
             Form {
@@ -46,7 +52,10 @@ struct TagFormView: View {
     private func DoneButton() -> some View {
         Button("Done") {
             do {
-                try Controller.createTag(name: tagName, color: chosenColor)
+                let newTag = try Controller.createTag(name: tagName, color: chosenColor)
+                if let onSubmitSuccess = onSubmitSuccess {
+                    onSubmitSuccess(newTag)
+                }
             }
             catch {
                 print("già esiste")

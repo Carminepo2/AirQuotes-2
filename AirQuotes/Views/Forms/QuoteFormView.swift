@@ -98,8 +98,8 @@ struct QuoteFormView: View {
             .navigationBarItems(leading: CancelButton(), trailing: DoneButton())
             
             // MARK: Modals
-            .sheet(isPresented: $showTagForm, content: { TagFormView() })
-            .sheet(isPresented: $showCollectionForm, content: { CollectionFormView() })
+            .sheet(isPresented: $showTagForm, content: { TagFormView(onSubmitSuccess: newTagCreated) })
+            .sheet(isPresented: $showCollectionForm, content: { CollectionFormView(onSubmitSuccess: newCollectionCreated) })
         }
     }
     
@@ -136,6 +136,8 @@ struct QuoteFormView: View {
         return chosenTags.contains(tag)
     }
     
+    private func newTagCreated(tag: Tag) { self.chosenTags.append(tag) }
+    private func newCollectionCreated(folder: Folder) { self.chosenCollection = folder }
     
     private func selectionRowTapped(_ selectedTag: Tag) {
         if checkIfTagSelected(selectedTag) {
