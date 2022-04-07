@@ -68,46 +68,17 @@ struct ModelAirQuotes{
             }
         }
         let newFolder:Folder = Folder(context: CoreDataManager.shared.persistentContainer.viewContext)
+        
         newFolder.id = UUID()
         newFolder.name = folderName
         newFolder.icon = folderIcon
         newFolder.color = folderColor
+        
         folder.append(newFolder)
         CoreDataManager.shared.createFolder(folderToSave: newFolder)
         return newFolder
     }
-    ///removeFolder remove a specific folder from the sistem
-//    mutating func removeFolder(id:UUID) {
-//        var index:Int? = nil
-//        var folderToDelete:Folder? = nil
-//        var quotesInTheFolder:[Quote] = []
-//        var qIndex:Int? = nil
-//        //search for the position in the array of the element to delete
-//        for folderIndex in 0..<folder.count{
-//            if(folder[folderIndex].id == id){
-//                index = folderIndex
-//            }
-//        }
-//            //remove the element from the array
-//            folderToDelete = folder.remove(at: index!)
-////            rimuovo le quote
-//        quotesInTheFolder = folderToDelete!.myQuote!.toArray()
-//        for aQuote in quotesInTheFolder{
-//            for quoteIndex in 0..<quote.count{
-//                if(quote[quoteIndex].id == aQuote.id){
-//                    qIndex = quoteIndex
-//                }
-//            }
-//            quote.remove(at: qIndex!)
-//
-//        }
-//
-//
-//            //            remove the array from the DB
-//            CoreDataManager.shared.deleteFolder(folderToDelete: folderToDelete!)
-//
-//
-//    }
+
     ///removeFolder remove a specific folder from the sistem
     mutating func removeFolder(id:UUID) {
         
@@ -213,7 +184,7 @@ struct ModelAirQuotes{
         
     }
     /// return an existing folder
-    mutating func getFolder(idFolder:UUID)->Folder{
+    func getFolder(idFolder:UUID)->Folder{
         var folderIndexToReturn:Int? = nil
         
         for folderIndex in 0..<folder.count{
@@ -223,6 +194,12 @@ struct ModelAirQuotes{
         }
         return folder[folderIndexToReturn!]
     }
+    
+    func getFolders()->Array<Folder>{
+        return self.folder
+    }
+    
+    
     ///addQuoteToFavorites add a specific quote to the favorites
     mutating func addQuoteToFavorites(idQuote:UUID){
         
