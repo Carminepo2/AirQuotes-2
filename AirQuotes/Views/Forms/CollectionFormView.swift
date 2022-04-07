@@ -15,7 +15,12 @@ struct CollectionFormView: View {
     @State private var collectionName = ""
     @State private var chosenColor = "TagRed"
     @State private var chosenIcon: String = "quote.opening"
-
+    
+    var onSubmitSuccess: ((_ folder: Folder) -> Void)?
+    
+    init(onSubmitSuccess: ((_ folder: Folder) -> Void)? = nil) {
+        self.onSubmitSuccess = onSubmitSuccess
+    }
 
     var body: some View {
         NavigationView {
@@ -58,7 +63,10 @@ struct CollectionFormView: View {
     private func DoneButton() -> some View {
         Button("Done") {
             do {
-                try Controller.createFolder(folderName: collectionName, folderIcon: chosenIcon, folderColor: chosenColor)
+                let newFolder = try Controller.createFolder(folderName: collectionName, folderIcon: chosenIcon, folderColor: chosenColor)
+                if let onSubmitSuccess = onSubmitSuccess {
+                    onSubmitSuccess(newFolder)
+                }
             }
             catch {
                 print("già esiste")

@@ -27,7 +27,7 @@ struct ModelAirQuotes{
     
     
     /// createTag create a newTag in the app
-    mutating func createTag(name:String,color:String) throws {
+    mutating func createTag(name:String,color:String) throws -> Tag {
         //      check that a folder with that name does not already exist
         for aTag in tag {
             if(aTag.title == name){
@@ -40,6 +40,7 @@ struct ModelAirQuotes{
         newTag.color = color
         tag.append(newTag)
         CoreDataManager.shared.createTag(tagToSave: newTag)
+        return newTag
     }
     ///removeTag remove a specific tag from the sistem
     mutating func removeTag(id:UUID){
@@ -59,7 +60,7 @@ struct ModelAirQuotes{
         }
     }
     /// createFolder creates a new folder if one with the same name does not already exist
-    mutating func createFolder(folderName:String,folderIcon:String,folderColor:String) throws {
+    mutating func createFolder(folderName:String,folderIcon:String,folderColor:String) throws -> Folder {
         //      check that a folder with that name does not already exist
         for aFolder in folder{
             if(aFolder.name == folderName){
@@ -73,6 +74,7 @@ struct ModelAirQuotes{
         newFolder.color = folderColor
         folder.append(newFolder)
         CoreDataManager.shared.createFolder(folderToSave: newFolder)
+        return newFolder
     }
     ///removeFolder remove a specific folder from the sistem
 //    mutating func removeFolder(id:UUID) {

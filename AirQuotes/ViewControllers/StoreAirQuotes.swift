@@ -22,8 +22,8 @@ class StoreAirQuotes: ObservableObject {
         model.tag
     }
     /// createTag create a newTag in the app
-    func createTag(name: String, color: String) throws {
-        try model.createTag(name: name, color: color)
+    func createTag(name: String, color: String) throws -> Tag {
+        return try model.createTag(name: name, color: color)
     }
     
     ///removeTag remove a specific tag from the sistem
@@ -33,8 +33,8 @@ class StoreAirQuotes: ObservableObject {
     }
     
     /// createFolder creates a new folder if one with the same name does not already exist
-    func createFolder(folderName:String, folderIcon:String, folderColor:String) throws {
-        try model
+    func createFolder(folderName:String, folderIcon:String, folderColor:String) throws -> Folder {
+        return try model
             .createFolder(
                 folderName:folderName,
                 folderIcon:folderIcon,
