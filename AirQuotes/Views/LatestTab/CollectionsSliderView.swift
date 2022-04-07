@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct CollectionsSliderView: View {
-    @EnvironmentObject var Controller: StoreAirQuotes
+    @EnvironmentObject var store: StoreAirQuotes
     
     private var collections: Array<Folder> {
-        return Controller.getLatestFolder()
+        return store.getLatestFolder()
     }
     
     var body: some View {

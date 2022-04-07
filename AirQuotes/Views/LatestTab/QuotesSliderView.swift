@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct QuoteSliderView: View {    
-    @EnvironmentObject var Controller: StoreAirQuotes
+    @EnvironmentObject var store: StoreAirQuotes
     
-      var latestQuotes: Array<Quote> {
-          return Controller.getLatestQuotes()
+    private var latestQuotes: Array<Quote> {
+        return store.getLatestQuotes()
     }
     
     var body: some View {
         
         TabView {
-            if latestQuotes.count > 0 {
+            if !latestQuotes.isEmpty {
                 ForEach(latestQuotes, id: \.self) { quote in
                     NavigationLink {
                         QuoteView(quote: quote)
