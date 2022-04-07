@@ -13,11 +13,9 @@ struct QuoteSliderView: View {
       var latestQuotes: Array<Quote> {
           return Controller.getLatestQuotes()
     }
-    
     var body: some View {
-        
-        TabView {
-            if latestQuotes.count > 0 {
+        if latestQuotes.count > 0 {
+            TabView{
                 ForEach(latestQuotes, id: \.self) { quote in
                     NavigationLink {
                         QuoteView(quote: quote)
@@ -25,14 +23,17 @@ struct QuoteSliderView: View {
                         QuoteSliderItem(quote: quote)
                     }
                 }
-            } else {
+            }
+            .frame(height: Settings.LatestQuotesHeight)
+            .tabViewStyle(.page)
+        } else {
+            TabView{
                 QuoteSliderItem(quote: nil)
                     .opacity(0.5)
-                
             }
+            .frame(height: Settings.LatestQuotesHeight)
+            .tabViewStyle(.page)
         }
-        .frame(height: Settings.LatestQuotesHeight)
-        .tabViewStyle(.page)
     }
 }
 
