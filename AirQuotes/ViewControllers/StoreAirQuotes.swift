@@ -75,7 +75,6 @@ class StoreAirQuotes: ObservableObject {
             }
         }
         return folders[folderIndexToReturn!].myQuote!.toArray()
-        
     }
     
     
