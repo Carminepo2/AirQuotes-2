@@ -35,7 +35,6 @@ struct CollectionsListView: View {
                             NavigationLink {
                                 QuotesListView(quotes: Controller.getAllQuotesInFolder(idFolder: collection.id))
                                     .navigationTitle(collection.name ?? Settings.DefaultName)
-                                Text("c")
                             } label: {
                                 CollectionItemView(collection: collection)
                             }
