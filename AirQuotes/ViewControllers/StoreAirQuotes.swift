@@ -34,12 +34,7 @@ class StoreAirQuotes: ObservableObject {
     
     /// createFolder creates a new folder if one with the same name does not already exist
     func createFolder(folderName:String, folderIcon:String, folderColor:String) throws -> Folder {
-        return try model
-            .createFolder(
-                folderName:folderName,
-                folderIcon:folderIcon,
-                folderColor:folderColor
-            )
+        return try model.createFolder(folderName:folderName,folderIcon:folderIcon,folderColor:folderColor)
     }
     ///removeFolder remove a specific folder from the sistem
     func removeFolder(id :UUID?) {
@@ -71,10 +66,18 @@ class StoreAirQuotes: ObservableObject {
     func getAllQuotesInFolder(idFolder: UUID?) -> Array<Quote> {
         guard let idFolder = idFolder else { return [] }
 
-        let theFolderWhichContainTheQuotes = model.getFolder(idFolder: idFolder)
-        let theQuotesToReturn: Array<Quote> = theFolderWhichContainTheQuotes.myQuote!.toArray()
-        return theQuotesToReturn
+        var folderIndexToReturn:Int? = nil
+        var folders = model.getFolders()
+        
+        for folderIndex in 0..<folders.count{
+            if(folders[folderIndex].id == idFolder){
+                folderIndexToReturn = folderIndex
+            }
+        }
+        return folders[folderIndexToReturn!].myQuote!.toArray()
+        
     }
+    
     
     ///addQuoteToFavorites add an existing quote to the favorites
     func addQuoteToFavorites(idQuote: UUID?) {
@@ -155,7 +158,8 @@ class StoreAirQuotes: ObservableObject {
                 latestFolder.append(aQuoteParentFolder)
             }
         }
-
         return latestFolder
     }
+    
+    
 }
