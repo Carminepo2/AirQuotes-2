@@ -14,6 +14,7 @@ struct QuoteFormView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var Controller: StoreAirQuotes
     
+    
     var collections: Array<Folder> {
         return Controller.getAllFolders()
     }
@@ -21,10 +22,10 @@ struct QuoteFormView: View {
     var tags: Array<Tag> {
         return Controller.getAllTags()
     }
-
+    
     @State private var showTagForm = false
     @State private var showCollectionForm = false
-
+    
     // MARK: Form States
     @State private var quoteText = ""
     @State private var authorText = ""
@@ -36,10 +37,9 @@ struct QuoteFormView: View {
         NavigationView {
             Form {
                 // MARK: - Quote and Author Fields
-                Section {
-                    TextField(text: $quoteText, prompt: Text("Quote")) {
-                        Text("Quote")
-                    }
+                Section(header: Text("Quote")) {
+                    TextEditor(text: $quoteText)
+                        .autofocus()
                     TextField(text: $authorText, prompt: Text("Author")) {
                         Text("Author")
                     }
@@ -128,7 +128,7 @@ struct QuoteFormView: View {
     }
     
     //MARK: - Functions
-
+    
     private func newTagButtonTapped() { showTagForm = true }
     private func newCollectionButtonTapped() { showCollectionForm = true }
     
@@ -177,7 +177,7 @@ struct QuoteFormView_Previews: PreviewProvider {
     static var previews: some View {
         QuoteFormView()
             .environmentObject(StoreAirQuotes.shared)
-
+        
         QuoteFormView()
             .environmentObject(StoreAirQuotes.shared)
             .preferredColorScheme(.dark)

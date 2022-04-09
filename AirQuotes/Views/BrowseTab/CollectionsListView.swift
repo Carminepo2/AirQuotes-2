@@ -9,13 +9,13 @@ import SwiftUI
 
 struct CollectionsListView: View {
     @State private var searchText = ""
-    @EnvironmentObject var Controller: StoreAirQuotes
+    @EnvironmentObject var store: StoreAirQuotes
     
     private var collections: Array<Folder> {
         if searchText.isEmpty {
-            return Controller.getAllFolders()
+            return store.getAllFolders()
         }
-        return Controller.getAllFolders().filter { ($0.name ?? Settings.DefaultName).contains(searchText) }
+        return store.getAllFolders().filter { ($0.name ?? Settings.DefaultName).contains(searchText) }
     }
     
     let columns = Array(repeating: GridItem(.flexible(), spacing: Settings.CollectionHSpacing), count: Settings.CollectionViewsPerRow)
@@ -32,12 +32,8 @@ struct CollectionsListView: View {
                         ForEach(collections, id:\.self){ collection in
                             
                             // MARK: - Collection Navigation Link
-                            NavigationLink {
-                                QuotesListView(quotes: Controller.getAllQuotesInFolder(idFolder: collection.id))
-                                    .navigationTitle(collection.name ?? Settings.DefaultName)
-                            } label: {
-                                CollectionItemView(collection: collection)
-                            }
+                            CollectionItemView(collection: collection)
+
                         }
                     }
                     .padding()

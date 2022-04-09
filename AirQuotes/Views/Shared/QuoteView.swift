@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct QuoteView: View {
+    @EnvironmentObject var store: StoreAirQuotes
+    @State private var showActionSheet: Bool = false
     
     let quote: Quote
     
@@ -38,12 +40,12 @@ struct QuoteView: View {
                     .font(.subheadline)
                     .fontWeight(.medium)
                     .foregroundColor(.gray)
-                                
+                
                 if quote.tag?.count ?? 0 > 0 {
                     
-                            TagCloudView(tags: Array(quote.tag! as! Set<Tag>))
-                                .padding(.horizontal)
-                                .padding(.top)
+                    TagCloudView(tags: Array(quote.tag! as! Set<Tag>))
+                        .padding(.horizontal)
+                        .padding(.top)
                     
                 }
             }
@@ -59,18 +61,16 @@ struct QuoteView: View {
                             Image(systemName: "heart.fill")
                                 .foregroundColor(.red)
                                 .padding()
-                                .scaleEffect(1.2)
-//                                .onTapGesture {
-//                                    PersistenceController.shared.unfavoriteQuote(quote: quote)
-//                                }
+                                .onTapGesture {
+                                    store.removeQuoteFromFavorites(idQuote: quote.id)
+                                }
                         } else{
                             Image(systemName: "heart")
                                 .foregroundColor(.blue)
                                 .padding()
-                                .scaleEffect(1.2)
-//                                .onTapGesture {
-//                                    PersistenceController.shared.setFavoriteQuote(quote: quote)
-//                                }
+                                .onTapGesture {
+                                    store.addQuoteToFavorites(idQuote: quote.id)
+                                }
                         }
                     }
                     Button{
@@ -79,23 +79,23 @@ struct QuoteView: View {
                         
                         Image(systemName: "ellipsis.circle")
                             .foregroundColor(.blue)
-//                            .onTapGesture {
-//                                showActionSheet = true
-//                            }
+                            .onTapGesture {
+                                showActionSheet = true
+                            }
                     }
                 }
             }
-//            .actionSheet(isPresented: $showActionSheet, content: {
-//                ActionSheet(title: Text("Choose"), buttons: [
+            .actionSheet(isPresented: $showActionSheet, content: {
+                ActionSheet(title: Text("Choose"), buttons: [
 //                    .default(Text("Edit")) {
 //                        showModal.toggle()
 //                    },
-//                    .destructive(Text("Delete")) {
-//                        PersistenceController.shared.delete(quote: quote)
-//                    },
-//                    .cancel()
-//                ])
-//            })
+                    .destructive(Text("Delete")) {
+                        store.deleteQuote(id: quote.id)
+                    },
+                    .cancel()
+                ])
+            })
 //            .sheet(isPresented: $showModal) {
 //                QuoteForm(showModal: $showModal, quote: quote)
 //            }

@@ -74,7 +74,10 @@ class StoreAirQuotes: ObservableObject {
                 folderIndexToReturn = folderIndex
             }
         }
-        return folders[folderIndexToReturn!].myQuote!.toArray()
+        
+        guard let folderIndexToReturn = folderIndexToReturn else { return [] }
+        
+        return folders[folderIndexToReturn].myQuote!.toArray()
     }
     
     

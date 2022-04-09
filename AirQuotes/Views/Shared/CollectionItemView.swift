@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CollectionItemView: View {
-    @EnvironmentObject var Controller: StoreAirQuotes
+    @EnvironmentObject var store: StoreAirQuotes
     
     @State private var isShowingSheet = false
     
@@ -28,10 +28,16 @@ struct CollectionItemView: View {
     
     var body: some View {
         VStack {
-            CollectionItemRectView(
-                color: collectionColor,
-                systemName: collectionIcon
-            )
+            NavigationLink {
+                QuotesListView(quotes: store.getAllQuotesInFolder(idFolder: collection?.id ?? UUID()))
+                    .navigationTitle(collection?.name ?? Settings.DefaultName)
+            } label: {
+                CollectionItemRectView(
+                    color: collectionColor,
+                    systemName: collectionIcon
+                )
+            }
+            
             HStack {
                 Text(collectionName)
                     .font(.footnote)
@@ -61,7 +67,7 @@ struct CollectionItemView: View {
     
     func deleteCollection() {
         if let id = collection?.id {
-            Controller.removeFolder(id: id)
+            store.removeFolder(id: id)
         }
     }
     

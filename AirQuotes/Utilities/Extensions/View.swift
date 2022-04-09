@@ -46,3 +46,31 @@ extension View {
     }
     
 }
+
+struct AutofocusViewModifier: ViewModifier {
+    @FocusState private var quoteFieldIsFocused: Bool
+
+    func body(content: Content) -> some View {
+        content
+            .focused($quoteFieldIsFocused)
+            .onAppear {
+                // https://developer.apple.com/forums/thread/681962?answerId=680723022#680723022
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                    self.quoteFieldIsFocused = true
+                }
+            }
+    }
+}
+
+extension TextField {
+    func autofocus() -> some View {
+        self.modifier(AutofocusViewModifier())
+    }
+}
+
+extension TextEditor {
+    func autofocus() -> some View {
+        self.modifier(AutofocusViewModifier())
+    }
+}
+

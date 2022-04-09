@@ -30,6 +30,7 @@ struct CollectionFormView: View {
                         CollectionItemRectView(color: Color(chosenColor), systemName: chosenIcon)
                             .padding()
                         TextField("Collection Name", text: $collectionName)
+                            .autofocus()
                             .textFieldStyle(.roundedBorder)
                             .padding(.horizontal)
                     }

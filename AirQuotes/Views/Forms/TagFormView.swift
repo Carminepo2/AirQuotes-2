@@ -26,6 +26,7 @@ struct TagFormView: View {
             Form {
                 Section(header: Text("Name")) {
                     TextField("Eg: happy, motivational...", text: $tagName)
+                        .autofocus()
                 }
                 
                 Section(header: Text("Color")) {

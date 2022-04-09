@@ -22,11 +22,12 @@ struct CollectionsSliderView: View {
                     ForEach(collections.chunked(into: 2), id: \.first) { collectionsPair in
                         HStack(spacing: Settings.CollectionHSpacing) {
                             
-                            CollectionItemNavigation(collection: collectionsPair[0])
+                            CollectionItemView(collection: collectionsPair[0])
+
                             
                             if collectionsPair.indices.contains(1) {
                                 
-                                CollectionItemNavigation(collection: collectionsPair[1])
+                                CollectionItemView(collection: collectionsPair[1])
                                 
                             } else {
                                 CollectionItemView(collection: nil)
@@ -46,18 +47,6 @@ struct CollectionsSliderView: View {
             }
         }
 
-    }
-    
-    @ViewBuilder
-    func CollectionItemNavigation(collection: Folder) -> some View {
-        NavigationLink {
-            QuotesListView(quotes: store.getAllQuotesInFolder(idFolder: collection.id))
-                .navigationTitle(collection.name ?? Settings.DefaultName)
-
-        } label: {
-            CollectionItemView(collection: collection)
-
-        }
     }
 }
 
