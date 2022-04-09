@@ -13,9 +13,8 @@ The application facilitates the fruition and retrieval of quotes thanks to attra
 ![FrameWork1](https://badgen.net/badge/FrameworkUsed/SwiftUI/red/?icon=apple)
 ![FrameWork2](https://badgen.net/badge/FrameworkUsed/CoreData/red/?icon=apple)
 
-<br />
-Live demo:<br />
-// TO DO
+
+
 
 <br />
 <br />
