@@ -8,11 +8,6 @@
 import SwiftUI
 
 struct LatestView: View {
-    @State private var showQuoteForm = false
-    @State private var showCollectionForm = false
-    
-    @State private var searchText = ""
-    
     var body: some View {
         ScrollView {
             // MARK: - Quote Slider
@@ -21,36 +16,17 @@ struct LatestView: View {
             }
             
             
-            // MARK: - Add Quote Button
-            Button(action: newQuoteButtonTapped) {
-                Label("New Quote", systemImage: "pencil")
-            }
-            .buttonStyle(RoundedRectangleButtonStyle())
-            .padding()
-
-            
             // MARK: - Collections Slider
             LatestSectionView("Latest collections") {
                 CollectionsSliderView()
-            } button: {
-                Button(action: newCollectionButtonTapped) {
-                    Label("Add", systemImage: "plus.circle")
-                }
+                    .padding(.top, -16)
             }
             .padding(.bottom, 20)
+            .padding(.top)
 
         }
-        .searchable(text: $searchText)
-        
-        // MARK: Modals
-        .sheet(isPresented: $showCollectionForm, content: { CollectionFormView() })
-        .sheet(isPresented: $showQuoteForm, content: { QuoteFormView() })
     }
-    
-    //MARK: - Functions
-    
-    private func newQuoteButtonTapped() { showQuoteForm = true }
-    private func newCollectionButtonTapped() { showCollectionForm = true }
+        
 }
 
 struct LatestView_Previews: PreviewProvider {

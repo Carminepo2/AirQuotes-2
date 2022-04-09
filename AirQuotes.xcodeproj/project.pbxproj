@@ -39,6 +39,7 @@
 		759D239C27A9E648001DE6C8 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759D239B27A9E648001DE6C8 /* Functions.swift */; };
 		759D239E27A9E6AD001DE6C8 /* MultipleSelectionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759D239D27A9E6AD001DE6C8 /* MultipleSelectionRowView.swift */; };
 		75A9C86427A9EC4C00E1AAC6 /* LatestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A9C86327A9EC4C00E1AAC6 /* LatestView.swift */; };
+		75AB834C2800659F009917C1 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AB834B2800659F009917C1 /* CustomTabView.swift */; };
 		75D113D827B55CAA00498FBE /* TagsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D113D727B55CAA00498FBE /* TagsListView.swift */; };
 		75DBC11827B95CFE00AC7D2B /* QuoteListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBC11727B95CFE00AC7D2B /* QuoteListRowView.swift */; };
 		75DBC11A27B9901D00AC7D2B /* QuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBC11927B9901D00AC7D2B /* QuotesListView.swift */; };
@@ -79,6 +80,7 @@
 		759D239B27A9E648001DE6C8 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		759D239D27A9E6AD001DE6C8 /* MultipleSelectionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionRowView.swift; sourceTree = "<group>"; };
 		75A9C86327A9EC4C00E1AAC6 /* LatestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestView.swift; sourceTree = "<group>"; };
+		75AB834B2800659F009917C1 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		75D113D727B55CAA00498FBE /* TagsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsListView.swift; sourceTree = "<group>"; };
 		75DBC11727B95CFE00AC7D2B /* QuoteListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteListRowView.swift; sourceTree = "<group>"; };
 		75DBC11927B9901D00AC7D2B /* QuotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesListView.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				75DBC11727B95CFE00AC7D2B /* QuoteListRowView.swift */,
 				75DBC11927B9901D00AC7D2B /* QuotesListView.swift */,
 				75DBC11B27B9929F00AC7D2B /* QuoteView.swift */,
+				75AB834B2800659F009917C1 /* CustomTabView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				75391DDC27AB283500C9BA27 /* CollectionItemView.swift in Sources */,
 				75DBC11C27B9929F00AC7D2B /* QuoteView.swift in Sources */,
 				75391DC427AA80D900C9BA27 /* RoundedRectangleButtonStyle.swift in Sources */,
+				75AB834C2800659F009917C1 /* CustomTabView.swift in Sources */,
 				759D239E27A9E6AD001DE6C8 /* MultipleSelectionRowView.swift in Sources */,
 				7520042A27A9DF520054DDDA /* QuoteFormView.swift in Sources */,
 				75391DCF27AA812100C9BA27 /* ModelAirQuotes.swift in Sources */,
@@ -485,7 +489,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AirQuotes/Preview Content\"";
-				DEVELOPMENT_TEAM = USC938GT8B;
+				DEVELOPMENT_TEAM = W63RPFLVSJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -514,7 +518,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AirQuotes/Preview Content\"";
-				DEVELOPMENT_TEAM = USC938GT8B;
+				DEVELOPMENT_TEAM = W63RPFLVSJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

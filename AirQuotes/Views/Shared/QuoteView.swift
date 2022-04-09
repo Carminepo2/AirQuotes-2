@@ -23,7 +23,7 @@ struct QuoteView: View {
                     .font(.system(.title2, design: .serif))
                     .fontWeight(.regular)
                     .multilineTextAlignment(.center)
-                    .foregroundColor(Color.black)
+                    .foregroundColor(.primary)
                     .lineLimit(100)
                     .padding(.horizontal)
                 

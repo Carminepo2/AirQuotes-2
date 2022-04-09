@@ -8,30 +8,36 @@
 import SwiftUI
 
 struct ContentView: View {    
+
+    @State var selectedTab: Tab = .latest
+    
+    
     var body: some View {
-        
-        TabView {
-            //MARK: - Latest View Tab
-            NavigationView {
-                LatestView()
-                    .navigationTitle("Latest")
-            }
-            .tabItem {
-                Image(systemName: "text.quote")
-                Text("Latest")
-            }
-            
-            //MARK: - Collection View Tab
-            NavigationView {
-                BrowseView()
-                    .navigationTitle("Browse")
-            }
-            .tabItem {
-                Image(systemName: "books.vertical.fill")
-                Text("Browse")
+        ZStack {
+            switch selectedTab {
+            case .browse:
+                NavigationView {
+                    BrowseView()
+                        .navigationTitle(Tab.browse.rawValue)
+                }
+                
+            case .latest:
+                NavigationView {
+                    LatestView()
+                        .navigationTitle(Tab.latest.rawValue)
+                }
+                
             }
             
+            VStack {
+                Spacer()
+                CustomTabView(selectedTab: $selectedTab)
+            }
+            .edgesIgnoringSafeArea(.bottom)            
+                
         }
+
+        
     }
 }
 

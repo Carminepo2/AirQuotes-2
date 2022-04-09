@@ -15,7 +15,7 @@ struct QuoteSliderView: View {
     }
     var body: some View {
         if latestQuotes.count > 0 {
-            TabView{
+            TabView {
                 ForEach(latestQuotes, id: \.self) { quote in
                     NavigationLink {
                         QuoteView(quote: quote)
