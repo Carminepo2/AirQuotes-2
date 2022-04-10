@@ -48,6 +48,7 @@ class StoreAirQuotes: ObservableObject {
     
     ///deleteQuote delete an existing quote
     func deleteQuote(id: UUID?) {
+        
         guard let id = id else { return }
         model.deleteQuote(id: id)
     }

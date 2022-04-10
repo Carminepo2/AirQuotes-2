@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct BrowseView: View {
+    @EnvironmentObject var store: StoreAirQuotes
+
     var body: some View {
         List {
 
