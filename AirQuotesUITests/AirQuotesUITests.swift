@@ -27,7 +27,7 @@ class AirQuotesUITests: XCTestCase {
         app.launch()
         sleep(1)
                 
-        for numeroTest in 0..<1000{
+        for numeroTest in 0..<100{
             var addButton = app.buttons["addButton"]
             addButton.tap()
             var quoteField = app.textViews["quoteField"]
