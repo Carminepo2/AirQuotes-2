@@ -68,7 +68,7 @@ class StoreAirQuotes: ObservableObject {
         guard let idFolder = idFolder else { return [] }
 
         var folderIndexToReturn:Int? = nil
-        var folders = model.getFolders()
+        let folders = model.getFolders()
         
         for folderIndex in 0..<folders.count{
             if(folders[folderIndex].id == idFolder){
