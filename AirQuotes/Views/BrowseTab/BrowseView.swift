@@ -16,6 +16,7 @@ struct BrowseView: View {
             NavigationLink(destination: CollectionsListView()) {
                 Label("Collections", systemImage: "square.grid.2x2")
             }
+            .isDetailLink(false)
             
             NavigationLink(destination: TagsListView()) {
                 Label("Tags", systemImage: "tag")
