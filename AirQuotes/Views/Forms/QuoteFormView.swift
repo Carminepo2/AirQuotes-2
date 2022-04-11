@@ -40,6 +40,8 @@ struct QuoteFormView: View {
                 Section(header: Text("Quote")) {
                     TextEditor(text: $quoteText)
                         .autofocus()
+                        .accessibilityIdentifier("quoteField")
+
                     TextField(text: $authorText, prompt: Text("Author")) {
                         Text("Author")
                     }
@@ -91,11 +93,16 @@ struct QuoteFormView: View {
                     
                     //MARK: Create New Collection Button
                     NewItemButton("New Collection", systemName: "folder.badge.plus", action: newCollectionButtonTapped)
+                        .accessibilityIdentifier("newCollection")
+
                 }
             }
             .navigationTitle("New Quote")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(leading: CancelButton(), trailing: DoneButton())
+            .navigationBarItems(leading: CancelButton(), trailing: DoneButton()
+                .accessibilityIdentifier("quoteDoneButton")
+                .accessibilityAddTraits([.isButton])
+            )
             
             // MARK: Modals
             .sheet(isPresented: $showTagForm, content: { TagFormView(onSubmitSuccess: newTagCreated) })

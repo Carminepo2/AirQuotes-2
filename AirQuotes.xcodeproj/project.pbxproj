@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1DC1A95128043C2600D94614 /* AirQuotesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC1A95028043C2600D94614 /* AirQuotesUITests.swift */; };
+		1DC1A95328043C2600D94614 /* AirQuotesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC1A95228043C2600D94614 /* AirQuotesUITestsLaunchTests.swift */; };
 		1DE108DE27B12893004D078C /* ModelExceptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE108DD27B12893004D078C /* ModelExceptions.swift */; };
 		1DE108E027B13431004D078C /* NSSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE108DF27B13431004D078C /* NSSet.swift */; };
 		751FFDCC27B43F2E00E5476C /* FavoritesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751FFDCB27B43F2E00E5476C /* FavoritesListView.swift */; };
@@ -46,9 +48,22 @@
 		75DBC11C27B9929F00AC7D2B /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DBC11B27B9929F00AC7D2B /* QuoteView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1DC1A95428043C2600D94614 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7575E7AB27A8382900CF0804 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7575E7B227A8382900CF0804;
+			remoteInfo = AirQuotes;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		1D3B9EE427A8425C009A6CF3 /* StoreAirQuotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAirQuotes.swift; sourceTree = "<group>"; };
 		1D3B9EEB27A845A6009A6CF3 /* CoreDataModelAirQuotes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModelAirQuotes.xcdatamodel; sourceTree = "<group>"; };
+		1DC1A94E28043C2600D94614 /* AirQuotesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirQuotesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DC1A95028043C2600D94614 /* AirQuotesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQuotesUITests.swift; sourceTree = "<group>"; };
+		1DC1A95228043C2600D94614 /* AirQuotesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQuotesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1DE108DD27B12893004D078C /* ModelExceptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelExceptions.swift; sourceTree = "<group>"; };
 		1DE108DF27B13431004D078C /* NSSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSSet.swift; sourceTree = "<group>"; };
 		751FFDCB27B43F2E00E5476C /* FavoritesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListView.swift; sourceTree = "<group>"; };
@@ -88,6 +103,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1DC1A94B28043C2600D94614 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7575E7B027A8382900CF0804 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -98,6 +120,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1DC1A94F28043C2600D94614 /* AirQuotesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1DC1A95028043C2600D94614 /* AirQuotesUITests.swift */,
+				1DC1A95228043C2600D94614 /* AirQuotesUITestsLaunchTests.swift */,
+			);
+			path = AirQuotesUITests;
+			sourceTree = "<group>";
+		};
 		1DE108DC27B12834004D078C /* Exceptions */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				7575E7B527A8382900CF0804 /* AirQuotes */,
+				1DC1A94F28043C2600D94614 /* AirQuotesUITests */,
 				7575E7B427A8382900CF0804 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -186,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				7575E7B327A8382900CF0804 /* AirQuotes.app */,
+				1DC1A94E28043C2600D94614 /* AirQuotesUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -257,6 +290,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1DC1A94D28043C2600D94614 /* AirQuotesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DC1A95628043C2600D94614 /* Build configuration list for PBXNativeTarget "AirQuotesUITests" */;
+			buildPhases = (
+				1DC1A94A28043C2600D94614 /* Sources */,
+				1DC1A94B28043C2600D94614 /* Frameworks */,
+				1DC1A94C28043C2600D94614 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1DC1A95528043C2600D94614 /* PBXTargetDependency */,
+			);
+			name = AirQuotesUITests;
+			productName = AirQuotesUITests;
+			productReference = 1DC1A94E28043C2600D94614 /* AirQuotesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		7575E7B227A8382900CF0804 /* AirQuotes */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7575E7C127A8382A00CF0804 /* Build configuration list for PBXNativeTarget "AirQuotes" */;
@@ -281,9 +332,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1320;
+				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
+					1DC1A94D28043C2600D94614 = {
+						CreatedOnToolsVersion = 13.3;
+						TestTargetID = 7575E7B227A8382900CF0804;
+					};
 					7575E7B227A8382900CF0804 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
@@ -303,11 +358,19 @@
 			projectRoot = "";
 			targets = (
 				7575E7B227A8382900CF0804 /* AirQuotes */,
+				1DC1A94D28043C2600D94614 /* AirQuotesUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1DC1A94C28043C2600D94614 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7575E7B127A8382900CF0804 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -320,6 +383,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1DC1A94A28043C2600D94614 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DC1A95328043C2600D94614 /* AirQuotesUITestsLaunchTests.swift in Sources */,
+				1DC1A95128043C2600D94614 /* AirQuotesUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7575E7AF27A8382900CF0804 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -364,7 +436,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		1DC1A95528043C2600D94614 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7575E7B227A8382900CF0804 /* AirQuotes */;
+			targetProxy = 1DC1A95428043C2600D94614 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		1DC1A95728043C2600D94614 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = USC938GT8B;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RiccardoRuocco.AirQuotesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AirQuotes;
+			};
+			name = Debug;
+		};
+		1DC1A95828043C2600D94614 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = USC938GT8B;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RiccardoRuocco.AirQuotesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AirQuotes;
+			};
+			name = Release;
+		};
 		7575E7BF27A8382A00CF0804 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -489,7 +605,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AirQuotes/Preview Content\"";
-				DEVELOPMENT_TEAM = W63RPFLVSJ;
+				DEVELOPMENT_TEAM = USC938GT8B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -518,7 +634,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AirQuotes/Preview Content\"";
-				DEVELOPMENT_TEAM = W63RPFLVSJ;
+				DEVELOPMENT_TEAM = USC938GT8B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -542,6 +658,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1DC1A95628043C2600D94614 /* Build configuration list for PBXNativeTarget "AirQuotesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DC1A95728043C2600D94614 /* Debug */,
+				1DC1A95828043C2600D94614 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7575E7AE27A8382900CF0804 /* Build configuration list for PBXProject "AirQuotes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

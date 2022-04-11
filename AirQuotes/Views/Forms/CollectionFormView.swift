@@ -33,6 +33,8 @@ struct CollectionFormView: View {
                             .autofocus()
                             .textFieldStyle(.roundedBorder)
                             .padding(.horizontal)
+                            .accessibilityIdentifier("collectionName")
+
                     }
                     .padding(.vertical)
                 }
@@ -47,7 +49,9 @@ struct CollectionFormView: View {
             }
             .navigationTitle("New Collection")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(leading: CancelButton(), trailing: DoneButton())
+            .navigationBarItems(leading: CancelButton(), trailing: DoneButton().accessibilityIdentifier("collectionDoneButton3")
+
+            )
         }
     }
     
@@ -61,7 +65,7 @@ struct CollectionFormView: View {
     }
     
     @ViewBuilder
-    private func DoneButton() -> some View {
+     func DoneButton() -> some View {
         Button("Done") {
             do {
                 let newFolder = try Controller.createFolder(folderName: collectionName, folderIcon: chosenIcon, folderColor: chosenColor)
@@ -74,9 +78,12 @@ struct CollectionFormView: View {
                 // TODO: Error handling
                 return
             }
+                
             presentationMode.wrappedValue.dismiss()
         }
-        .disabled(collectionName.isEmpty)
+        .accessibilityIdentifier("collectionDoneButton4")
+//        .disabled(collectionName.isEmpty)
+        
     }
 }
 
@@ -86,3 +93,4 @@ struct CollectionFormView_Previews: PreviewProvider {
             .environmentObject(StoreAirQuotes.shared)
     }
 }
+

@@ -36,7 +36,10 @@ struct CustomTabView: View {
                     }
                     .offset(y: -32)
             }
+            .accessibilityIdentifier("addButton")
             
+            
+                        
             Spacer()
             tabButton(.browse, icon: "books.vertical.fill")
             Spacer()
