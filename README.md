@@ -22,5 +22,5 @@ Team: <br />
 Luca Basile <br />
 Carmine Porricelli <br />
 Martina Esposito <br />
-Alessio Iodice <br />
+Valerio Domenico Conte <br />
 Riccardo Francesco Ruocco 
