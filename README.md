@@ -1,4 +1,4 @@
-# AirQuotes-2
+# AirQuotes
 
 AirQuotes is a project that our team developed during the Apple Developer Academy.<br />
 Our goal was to help people keep track of their favourite quotes from any media.<br />
