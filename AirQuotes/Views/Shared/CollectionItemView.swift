@@ -54,7 +54,7 @@ struct CollectionItemView: View {
                 ActionSheet(
                     title: Text(""),
                     buttons:[
-                        .default(Text("Edit"), action: editCollection),
+//                        .default(Text("Edit"), action: editCollection),
                         .destructive(Text("Delete"),
                                      action: deleteCollection),
                         .cancel()
@@ -71,11 +71,11 @@ struct CollectionItemView: View {
         }
     }
     
-    func editCollection() {
-        if let id = collection?.id {
-            //TODO
-        }
-    }
+//    func editCollection() {
+//        if let id = collection?.id {
+//            //TODO
+//        }
+//    }
 }
 
 

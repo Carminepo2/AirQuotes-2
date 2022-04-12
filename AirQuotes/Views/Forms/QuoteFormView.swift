@@ -7,14 +7,10 @@
 
 import SwiftUI
 
-let TEST_TAGS = ["Love", "War", "Peace"]
-
-
 struct QuoteFormView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var Controller: StoreAirQuotes
-    
-    
+        
     var collections: Array<Folder> {
         return Controller.getAllFolders()
     }
@@ -32,6 +28,24 @@ struct QuoteFormView: View {
     @State private var chosenTags: [Tag] = []
     @State private var chosenCollection: Folder? = nil
     
+    let quote: Quote?
+
+    init(quote: Quote? = nil) {
+        if let quote = quote {
+            self.quote = quote
+            self._quoteText = State(wrappedValue: quote.text!)
+            self._authorText = State(wrappedValue: quote.author!.name!)
+            if let parentFolder = quote.parentFolder {
+                self._chosenCollection = State(wrappedValue: parentFolder)
+            }
+            if let tags = quote.tag {
+                self._chosenTags = State(wrappedValue: Array(_immutableCocoaArray: tags))
+            }
+
+        } else {
+            self.quote = nil
+        }
+    }
     
     var body: some View {
         NavigationView {
@@ -81,21 +95,25 @@ struct QuoteFormView: View {
                 }
                 
                 // MARK: - Collection Fields
-                Section(header: Text("Collection")) {
-                    //MARK: Choose Collection Button
-                    Picker("Choose collection", selection: $chosenCollection) {
-                        ForEach(collections, id: \.self) {
-                            Text($0.name ?? Settings.DefaultName)
-                                .tag($0 as Folder?)
+                // TODO: In edit quote the Collection section is not visible for now
+                if quote == nil {
+                    Section(header: Text("Collection")) {
+                        //MARK: Choose Collection Button
+                        Picker("Choose collection", selection: $chosenCollection) {
+                            ForEach(collections, id: \.self) {
+                                Text($0.name ?? Settings.DefaultName)
+                                    .tag($0 as Folder?)
+                            }
                         }
-                    }
-                    .disabled(collections.isEmpty)
-                    
-                    //MARK: Create New Collection Button
-                    NewItemButton("New Collection", systemName: "folder.badge.plus", action: newCollectionButtonTapped)
-                        .accessibilityIdentifier("newCollection")
+                        .disabled(collections.isEmpty)
+                        
+                        //MARK: Create New Collection Button
+                        NewItemButton("New Collection", systemName: "folder.badge.plus", action: newCollectionButtonTapped)
+                            .accessibilityIdentifier("newCollection")
 
+                    }
                 }
+                
             }
             .navigationTitle("New Quote")
             .navigationBarTitleDisplayMode(.inline)
@@ -114,24 +132,13 @@ struct QuoteFormView: View {
     
     @ViewBuilder
     private func CancelButton() -> some View {
-        Button("Cancel") {
-            presentationMode.wrappedValue.dismiss()
-        }
+        Button("Cancel") { presentationMode.wrappedValue.dismiss() }
     }
     
     @ViewBuilder
     private func DoneButton() -> some View {
-        Button("Done") {
-            do {
-                try Controller.createQuote(text: quoteText, authorName: authorText, parentFolder: chosenCollection!.id!, tagList: chosenTags)
-            } catch {
-                print(error)
-                // TODO: Error handling
-                return
-            }
-            presentationMode.wrappedValue.dismiss()
-        }
-        .disabled(quoteText.isEmpty || chosenCollection == nil)
+        Button("Done", action: handleSubmit)
+            .disabled(quoteText.isEmpty || chosenCollection == nil)
     }
     
     //MARK: - Functions
@@ -154,6 +161,21 @@ struct QuoteFormView: View {
         } else {
             chosenTags.append(selectedTag)
         }
+    }
+    
+    private func handleSubmit() {
+        do {
+            if let quote = self.quote {
+                Controller.updateQuote(id: quote.id!, text: quoteText, authorName: authorText, tagList: chosenTags)
+            } else {
+                try Controller.createQuote(text: quoteText, authorName: authorText, parentFolder: chosenCollection!.id!, tagList: chosenTags)
+            }
+        } catch {
+            print(error)
+            // TODO: Error handling
+            return
+        }
+        presentationMode.wrappedValue.dismiss()
     }
 }
 

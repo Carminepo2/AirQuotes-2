@@ -23,8 +23,9 @@ struct LatestSectionView<ContentView: View, ButtonView: View>: View {
         VStack {
             HStack {
                 Text(title)
-                    .font(.title3)
-                    .fontWeight(.semibold)
+                    .font(.body)
+                    .fontWeight(.medium)
+                    
                 Spacer()
                 button
             }

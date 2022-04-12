@@ -11,13 +11,13 @@ struct LatestView: View {
     var body: some View {
         ScrollView {
             // MARK: - Quote Slider
-            LatestSectionView("Latest quotes") {
+            LatestSectionView("Quotes") {
                 QuoteSliderView()
             }
             
             
             // MARK: - Collections Slider
-            LatestSectionView("Latest collections") {
+            LatestSectionView("Collections") {
                 CollectionsSliderView()
                     .padding(.top, -16)
             }

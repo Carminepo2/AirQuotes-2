@@ -28,20 +28,31 @@ struct TagsListView: View {
                     .foregroundStyle(.tertiary)
                     .vCenter()
             } else {
-                List(tags, id: \.self) { tag in
-                    // MARK: - Tag Navigation Link
-                    NavigationLink {
-                        QuotesListView(quotes: Controller.searchByTag(idTag: tag.id))
-                            .navigationTitle(tag.title ?? Settings.DefaultName)
-                    } label: {
-                        TagListRowView(tag: tag)
+                List {
+                    ForEach(tags, id: \.self) { tag in
+                        // MARK: - Tag Navigation Link
+                        NavigationLink {
+                            QuotesListView(quotes: Controller.searchByTag(idTag: tag.id))
+                                .navigationTitle(tag.title ?? Settings.DefaultName)
+                        } label: {
+                            TagListRowView(tag: tag)
+                        }
                     }
-
+                    .onDelete(perform: onDelete)
                 }
             }
         }
         .navigationTitle("Tags")
         .searchable(text: $searchText)
+    }
+    
+    //MARK: - Functions
+    func onDelete(indexes: IndexSet) {
+        for i in indexes {
+            if let tagId = tags[i].id {
+                Controller.removeTag(id: tagId)
+            }
+        }
     }
 }
 

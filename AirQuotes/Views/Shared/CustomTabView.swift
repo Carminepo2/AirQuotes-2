@@ -17,7 +17,6 @@ struct CustomTabView: View {
     @State private var showQuoteForm = false
     @Environment(\.colorScheme) var colorScheme
 
-    
     var body: some View {
         
         HStack {
@@ -38,11 +37,10 @@ struct CustomTabView: View {
             }
             .accessibilityIdentifier("addButton")
             
-            
-                        
             Spacer()
             tabButton(.browse, icon: "books.vertical.fill")
             Spacer()
+            
         }
         .padding(.bottom)
         .background(
@@ -52,9 +50,7 @@ struct CustomTabView: View {
         // Modal
         .sheet(isPresented: $showQuoteForm, content: { QuoteFormView() })
 
-
     }
-    
     
     
     @ViewBuilder

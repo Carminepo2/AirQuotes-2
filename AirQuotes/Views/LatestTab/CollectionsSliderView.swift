@@ -9,6 +9,11 @@ import SwiftUI
 
 struct CollectionsSliderView: View {
     @EnvironmentObject var store: StoreAirQuotes
+    
+    init() {
+        UIPageControl.appearance().currentPageIndicatorTintColor = .init(named: "AccentColor")
+        UIPageControl.appearance().pageIndicatorTintColor = .init(named: "AccentColor")?.withAlphaComponent(0.1)
+    }
 
     
     private var collections: Array<Folder> {

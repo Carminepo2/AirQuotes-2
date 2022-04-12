@@ -10,6 +10,7 @@ import SwiftUI
 struct QuotesListView: View {
     let quotes: Array<Quote>
     @State private var searchText: String = ""
+    @EnvironmentObject var store: StoreAirQuotes
     
     private var filteredQuotes: Array<Quote> {
         if searchText.isEmpty {
@@ -24,22 +25,38 @@ struct QuotesListView: View {
         Group {
             // MARK: Empty State
             if filteredQuotes.isEmpty {
+                
                 Text(Settings.EmptyStateMessage)
                     .foregroundStyle(.tertiary)
                     .vCenter()
+                
             } else {
                 // MARK: Quotes List
-                List(quotes, id: \.self) { quote in
-                    NavigationLink {
-                        QuoteView(quote: quote)
-                    } label: {
-                        QuoteListRowView(quote: quote)
+                List {
+                    
+                    ForEach(quotes, id: \.self) { quote in
+                        NavigationLink {
+                            QuoteView(quote: quote)
+                        } label: {
+                            QuoteListRowView(quote: quote)
+                        }
                     }
+                    .onDelete(perform: onDelete)
+                    
                 }
             }
         }
         .searchable(text: $searchText)
 
+    }
+    
+    //MARK: - Functions
+    func onDelete(indexes: IndexSet) {
+        for i in indexes {
+            if let quoteId = quotes[i].id {
+                store.deleteQuote(id: quoteId)
+            }
+        }
     }
 }
 
