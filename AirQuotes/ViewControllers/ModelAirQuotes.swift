@@ -224,6 +224,15 @@ struct ModelAirQuotes{
     func getQuotes()->Array<Quote>{
         return self.quote
     }
+    func getQuoteById(id:UUID)->Quote{
+        var quoteToReturn:Quote? = nil
+        for aQuote in quote{
+            if(aQuote.id == id){
+                quoteToReturn = aQuote
+            }
+        }
+        return quoteToReturn!
+    }
     
 }
 extension Quote{

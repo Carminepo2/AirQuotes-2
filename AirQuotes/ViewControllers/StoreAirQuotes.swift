@@ -40,6 +40,11 @@ class StoreAirQuotes: ObservableObject {
     func removeFolder(id :UUID?) {
         model.removeFolder(id: id!)
     }
+    ///getQuoteById return the quote with that id
+    func getQuoteById(id:UUID)->Quote{
+        model.getQuoteById(id: id)
+    }
+    
     
     ///createQuote creates a unique quote within the same folder
     func createQuote(text:String, authorName:String, parentFolder: UUID, tagList:Array<Tag>) throws {
