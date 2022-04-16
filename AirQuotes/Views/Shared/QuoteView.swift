@@ -149,7 +149,7 @@ struct TagCloudView: View {
                     })
                     .alignmentGuide(.top, computeValue: {d in
                         let result = height
-                        if tag == self.tags.last! {
+                        if let lastTag2 = self.tags.last, tag == lastTag2 {
                             height = 0 // last item
                         }
                         return result
