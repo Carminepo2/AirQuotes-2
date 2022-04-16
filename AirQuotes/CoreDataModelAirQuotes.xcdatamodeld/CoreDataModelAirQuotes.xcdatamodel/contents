@@ -19,7 +19,7 @@
         <attribute name="text" optional="YES" attributeType="String"/>
         <relationship name="author" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Person" inverseName="quotes" inverseEntity="Person"/>
         <relationship name="parentFolder" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" inverseName="myQuote" inverseEntity="Folder"/>
-        <relationship name="tag" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="quotes" inverseEntity="Tag"/>
+        <relationship name="tag" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Tag" inverseName="quotes" inverseEntity="Tag"/>
     </entity>
     <entity name="Tag" representedClassName="Tag" syncable="YES" codeGenerationType="class">
         <attribute name="color" optional="YES" attributeType="String"/>

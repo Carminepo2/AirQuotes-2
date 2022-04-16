@@ -29,19 +29,19 @@ struct QuoteFormView: View {
     @State private var chosenCollection: Folder? = nil
     
     let quote: Quote?
-
+    
     init(quote: Quote? = nil) {
         if let quote = quote {
             self.quote = quote
-            self._quoteText = State(wrappedValue: quote.text!)
-            self._authorText = State(wrappedValue: quote.author!.name!)
+            self._quoteText = State(wrappedValue: quote.text ?? "")
+            self._authorText = State(wrappedValue: quote.author?.name ?? "")
             if let parentFolder = quote.parentFolder {
                 self._chosenCollection = State(wrappedValue: parentFolder)
             }
             if let tags = quote.tag {
                 self._chosenTags = State(wrappedValue: Array(_immutableCocoaArray: tags))
             }
-
+            
         } else {
             self.quote = nil
         }
@@ -165,7 +165,7 @@ struct QuoteFormView: View {
     
     private func handleSubmit() {
         do {
-            if let quote = self.quote {
+            if let quote = quote {
                 Controller.updateQuote(id: quote.id!, text: quoteText, authorName: authorText, tagList: chosenTags)
             } else {
                 try Controller.createQuote(text: quoteText, authorName: authorText, parentFolder: chosenCollection!.id!, tagList: chosenTags)

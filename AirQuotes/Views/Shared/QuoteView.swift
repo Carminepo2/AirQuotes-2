@@ -44,7 +44,7 @@ struct QuoteView: View {
                 
                 if quote.tag?.count ?? 0 > 0 {
                     
-                    TagCloudView(tags: Array(quote.tag! as! Set<Tag>))
+                    TagCloudView(tags: Array(_immutableCocoaArray: quote.tag!))
                         .padding(.horizontal)
                         .padding(.top)
                     

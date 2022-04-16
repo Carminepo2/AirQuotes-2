@@ -241,7 +241,7 @@ extension Quote{
         self.text = text
         self.author = author
         self.parentFolder = parentFolder
-        self.tag = NSSet(array: tagList)
+        self.tag = NSOrderedSet(array: tagList)
     }
 }
 

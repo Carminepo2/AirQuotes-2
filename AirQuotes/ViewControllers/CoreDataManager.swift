@@ -57,6 +57,7 @@ class CoreDataManager {
         }
         return result
     }
+    
     func updatePerson(){
         save()
     }
@@ -65,6 +66,7 @@ class CoreDataManager {
         persistentContainer.viewContext.delete(personToDelete)
         save()
     }
+    
 //    MARK: - CRUD(Quote)
     func createQuote(quoteToSave:Quote){
         
