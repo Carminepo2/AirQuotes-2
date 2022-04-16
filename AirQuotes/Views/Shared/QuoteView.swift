@@ -140,7 +140,7 @@ struct TagCloudView: View {
                             height -= d.height
                         }
                         let result = width
-                        if tag == self.tags.last! {
+                        if let lastTag = self.tags.last, tag == lastTag {
                             width = 0 //last item
                         } else {
                             width -= d.width
